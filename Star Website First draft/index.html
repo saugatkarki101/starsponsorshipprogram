@@ -59,11 +59,11 @@
       </div>
     </nav>
     <header>
-      <div class="jumbotron text-white">
-		<h1 class="text-center animate__animated tagline animate__bounceInUp text-gold">Making a Difference One Student At a Time.</h1>
+    <div class="jumbotron text-white">
+		<h1 class="text-center animate__animated tagline animate__bounceInUp text-gold" id="title" contenteditable="true"></h1>
 	    <div class="row">
 	      <div class="col-xl-3"></div>
-	      <div class="col-xl-6"><p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, dicta, cupiditate consequatur necessitatibus quos libero eius ipsum qui sit molestiae.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.</p></div>
+	      <div class="col-xl-6"><p class="text-left" id="titleDescription" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, dicta, cupiditate consequatur necessitatibus quos libero eius ipsum qui sit molestiae.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.</p></div>
 	      <div class="col-xl-3"></div>
         </div>
 
@@ -71,8 +71,11 @@
 	    <div class="container"><img src="images/logoFullWG.svg" alt="" width = "290" class="center animate__animated animate__headShake logo" />
 			<div class="row">
 				<div class="col-sm-4 col-auto mx-auto">  </div>
-				<div class="col-sm-4 col-auto mx-auto">  </div>
-				<div class="col-sm-4 col-auto mx-auto"> <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__bounceInDown" href="#" title="">LEARN MORE</a></div>
+				<div class="col-sm-4 col-auto mx-auto"> 
+          <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__bounceInDown" id="saveChanges" href="#" title="">Save Changes</a>
+ </div>
+				<div class="col-sm-4 col-auto mx-auto">
+           <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__bounceInDown" id="learnMore" href="#" title="">LEARN MORE</a></div>
 			</div>
 
 		 </div>
@@ -274,4 +277,5 @@
     <script src="popper.min.js"></script>
     <script src="bootstrap-4.4.1.js"></script>
   </body>
+  <script type="module" src="js/homepage.js"></script>
 </html>
