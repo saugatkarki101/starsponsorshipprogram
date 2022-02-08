@@ -1,0 +1,446 @@
+/* CSS Document */
+body{
+    background-color: #FFFFFFFF;
+	font-family: 'Lato', sans-serif;
+    background-image: -webkit-linear-gradient(270deg,rgba(229,228,225,1.00) 0%,rgba(147,147,147,1.00) 100%,rgba(76,84,196,1.00) 100%);
+    background-image: -moz-linear-gradient(270deg,rgba(229,228,225,1.00) 0%,rgba(147,147,147,1.00) 100%,rgba(76,84,196,1.00) 100%);
+    background-image: -o-linear-gradient(270deg,rgba(229,228,225,1.00) 0%,rgba(147,147,147,1.00) 100%,rgba(76,84,196,1.00) 100%);
+    background-image: linear-gradient(180deg,rgba(229,228,225,1.00) 0%,rgba(147,147,147,1.00) 100%,rgba(76,84,196,1.00) 100%);
+	padding-top: 7em;
+	
+}
+
+.iconContainer{
+	
+	padding-bottom: 3em;
+	
+}
+
+.successBTN{
+	padding-top: 1em;
+	padding-bottom: 3em;
+	width: 15%;
+}
+
+/*------ Icon Stylings ------*/
+.iconWhite{
+    /*	filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);*/
+    filter: brightness(0) invert(1);
+    text-shadow: 0px 0px;
+    -webkit-box-shadow: 0px 0px #8E6C3D;
+    box-shadow: 0px 0px #8E6C3D;
+}
+
+.iconPrimary{
+    filter: invert(13%) sepia(95%) saturate(3492%) hue-rotate(354deg) brightness(98%) contrast(109%);
+}
+
+.iconPrimaryDrk{
+    filter: invert(15%) sepia(63%) saturate(3836%) hue-rotate(349deg) brightness(92%) contrast(108%);
+}
+
+.iconSecondary{
+    filter: invert(41%) sepia(51%) saturate(438%) hue-rotate(355deg) brightness(95%) contrast(87%);
+}
+
+.iconDiv{
+}
+
+/* Animation For Icons */
+@keyframes wipe-enter {
+	0% {
+		transform: scale(0, .025);
+	}
+	50% {
+		transform: scale(1, .025);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .iconAnim {
+ 	animation: wipe-enter 1s 1;
+  }
+	
+}
+
+
+.videoBG{
+    background-color: #B0B0B0;
+    padding-top: 1.4em;
+    padding-right: 1.4em;
+    padding-left: 1.4em;
+    padding-bottom: 0.2em;
+    border-radius: 10px;
+    background-image: -webkit-linear-gradient(270deg,rgba(127,36,36,1.00) 0%,rgba(47,20,22,1.00) 98.96%,rgba(53,41,42,1.00) 100%);
+    background-image: -moz-linear-gradient(270deg,rgba(127,36,36,1.00) 0%,rgba(47,20,22,1.00) 98.96%,rgba(53,41,42,1.00) 100%);
+    background-image: -o-linear-gradient(270deg,rgba(127,36,36,1.00) 0%,rgba(47,20,22,1.00) 98.96%,rgba(53,41,42,1.00) 100%);
+    background-image: linear-gradient(180deg,rgba(127,36,36,1.00) 0%,rgba(47,20,22,1.00) 98.96%,rgba(53,41,42,1.00) 100%);
+}
+.videoContainer{
+    border-radius: 10px;
+    /*border-color: #666666;
+    border-style: solid;*/
+}
+
+/* Used to fade in elements on scroll */
+.hideme{
+	opacity:0;
+}
+
+.h2{
+	color: #1B1B1B;
+}
+
+/* Used For pushing navbar to the right */
+.ml-lg-5, .mx-lg-5 {
+  margin-left: 0rem !important;
+}
+
+/* Change Selection Text Color When Highlighting */ 
+
+::-moz-selection { background-color: #262626; 
+
+color: #fff; } 
+
+::selection { background-color: #262626; 
+
+color: #fff; }
+
+
+.starTitle {
+	font-weight:bold;
+	font-size: 2.6em;
+}
+
+.titleTag {
+	font-family: 'Black Han Sans', sans-serif;
+}
+
+.titleTag2 {
+	font-family: 'Bebas Neue', serif;
+}
+
+.SecondHeading{
+    padding-top: 0.44em;
+    font-size: 3em;
+    font-family: 'Bebas Neue', serif;
+    line-height: 85%;
+}
+
+/* Adjust the height of logo */
+.navbar-brand{
+    /*max-height: 75pt;*/
+	height: 75pt !important;
+	transition: 0.4s;
+}
+
+
+.navbar{
+    font-family: "Blinker SemiBold", "Blinker Thin", Blinker, "Blinker Black", sans-serif;
+    font-size: 1.05em;
+    font-weight: 400;
+	padding: 2em 2em 0 4em; /* top right bottom left */
+	/*transition: 0.4s;*/
+	box-shadow: none !important;
+    border-top: none !important;
+	border-bottom: 0px !important;
+	
+}
+
+
+
+
+
+
+
+
+
+.bg-light {
+    background-image: -webkit-linear-gradient(270deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
+    background-image: -moz-linear-gradient(270deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
+    background-image: -o-linear-gradient(270deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
+    background-image: linear-gradient(180deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
+    background-color: #f8f9fa;
+}
+
+.jumbotron{
+	background-color: #83090B !important;
+/*	background-image: url(../images/jumbo.jpg);*/
+	background-image: url("../images/jumbotron/jumbo3.png");
+}
+
+.btn-dnt{
+	font-size: 0.75em;
+	margin-right:1.1em;
+}
+
+
+
+/* Btn Primary */
+.btn-primary{
+    background-color: #C72727;
+    border-color: #C80000;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+/*	color: #CDCDCD;*/
+	text-decoration: line-through;
+	background-color: #8E8989;
+	border-color:transparent;
+}
+
+
+
+.btn-primary:focus, .btn-primary.focus {
+    color: #fff;
+    background-color: #9E0000;
+    border-color: #660000;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255,55,55,0.50);
+	box-shadow: 0 0 0 0.2rem rgba(255,55,55,0.50);
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #FF1E1E;
+    border-color: #FF1E1E;
+}
+
+
+/* On click */
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #671616;
+    border-color: #601717;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255,36,36,0.50);
+	box-shadow: 0 0 0 0.2rem rgba(255,36,36,0.50);
+}
+
+
+
+
+
+
+/* Btn Success */
+.btn-success{
+    background-color: #9A7438;
+    border-color: #B9904F;
+}
+
+
+
+.btn-success:focus, .btn-primary.focus {
+    color: #fff;
+    background-color: #9A7438;
+    border-color: #B9904F;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(100,76,15,0.50);
+    box-shadow: 0 0 0 0.2rem rgba(100,76,15,0.50);
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #D09B4E;
+    border-color: #D09B4E;
+}
+
+.btn-success.disabled, .btn-primary:disabled {
+  color: #fff;
+  background-color: #9A7438;
+    border-color: #B9904F;
+}
+
+.btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,
+.show > .btn-success.dropdown-toggle {
+  color: #fff;
+  background-color: #9A7438;
+    border-color: #B9904F;
+}
+
+.btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,
+.show > .btn-sucess.dropdown-toggle:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255,199,37,0.50);
+	box-shadow: 0 0 0 0.2rem rgba(255,199,37,0.50);
+}
+
+.btn-adm{
+    font-size: 0.75em;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #CDCDCD;
+  text-decoration: line-through;
+  background-color: #827462;
+  border-color:transparent;
+}
+
+
+
+/* Navbar Animation styles */
+/*.navbar{background:#222222;}*/
+.nav-item::after{content:'';display:block;width:0px;height:2px;background:#D50000;transition: 0.2s;}
+.nav-item:hover::after{width:100%;}
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show > .nav-link,.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover{
+    color: #D50000;
+}
+.nav-link{padding:15px 5px;transition:0.2s;}
+
+a.dropdown-item.active{
+	background-color:#CB7F7F;
+	color:#fff;
+}
+
+.dropdown-item.active, .dropdown-item:active{color:#212529;}
+.dropdown-item:focus, .dropdown-item:hover{
+	background:#B43131;
+	color:#fff;
+}
+
+/* Dropdown Styling */
+.dropdown-item.active, .dropdown-item:active {
+  color: #FFF;
+}
+
+.dropdown-menu{
+	background-image: -webkit-linear-gradient(270deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
+    background-image: -moz-linear-gradient(270deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
+    background-image: -o-linear-gradient(270deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
+    background-image: linear-gradient(180deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
+	
+	
+}
+
+
+
+
+/* Used to center images */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+.tagline {
+    font-family: 'Abel', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 450%;
+}
+
+.logo {
+    margin-bottom: 20pt;
+}
+
+
+
+.text-gold {
+    color: #C59F61 !important;
+}
+
+
+
+	
+/* Button Styles */
+.btnWidth {
+	width: 60% !important;
+	height: 100% !important;
+}
+
+.learnMoreWidth {
+	width: 18% !important;
+	height: 100% !important;
+	margin-right: 3.5em;
+}
+
+/* Image Fade NOT BEING USED YET */
+/*.content .content-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 99%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s
+}
+
+.content:hover .content-overlay {
+    opacity: 1
+}*/
+
+/* Media Queries  @media screen and (min-width:768px) and (max-width:990px) */
+@media screen and (max-width:990px){
+	body{
+		padding-top: 9em;
+	}
+	
+.successBTN{
+	width: 100%;
+}
+	
+	.learnMoreWidth{
+		width: 45% !important;
+		height: 100% !important;
+		margin: auto;
+		font-size: 1.1em;
+	}
+	
+	.text-gold{
+		font-size: 3.5em;
+	}
+	
+	.nav-item{
+		width: 30%;
+	}
+
+	.navbar-collapse{
+		/*Some of these prevented collapse animation*/
+		
+/*		height:375px; */
+		padding-bottom: 25px;
+		/* transition: 0.4s; */
+		/*z-index: 1089;*/
+	}
+	
+	
+	.navbar-toggler{
+/*		margin: inherit;*/
+/*		margin-top: 8px;*/
+		margin-bottom: 0.5em;
+	}
+	
+	.navbar-nav{
+		margin-bottom: 20px;
+	}
+	
+	.navbar-expand-lg{
+		margin-bottom: 50px;
+		padding-bottom: 23px;
+	}
+	
+	.logoHeading{
+		width:65%;
+	}
+	
+
+	
+	/* Use !important to make sure that JavaScript doesn't override the padding on small screens */
+	
+	
+	
+
+}
+
+
+#logoAnimation {
+}
+.logoHeading {
+}

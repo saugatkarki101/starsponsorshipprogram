@@ -1,0 +1,20 @@
+/* CSS Styles for navScroll.js */
+
+/* NavBar Id's for Scroll Animation navScroll.js*/
+/* add id = nvBar to nav class in order to use, navBrand must also do the same */
+#nvBar{
+	/*height: 7.2em;*/
+	padding: 1.5em 2em 0em 4em;
+    transition: 0.4s;
+}
+
+#btnDonate{
+	font-size:0.75em;
+}
+
+#navBrand{
+	height: 83%;
+	margin-top: inherit;
+	transition: 0.4s;
+}
+/* End navScroll.js Styles */
