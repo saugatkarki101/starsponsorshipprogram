@@ -83,5 +83,11 @@ body {
 	color: #828282;
 }
 
+/* Remove Firefox dotted outline when clicking links */
+a:focus{
+	outline: none;
+}
+
+
 
 
