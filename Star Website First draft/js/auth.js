@@ -13,8 +13,6 @@ signInForm.addEventListener('submit', (e) => {
   // sign up the user
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    // Signed in 
     const user = userCredential.user;
-    // ...
   })
 });
