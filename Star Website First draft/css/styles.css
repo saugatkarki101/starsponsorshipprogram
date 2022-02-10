@@ -10,6 +10,48 @@ body{
 	
 }
 
+
+/* Remove Firefox dotted outline when clicking links */
+a:focus{
+	outline: none;
+}
+
+.btnAdjust{
+    font-size: 12px;
+}
+
+.btnSquare{
+    width:70%;
+    margin:auto;
+    border-radius: 0;
+    outline-color: transparent;
+    border-color: transparent;
+    font-size: 12px;
+    padding: 10px 5px 10px 5px;
+    
+}
+
+
+/*Post font Color*/
+/*.mb-2{
+	
+	color:aliceblue;
+}*/
+
+/* Link Styling */
+a:hover {
+/*  color: #0056b3;*/
+	color: #B37D26;
+  
+}
+
+a {
+  color: #8C6423;
+/*color: #1A6DC5;*/
+  text-decoration: none;
+  background-color: transparent;
+}
+
 .iconContainer{
 	
 	padding-bottom: 3em;
@@ -145,6 +187,11 @@ color: #fff; }
     border-top: none !important;
 	border-bottom: 0px !important;
 	
+}
+
+/* Remove Firefox dotted outline when clicking links */
+.nav-link:focus, .nav -link:hover{
+	outline: none;
 }
 
 
@@ -354,7 +401,10 @@ a.dropdown-item.active{
 	width: 18% !important;
 	height: 100% !important;
 	margin-right: 3.5em;
+    
 }
+
+
 
 /* Image Fade NOT BEING USED YET */
 /*.content .content-overlay {
@@ -375,6 +425,9 @@ a.dropdown-item.active{
 .content:hover .content-overlay {
     opacity: 1
 }*/
+
+
+
 
 /* Media Queries  @media screen and (min-width:768px) and (max-width:990px) */
 @media screen and (max-width:990px){
