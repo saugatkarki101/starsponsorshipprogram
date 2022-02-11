@@ -1,0 +1,32 @@
+/* CSS Styles for altNav3.js*/
+
+/* altNav3.js */
+.primary-nav {
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+ }
+
+.shrink {
+	padding-top: 0 !important;
+	padding-left:3.2em !important;
+	padding-bottom: 0 !important;
+	min-height: 55px !important;
+	transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+}
+
+.shrink .navbar-brand {
+	height: 3.2em !important;
+	padding-top: 0.3em;
+	line-height: 0 !important;
+	transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+}
+
+/*.shrink a {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;       
+}*/
