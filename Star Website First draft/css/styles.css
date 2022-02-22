@@ -31,12 +31,17 @@ a:focus{
     
 }
 
+/* This removes an element from screen (could be used for admin with js to enable when authenticated) */
+.hiddenElement
+{
+    display: none !important;
+}
 
-/*Post font Color*/
-/*.mb-2{
-	
-	color:aliceblue;
-}*/
+/* Used to fade in elements on scroll (element is still on page but invisible! ) */
+.hideme{
+	opacity:0;
+}
+
 
 /* Link Styling */
 a:hover {
@@ -124,10 +129,7 @@ a {
     border-style: solid;*/
 }
 
-/* Used to fade in elements on scroll */
-.hideme{
-	opacity:0;
-}
+
 
 .h2{
 	color: #1B1B1B;

@@ -2,6 +2,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+import { getFirestore, collection, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
+
+import {getDatabase, ref, set, child, update, remove} from 
+"https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,3 +34,15 @@ const auth = getAuth();
 export {
     auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged 
 }
+
+  //Initialize Firebase Functions
+  const db = getFirestore(app);
+  const storage = getStorage();
+  const database = getDatabase();
+
+
+
+  //export variables to other js files
+  export {
+          db, storage, database
+         }
