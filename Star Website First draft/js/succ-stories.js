@@ -80,7 +80,7 @@ function save()
     {
         var name = picture["name"];
         var dateStr = new Date().getTime();
-        var fileCompleteName = name + "_" + dateStr;
+        var fileCompleteName = dateStr + "_" + name ; //Randomize the image name before going into database!
    
         const storageRef = sRef(storage, 'success-images'); //Create Storage reference
        
