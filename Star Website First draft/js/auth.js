@@ -1,8 +1,5 @@
 import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from './firebase.js';
 
-
-
-
 // Log In
 const signInForm = document.querySelector('#form-signin');
 if(signInForm){
@@ -37,14 +34,8 @@ if(signInForm){
 
 }
 
-
-
 // Log Out
-
-
-
 const logOut = document.getElementById("logout");
-
 
 if(logOut){
     logOut.addEventListener('click', (e) => {
@@ -54,17 +45,20 @@ if(logOut){
      })
 }
 
-
 // Check User Status
 onAuthStateChanged(auth, (user) => {
     // Elements to show/hide
     const logOut = document.getElementById("logout");
     const signIn = document.getElementById("hide-auth");
+    const saveChanges = document.getElementById("saveChanges");
+
     if(user) {
         const uid = user.uid;
 
         if(logOut) {logOut.style.display = "block"};
         if(signIn) {signIn.style.display = "none"};
+        if(saveChanges) {saveChanges.style.display = "block"};
+
         
         // Redirects to home page when user is logged in
         console.log("Check Status: User signed in.");
@@ -72,6 +66,7 @@ onAuthStateChanged(auth, (user) => {
     else {
         if(logOut) {logOut.style.display = "none"};
         if(signIn) {signIn.style.display = "block"};
+        if(saveChanges) {saveChanges.style.display = "none"};
         console.log("Check Status: User logged out.");
     }
 });
