@@ -25,6 +25,7 @@ signInForm.addEventListener('submit', (e) => {
         const errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
+        
   });
 });
 
