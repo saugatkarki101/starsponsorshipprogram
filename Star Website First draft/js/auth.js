@@ -1,4 +1,4 @@
-import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from './firebase.js';
+import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged} from './firebase.js';
 
 // Log In
 const signInForm = document.querySelector('#form-signin');
@@ -27,11 +27,31 @@ if(signInForm){
               const errorMessage = error.message;
               console.log(errorCode);
               console.log(errorMessage);
-      
         });
       });
-      
+}
 
+// Forgot Password
+const forgotpassword = document.querySelector('#form-forgotPassword');
+
+if(forgotpassword){
+    forgotpassword.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = forgotpassword['inputEmail'].value;
+        console.log(email);
+        sendPasswordResetEmail(auth, email).then(() => {
+            console.log('Password Reset Email Sent Successfully!');
+            document.getElementById("FP_Header").style.display = "none";            
+            document.getElementById("inputEmail").style.display = "none";
+            document.getElementById("FP_Send").style.display = "none";
+            document.getElementById("FP_Message").style.display = "block";
+        })
+        .catch(error => {
+            console.error(error);
+            alert("Error Sending Email!")
+        })
+    })
 }
 
 // Log Out
