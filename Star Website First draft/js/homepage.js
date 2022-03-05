@@ -28,20 +28,20 @@ get(child(dbref,"titleDescription")).then((snapshot)=>{
 //The function to save the changes made by the admin 
 function save()
 {
-//Retrieves the contents of the HTML element with id: 'title' and updates database with the same content
-var editTitleContent = document.getElementById('title').innerHTML;
-update(ref(database,'title'),{
-  info: editTitleContent
-});
+      //Retrieves the contents of the HTML element with id: 'title' and updates database with the same content
+      var editTitleContent = document.getElementById('title').innerHTML;
+      update(ref(database,'title'),{
+        info: editTitleContent
+    });
 
-//Retrieves the contents of the HTML element with id: 'titleDescription' and updates database with the same content
-var editTitleDescripContent = document.getElementById('titleDescription').innerHTML;
-update(ref(database,'titleDescription'),{
-  info: editTitleDescripContent
-});
+    //Retrieves the contents of the HTML element with id: 'titleDescription' and updates database with the same content
+    var editTitleDescripContent = document.getElementById('titleDescription').innerHTML;
+    update(ref(database,'titleDescription'),{
+      info: editTitleDescripContent
+    });
 
-//Sends a notification when all the contents are saved. 
-alert("Changes Saved!")
+    //Sends a notification when all the contents are saved. 
+    alert("Changes Saved!")
 }
 
 //Checks if a HTML element with id: 'SaveChanges' is present. 
@@ -49,11 +49,11 @@ var check = document.getElementById('saveChanges');
 
 if(check)
 {
-//When the "Save Changes" button is clicked, it calls the save function.
-check.addEventListener
-('click', e =>
-{
- save();
-}
-)
+  //When the "Save Changes" button is clicked, it calls the save function.
+  check.addEventListener
+  ('click', e =>
+  {
+  save();
+  }
+  )
 }
