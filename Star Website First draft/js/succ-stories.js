@@ -199,16 +199,19 @@ if(check)
     )
 }
 
+//var currentKey
 
 //This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. . 
 function myfunc(num)
 {
-    console.log("CurrentCounter: ",num)
+//    console.log("CurrentCounter: ",currentKey)
+
 
     update(ref(database,'CurrentCounter'),{
         counter: num
-      });
+      }); 
 }
+
 
 //Function within modules won't be available to access globally.
 //So, it needs to be attached to window.
@@ -268,14 +271,15 @@ const createCards = (node) => {
         <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>
         <img src="${node.val().image}" class="image" alt="">
         <h1 class="name">${node.val().name.substring(0, 100)}</h1>
-        <p class="desc">${node.val().desc.substring(0, 200) + '...'}</p>
+        <p class="desc">${node.val().desc.substring(0, 200) + '...'}</p> 
         <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read more..</a>
-    </div>
+        </div> 
     `;    
 }
 
 
 get(child(dbref2,"success-stories")).then((snapshot)=>{
+
     if(snapshot.exists())
     {
         snapshot.forEach(node =>{

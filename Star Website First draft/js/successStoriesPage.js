@@ -33,10 +33,11 @@ get(child(dbref,"success-stories")).then((snapshot)=>{
         {
             //stores the counter of the story the reader wants to read
             storyCounter = snapshot2.val().counter;   
-
+            console.log("this: ",storyCounter)
             //Goes through every story
             snapshot.forEach(node =>{
                 if(node.val().counter==storyCounter)
+//                if(node.key==storyCounter)
                 {
                     createStory(node);
                 }
