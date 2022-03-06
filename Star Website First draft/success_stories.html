@@ -78,7 +78,8 @@
         <script type="module" src="js/firebase.js"></script>
 
   </head>
-  <body>
+
+  <body onload="updateHomepage()">
 	<!-- Navbar Functionality -->
     <nav class="navbar navbar-expand-lg navbar-light ml-lg-5 bg-light fixed-top primary-nav" id="primary-nav" data-toggle="affix">
       <a class="navbar-brand" href="index.html">
@@ -264,11 +265,15 @@
         <!-- Success Stories Container -->
         <div class="container">
             <h1 class="text-center animate__animated tagline animate__fadeIn animate__slow text-dark headerText padding-extend">SUCCESS STORIES</h1>
-            
+            <!--Within this section, short summary of each success story is added 
+              with the help of javascript-->
+            <section class="successStories-section">
+              
+            </section>
             <div class="row">
                 <div class="col-md text-center">
                     <div class="box align-content-center">200x250px</div>
-                    <p>Short bio is placed here</p>
+                    <p id="description">Short bio is placed here</p>
                     <h2 class="text-center"> Person Name</h2>
                 </div>
                 <div class="col-md text-center">
