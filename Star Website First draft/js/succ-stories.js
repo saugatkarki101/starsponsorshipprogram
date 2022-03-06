@@ -6,7 +6,7 @@ import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapsho
 
 const dbref = ref(database, 'success-stories');
 const dbref2 = ref(database);
-
+var counter = 0;
 
 //Initializing an instance of the database stored in the firebase. 
 //const dbref = ref(database);
@@ -118,6 +118,7 @@ function save()
             {
                 var userName = document.getElementById('succ-name').value;
                 var editDesc = document.getElementById('succ-descr').value;
+                var counter = parseInt(dateStr);
               
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => 
                 {
@@ -127,6 +128,7 @@ function save()
                         "fname": fileCompleteName,
                         "desc": editDesc,
                         "name": userName,
+                        "counter": counter,
                     };
 
                     const newPostRef = push(dbref);
