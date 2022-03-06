@@ -152,7 +152,8 @@ function save()
                                 $("#result").attr("class", "fadeOut");
                                 //$("#result").addClass("animate__fadeOut animate__slower");
 
-                            },5000);    
+                            },1000);
+                            location.reload();    
                         })
                         .catch((error) =>
                         {
@@ -164,7 +165,7 @@ function save()
             }
         );
     });
-
+    
 } //End Save Function
 
 
