@@ -65,13 +65,14 @@ if(logOut){
      })
 }
 
-//----- Log out if user clicks logout btn in navbar ----//
+//----- NavBar Logout Button ----//
 var checkNavLog = document.getElementById('navLogout');
 
 if(checkNavLog)
 {
   //When the "Save Changes" button is clicked, it calls the save function.
   checkNavLog.addEventListener('click', e => {
+    alert("User is Now Logged Out!");
     auth.signOut();
         console.log("Successfully logged out.");
   })
