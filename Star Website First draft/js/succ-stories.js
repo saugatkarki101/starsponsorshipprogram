@@ -17,7 +17,7 @@ var counter = 0;
 
 
 $.noConflict();
-var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+var validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/webp"];
 
 //---- Image Validation (Not fully functioning) ----//
 $(document).ready(function()
@@ -152,7 +152,7 @@ function save()
                                 $("#result").attr("class", "fadeOut");
                                 //$("#result").addClass("animate__fadeOut animate__slower");
 
-                            },1000);
+                            },1500);
                             location.reload();    
                         })
                         .catch((error) =>
