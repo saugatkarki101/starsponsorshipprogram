@@ -1,4 +1,4 @@
-import {db, database, storage} from './firebase.js';
+import {db, database, storage, auth, onAuthStateChanged} from './firebase.js';
 import {getDatabase, ref, set, child, update, remove, get, push} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 import {getStorage, ref as sRef, uploadBytes, uploadBytesResumable, getDownloadURL  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
 import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapshot, where, query, updateDoc, deleteField  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
@@ -285,5 +285,45 @@ get(child(dbref2,"success-stories")).then((snapshot)=>{
             //every dataset related to every story is passed one by one to createCards() function
             createCards(node);
         })
+
+        //Auth State Changed Code, Jquery to hide the cross buttons (Only way that worked for me)
+        onAuthStateChanged(auth, (user) => {
+            $(document).ready(function() {
+                if(user) {
+                    const uid = user.uid;
+                    $('*[id*=crossButton]:invisible').each( function(i){
+                        $(this).show();
+                    });
+        
+                }
+                else{
+                    //Start Disable Cross Button
+                    $('*[id*=crossButton]:visible').each( function(i){
+                        $(this).hide();
+                    });    
+                    //End Disable Cross Button
+                }
+            });//End Document.Ready Jquery
+        }); //End Auth State Changed
     }
-  })
+  }) //End Create Card code
+
+  onAuthStateChanged(auth, (user) => {
+    // Elements to show/hide
+    const successContainer = document.getElementById("success_container");
+    //const deleteStory = document.getElementById("crossButton")
+    if(user) {
+        const uid = user.uid;
+
+        if(successContainer) {successContainer.style.display = "block"};
+        // Redirects to home page when user is logged in
+        console.log("Check Status: User signed in.");
+    }
+    else {
+
+        if(successContainer) {successContainer.style.display = "none"};
+        //if(deleteStory) {deleteStory.style.display = "none"};
+        console.log("Check Status: User logged out.");
+    }
+});
+
