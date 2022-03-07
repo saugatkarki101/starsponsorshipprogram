@@ -319,6 +319,49 @@ color: #fff; }
     font-size: 0.75em;
 }
 
+/* Btn Login Styling */
+.btn-login{
+    margin-left: 12px;
+    background-color: green !important;
+    border-color: #358652 !important;
+    display: none;
+}
+
+.btn-login:focus, .btn-login.focus {
+    color: #fff;
+    background-color: #429A38;
+    border-color: #4FB975;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(15,100,14,0.50);
+    box-shadow: 0 0 0 0.2rem rgba(14,100,16,0.50);
+}
+
+.btn-login:hover {
+    color: #fff;
+    background-color: #5FD04D;
+    border-color: #4DD058;
+}
+
+.btn-login.disabled, .btn-login:disabled {
+  color: #fff;
+  background-color: #389A3A;
+    border-color: #4FB968;
+}
+
+.btn-login:not(:disabled):not(.disabled):active, .btn-login:not(:disabled):not(.disabled).active,
+.show > .btn-login.dropdown-toggle {
+  color: #fff;
+  background-color: #459A38;
+    border-color: #4FB954;
+}
+
+.btn-login:not(:disabled):not(.disabled):active:focus, .btn-login:not(:disabled):not(.disabled).active:focus,
+.show > .btn-login.dropdown-toggle:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(36,255,68,0.50);
+	box-shadow: 0 0 0 0.2rem rgba(36,255,95,0.50);
+}
+
+
+
 .btn-primary.disabled, .btn-primary:disabled {
   color: #CDCDCD;
   text-decoration: line-through;
@@ -433,6 +476,13 @@ a.dropdown-item.active{
 
 /* Media Queries  @media screen and (min-width:768px) and (max-width:990px) */
 @media screen and (max-width:990px){
+    
+    .btn-login{
+    margin-left: 0px !important;
+    margin-top: 10px !important;
+    width: 23% !important;
+}
+    
 	body{
 		padding-top: 9em;
 	}

@@ -20,7 +20,7 @@ if(signInForm){
               console.log(user);
               signInForm.reset();
               // Redirects to home page if user successfully logs in
-              // window.location.href = "/Star%20Website%20First%20draft/index.html";
+              window.location.href = "index.html";
         })
         .catch((error) => {
               const errorCode = error.code;
@@ -65,12 +65,25 @@ if(logOut){
      })
 }
 
+//----- Log out if user clicks logout btn in navbar ----//
+var checkNavLog = document.getElementById('navLogout');
+
+if(checkNavLog)
+{
+  //When the "Save Changes" button is clicked, it calls the save function.
+  checkNavLog.addEventListener('click', e => {
+    auth.signOut();
+        console.log("Successfully logged out.");
+  })
+}
+
 // Check User Status
 onAuthStateChanged(auth, (user) => {
     // Elements to show/hide
     const logOut = document.getElementById("logout");
     const signIn = document.getElementById("hide-auth");
     const saveChanges = document.getElementById("saveChanges");
+    const navLogoutBtn = document.getElementById("navLogout");
 
     if(user) {
         const uid = user.uid;
@@ -78,7 +91,7 @@ onAuthStateChanged(auth, (user) => {
         if(logOut) {logOut.style.display = "block"};
         if(signIn) {signIn.style.display = "none"};
         if(saveChanges) {saveChanges.style.display = "block"};
-
+        if(navLogoutBtn) {navLogoutBtn.style.display = "block"};
         
         // Redirects to home page when user is logged in
         console.log("Check Status: User signed in.");
@@ -87,6 +100,7 @@ onAuthStateChanged(auth, (user) => {
         if(logOut) {logOut.style.display = "none"};
         if(signIn) {signIn.style.display = "block"};
         if(saveChanges) {saveChanges.style.display = "none"};
+        if(navLogoutBtn) {navLogoutBtn.style.display = "none"};
         console.log("Check Status: User logged out.");
     }
 });
