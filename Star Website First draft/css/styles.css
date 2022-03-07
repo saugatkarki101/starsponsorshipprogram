@@ -319,6 +319,26 @@ color: #fff; }
     font-size: 0.75em;
 }
 
+/* Save Changes and Login button Styles */
+#saveChanges{
+    background-color: green !important;
+    border-color: #358652 !important;
+    display: none;
+}
+
+#saveChanges:not(:disabled):not(.disabled):active, #saveChanges:not(:disabled):not(.disabled).active,
+.show > #saveChanges.dropdown-toggle {
+  color: #fff;
+  background-color: #459A38;
+    border-color: #4FB954;
+}
+
+#saveChanges:not(:disabled):not(.disabled):active:focus, #saveChanges:not(:disabled):not(.disabled).active:focus,
+.show > #saveChanges.dropdown-toggle:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(36,255,68,0.50);
+	box-shadow: 0 0 0 0.2rem rgba(36,255,95,0.50);
+}
+
 /* Btn Login Styling */
 .btn-login{
     margin-left: 12px;
@@ -327,7 +347,7 @@ color: #fff; }
     display: none;
 }
 
-.btn-login:focus, .btn-login.focus {
+.btn-login:focus, .btn-login.focus, #saveChanges.focus {
     color: #fff;
     background-color: #429A38;
     border-color: #4FB975;
@@ -335,13 +355,13 @@ color: #fff; }
     box-shadow: 0 0 0 0.2rem rgba(14,100,16,0.50);
 }
 
-.btn-login:hover {
+.btn-login:hover, #saveChanges:hover {
     color: #fff;
     background-color: #5FD04D;
     border-color: #4DD058;
 }
 
-.btn-login.disabled, .btn-login:disabled {
+.btn-login.disabled, .btn-login:disabled, #saveChanges.disabled, #saveChanges:disabled {
   color: #fff;
   background-color: #389A3A;
     border-color: #4FB968;
