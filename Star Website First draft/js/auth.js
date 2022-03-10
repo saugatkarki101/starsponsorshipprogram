@@ -79,7 +79,6 @@ onAuthStateChanged(auth, (user) => {
         if(signIn) {signIn.style.display = "none"};
         if(saveChanges) {saveChanges.style.display = "block"};
 
-        
         // Redirects to home page when user is logged in
         console.log("Check Status: User signed in.");
     }
@@ -90,3 +89,5 @@ onAuthStateChanged(auth, (user) => {
         console.log("Check Status: User logged out.");
     }
 });
+
+//test
