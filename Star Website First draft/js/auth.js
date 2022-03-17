@@ -15,18 +15,32 @@ if(signInForm){
         // Sign in the user
         signInWithEmailAndPassword (auth, email, password)
         .then((userCredential) => {
-      
-              const user = userCredential.user;
-              console.log(user);
+            //   const user = userCredential.user;
+            //   console.log(user);
+              signInForm.querySelector('.error').innerHTML = '';
               signInForm.reset();
               // Redirects to home page if user successfully logs in
               // window.location.href = "/Star%20Website%20First%20draft/index.html";
         })
         .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(errorCode);
-              console.log(errorMessage);
+            var errorCode = error.code;
+            var errorMessage = "Error! Please try again.";
+            if(errorCode == "auth/invalid-email") {
+                errorMessage =  "Invalid Email. Please enter a valid email."
+            }
+            else if(errorCode == "auth/invalid-password" || errorCode == "auth/invalid-password-hash" || errorCode == "auth/invalid-password-salt" || errorCode == "auth/wrong-password") {
+                errorMessage = "Invalid Password. Please try again."
+            }
+            else if(errorCode == "auth/email-already-exists") {
+                errorMessage = "Email already exists. Please try a different email or login using the entered email."
+            }
+            else if(errorCode == "auth/user-not-found") {
+                errorMessage = "User Not Found. Please try a different email."
+            }
+            else {
+                errorMessage = "Error Authenticating. Please try again."
+            }
+            signInForm.querySelector('.error').innerHTML = errorMessage;
         });
       });
 }
@@ -46,13 +60,46 @@ if(forgotpassword){
             document.getElementById("inputEmail").style.display = "none";
             document.getElementById("FP_Send").style.display = "none";
             document.getElementById("FP_Message").style.display = "block";
+            
+            forgotpassword.querySelector('.error').innerHTML = '';
         })
         .catch(error => {
-            console.error(error);
-            alert("Error Sending Email!")
+            var errorCode = error.code;
+            var errorMessage = "Error! Please try again.";
+            if(errorCode == "auth/invalid-email") {
+                errorMessage =  "Invalid Email. Please enter a valid email."
+            }
+            else if(errorCode == "auth/invalid-password") {
+                errorMessage = "Invalid Password. Please try again."
+            }
+            else if(errorCode == "auth/email-already-exists") {
+                errorMessage = "Email already exists. Please try a different email or login using the entered email."
+            }
+            else if(errorCode == "auth/user-not-found") {
+                errorMessage = "User Not Found. Please try a different email."
+            }
+            else {
+                errorMessage = "Error Authenticating. Please try again."
+            }
+            forgotpassword.querySelector('.error').innerHTML = errorMessage;
         })
     })
 }
+
+// function getErrorMessage(errorCode) {
+//     if(errorCode == "auth/invalid-email") {
+//         return "Invalid Email. Please enter a valid email."
+//     }
+//     else if(errorCode == "auth/invalid-password") {
+//         return "Invalid Password. Please try again."
+//     }
+//     else if(errorCode == "auth/email-already-exists") {
+//         return "Email already exists. Please try a different email or login using the entered email."
+//     }
+//     else {
+//         return "Error Authenticating. Please try again."
+//     }
+// }
 
 // Log Out
 const logOut = document.getElementById("logout");
