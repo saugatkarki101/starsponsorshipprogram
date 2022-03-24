@@ -128,7 +128,6 @@ if(checkNavLog)
 // Check User Status
 onAuthStateChanged(auth, (user) => {
     // Elements to show/hide
-    const logOut = document.getElementById("logout");
     const signIn = document.getElementById("hide-auth");
     const saveChanges = document.getElementById("saveChanges");
     const navLogoutBtn = document.getElementById("navLogout");
@@ -140,25 +139,23 @@ onAuthStateChanged(auth, (user) => {
     if(user) {
         const uid = user.uid;
 
-        if(logOut) {logOut.style.display = "block"};
         if(signIn) {signIn.style.display = "none"};
         if(saveChanges) {saveChanges.style.display = "block"};
         if(navLogoutBtn) {navLogoutBtn.style.display = "block"};
         if(donate) {donate.style.display = "none"};
         if(adminButton) {adminButton.style.display = "none"};
-        if(addUsers) {addUsers.style.display = "block"};
+        //if(addUsers) {addUsers.style.display = "block"};
         if(changePassword) {changePassword.style.display = "block"};
         // Redirects to home page when user is logged in
         console.log("Check Status: Admin signed in.");
     }
     else {
-        if(logOut) {logOut.style.display = "none"};
         if(signIn) {signIn.style.display = "block"};
         if(saveChanges) {saveChanges.style.display = "none"};
         if(navLogoutBtn) {navLogoutBtn.style.display = "none"};
         if(donate) {donate.style.display = "block"};
         if(adminButton) {adminButton.style.display = "block"};
-        if(addUsers) {addUsers.style.display = "none"};
+        //if(addUsers) {addUsers.style.display = "none"};
         if(changePassword) {changePassword.style.display = "none"};
         console.log("Check Status: Admin logged out.");
     }
