@@ -1,4 +1,31 @@
-import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged} from './firebase.js';
+import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, updatePassword} from './firebase.js';
+
+// Change Password
+const changePasswordForm = document.querySelector('#form-changePassword');
+if(changePasswordForm){
+    changePasswordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const newPassword = changePasswordForm['inputPassword'].value;
+        const user = auth.currentUser;
+
+
+        updatePassword(user, newPassword).then(() => {
+            //Update Successful
+            document.getElementById("CP_Header").style.display = "none";            
+            document.getElementById("inputPassword").style.display = "none";
+            document.getElementById("CP_Done").style.display = "none";
+            document.getElementById("CP_Message").style.display = "block";
+
+        }).catch((error) => {
+            //Error
+        });
+
+    })
+
+}
+
+
 
 // Log In
 const signInForm = document.querySelector('#form-signin');
@@ -9,9 +36,6 @@ if(signInForm){
         // get user info
         const email = signInForm['inputEmail'].value;
         const password = signInForm['inputPassword'].value;
-      
-        console.log(email); 
-        console.log(password);
         // Sign in the user
         signInWithEmailAndPassword (auth, email, password)
         .then((userCredential) => {
