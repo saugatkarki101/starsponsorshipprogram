@@ -1,4 +1,31 @@
-import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged} from './firebase.js';
+import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, updatePassword} from './firebase.js';
+
+// Change Password
+const changePasswordForm = document.querySelector('#form-changePassword');
+if(changePasswordForm){
+    changePasswordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const newPassword = changePasswordForm['inputPassword'].value;
+        const user = auth.currentUser;
+
+
+        updatePassword(user, newPassword).then(() => {
+            //Update Successful
+            document.getElementById("CP_Header").style.display = "none";            
+            document.getElementById("inputPassword").style.display = "none";
+            document.getElementById("CP_Done").style.display = "none";
+            document.getElementById("CP_Message").style.display = "block";
+
+        }).catch((error) => {
+            //Error
+        });
+
+    })
+
+}
+
+
 
 // Log In
 const signInForm = document.querySelector('#form-signin');
@@ -9,24 +36,35 @@ if(signInForm){
         // get user info
         const email = signInForm['inputEmail'].value;
         const password = signInForm['inputPassword'].value;
-      
-        console.log(email); 
-        console.log(password);
         // Sign in the user
         signInWithEmailAndPassword (auth, email, password)
         .then((userCredential) => {
-      
-              const user = userCredential.user;
-              console.log(user);
+            //   const user = userCredential.user;
+            //   console.log(user);
+              signInForm.querySelector('.error').innerHTML = '';
               signInForm.reset();
               // Redirects to home page if user successfully logs in
               window.location.href = "index.html";
         })
         .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(errorCode);
-              console.log(errorMessage);
+            var errorCode = error.code;
+            var errorMessage = "Error! Please try again.";
+            if(errorCode == "auth/invalid-email") {
+                errorMessage =  "Invalid Email. Please enter a valid email."
+            }
+            else if(errorCode == "auth/invalid-password" || errorCode == "auth/invalid-password-hash" || errorCode == "auth/invalid-password-salt" || errorCode == "auth/wrong-password") {
+                errorMessage = "Invalid Password. Please try again."
+            }
+            else if(errorCode == "auth/email-already-exists") {
+                errorMessage = "Email already exists. Please try a different email or login using the entered email."
+            }
+            else if(errorCode == "auth/user-not-found") {
+                errorMessage = "User Not Found. Please try a different email."
+            }
+            else {
+                errorMessage = "Error Authenticating. Please try again."
+            }
+            signInForm.querySelector('.error').innerHTML = errorMessage;
         });
       });
 }
@@ -46,13 +84,46 @@ if(forgotpassword){
             document.getElementById("inputEmail").style.display = "none";
             document.getElementById("FP_Send").style.display = "none";
             document.getElementById("FP_Message").style.display = "block";
+            
+            forgotpassword.querySelector('.error').innerHTML = '';
         })
         .catch(error => {
-            console.error(error);
-            alert("Error Sending Email!")
+            var errorCode = error.code;
+            var errorMessage = "Error! Please try again.";
+            if(errorCode == "auth/invalid-email") {
+                errorMessage =  "Invalid Email. Please enter a valid email."
+            }
+            else if(errorCode == "auth/invalid-password") {
+                errorMessage = "Invalid Password. Please try again."
+            }
+            else if(errorCode == "auth/email-already-exists") {
+                errorMessage = "Email already exists. Please try a different email or login using the entered email."
+            }
+            else if(errorCode == "auth/user-not-found") {
+                errorMessage = "User Not Found. Please try a different email."
+            }
+            else {
+                errorMessage = "Error Authenticating. Please try again."
+            }
+            forgotpassword.querySelector('.error').innerHTML = errorMessage;
         })
     })
 }
+
+// function getErrorMessage(errorCode) {
+//     if(errorCode == "auth/invalid-email") {
+//         return "Invalid Email. Please enter a valid email."
+//     }
+//     else if(errorCode == "auth/invalid-password") {
+//         return "Invalid Password. Please try again."
+//     }
+//     else if(errorCode == "auth/email-already-exists") {
+//         return "Email already exists. Please try a different email or login using the entered email."
+//     }
+//     else {
+//         return "Error Authenticating. Please try again."
+//     }
+// }
 
 // Log Out
 const logOut = document.getElementById("logout");
@@ -81,27 +152,37 @@ if(checkNavLog)
 // Check User Status
 onAuthStateChanged(auth, (user) => {
     // Elements to show/hide
-    const logOut = document.getElementById("logout");
     const signIn = document.getElementById("hide-auth");
     const saveChanges = document.getElementById("saveChanges");
     const navLogoutBtn = document.getElementById("navLogout");
+    const donate = document.getElementById("donate");
+    const adminButton = document.getElementById("adminLogin");
+    const addUsers = document.getElementById("addUsers");
+    const changePassword = document.getElementById("changePassword");
 
     if(user) {
         const uid = user.uid;
 
-        if(logOut) {logOut.style.display = "block"};
         if(signIn) {signIn.style.display = "none"};
         if(saveChanges) {saveChanges.style.display = "block"};
         if(navLogoutBtn) {navLogoutBtn.style.display = "block"};
-        
+        if(donate) {donate.style.display = "none"};
+        if(adminButton) {adminButton.style.display = "none"};
+        //if(addUsers) {addUsers.style.display = "block"};
+        if(changePassword) {changePassword.style.display = "block"};
         // Redirects to home page when user is logged in
-        console.log("Check Status: User signed in.");
+        console.log("Check Status: Admin signed in.");
     }
     else {
-        if(logOut) {logOut.style.display = "none"};
         if(signIn) {signIn.style.display = "block"};
         if(saveChanges) {saveChanges.style.display = "none"};
         if(navLogoutBtn) {navLogoutBtn.style.display = "none"};
-        console.log("Check Status: User logged out.");
+        if(donate) {donate.style.display = "block"};
+        if(adminButton) {adminButton.style.display = "block"};
+        //if(addUsers) {addUsers.style.display = "none"};
+        if(changePassword) {changePassword.style.display = "none"};
+        console.log("Check Status: Admin logged out.");
     }
 });
+
+//test
