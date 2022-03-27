@@ -141,13 +141,14 @@ var checkNavLog = document.getElementById('navLogout');
 
 if(checkNavLog)
 {
-  //When the "Save Changes" button is clicked, it calls the save function.
   checkNavLog.addEventListener('click', e => {
     alert("User is Now Logged Out!");
     auth.signOut();
         console.log("Successfully logged out.");
   })
 }
+
+
 
 // Check User Status
 onAuthStateChanged(auth, (user) => {
@@ -159,6 +160,7 @@ onAuthStateChanged(auth, (user) => {
     const adminButton = document.getElementById("adminLogin");
     const addUsers = document.getElementById("addUsers");
     const changePassword = document.getElementById("changePassword");
+    const fab = document.getElementById("fab-btn");
 
     if(user) {
         const uid = user.uid;
@@ -170,6 +172,7 @@ onAuthStateChanged(auth, (user) => {
         if(adminButton) {adminButton.style.display = "none"};
         //if(addUsers) {addUsers.style.display = "block"};
         if(changePassword) {changePassword.style.display = "block"};
+        if(fab) {fab.style.display = "none"};
         // Redirects to home page when user is logged in
         console.log("Check Status: Admin signed in.");
     }
@@ -179,6 +182,7 @@ onAuthStateChanged(auth, (user) => {
         if(navLogoutBtn) {navLogoutBtn.style.display = "none"};
         if(donate) {donate.style.display = "block"};
         if(adminButton) {adminButton.style.display = "block"};
+        if(fab) {fab.style.display = "flex"};
         //if(addUsers) {addUsers.style.display = "none"};
         if(changePassword) {changePassword.style.display = "none"};
         console.log("Check Status: Admin logged out.");
