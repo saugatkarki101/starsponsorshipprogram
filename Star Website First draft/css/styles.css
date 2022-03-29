@@ -215,7 +215,7 @@ color: #fff; }
 .jumbotron{
 	background-color: #83090B !important;
 /*	background-image: url(../images/jumbo.jpg);*/
-	background-image: url("../images/jumbotron/jumbo3.png");
+	background-image: url("../images/jumbotron/jumbo3.jpg");
 }
 
 .btn-dnt{
@@ -502,12 +502,12 @@ a.dropdown-item.active{
     margin-top: 10px !important;
     width: 6.2em !important;
 }
-    
+
     #learnMore{
         width: 6.2em !important;
         font-size: 11px !important;
     }
-    
+
      #saveChanges{
         width: 7em !important;
         font-size: 11px !important;

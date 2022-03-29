@@ -14,7 +14,7 @@ const description = document.querySelector('.description');
 
 //
 const createStory = (node) => {
-    outer.innerHTML +=  `<img src="${node.val().image}" alt="" class="story-image">`;
+    outer.innerHTML +=  `<img src="${node.val().image}" alt="" class="story-image img-fluid" height="650" width="550">`;
     personName.innerHTML += node.val().name;
     description.innerHTML += node.val().desc;
 }
