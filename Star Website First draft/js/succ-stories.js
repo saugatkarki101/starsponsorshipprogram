@@ -252,6 +252,11 @@ cross.style.color = "white";
 
 //This creates a new section with every other success story 
 const createCards = (node) => {
+    // Remove middle names from full name
+    const fullname = node.val().name;
+    const namesplit = fullname.split(' ');
+    const name = namesplit[0] + " " + namesplit[namesplit.length - 1];
+
     successStoriesSection.innerHTML += `
     <div class="succStoriesCard" id="succStoriesCardID">
     <style>
@@ -262,14 +267,13 @@ const createCards = (node) => {
         left: 150px;
     } 
 
-
     </style>
 
         <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>
         <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">
         <img src="${node.val().image}" class="image" alt="">
         </a>
-        <h1 class="name">${node.val().name.substring(0, 30)}</h1>
+        <h1 class="name">${name.substring(0, 30)}</h1>
         <p class="desc">${node.val().desc.substring(0, 112) + '...'}</p>
         <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">
         Read More
