@@ -496,6 +496,11 @@ a.dropdown-item.active{
 
 /* Media Queries  @media screen and (min-width:768px) and (max-width:990px) */
 @media screen and (max-width:990px){
+    
+    .btn-dnt{
+	font-size: 0.75em;
+	margin-right: 0!important;
+}
 
     .btn-login{
     margin-left: 0px !important;

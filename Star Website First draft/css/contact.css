@@ -36,3 +36,16 @@
     font-family: 'Bebas Neue', serif;
     font-size: 1em !important;
 }
+
+/* Add media queries for responsiveness. This will center both the text and the image inside the container */
+@media (max-width: 500px) {
+    
+     .google-maps {
+    position: relative;
+    padding-bottom: 25%; 
+    height: 0;
+    width: 25em !important;
+    overflow: hidden;
+  }
+    
+}

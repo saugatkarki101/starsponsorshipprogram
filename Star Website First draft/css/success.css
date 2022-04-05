@@ -76,7 +76,7 @@
     width: 100%;
     padding: 50px 1vw;
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr); //This causes issues in mobile mode where it overflows the page */
+    grid-template-columns: repeat(1, 1fr) !important;
     grid-gap: 100px;
 }
     
