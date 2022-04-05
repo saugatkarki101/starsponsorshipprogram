@@ -97,148 +97,71 @@
 		</script>
 	<!--end of Navigation bar-->
 
-	<!---- Main Jumbotron   ---->
-	<header>
-        <!-- Main Slogan ---->
-        <div class="jumbotron text-white">
-            <h1 class="text-center animate__animated tagline animate__fadeIn animate__slow text-gold">Making a Difference One Student At a Time.</h1>
-
-        <div class="container"><img src="images/logos/logoFullWG.svg" alt="" width = "290" class="center animate__animated animate__fadeIn animate__slower logo" />
-<!--            <div class="row">
-                <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__fadeIn learnMoreWidth" href="about.html" title="">LEARN MORE</a>
-            </div>-->
-        </div>
-
-
-
-        </div>
-
- 
-
-        <!----- Add A Success Story ------>
-        <div class="col-lg-12">
-            <div class ="container" id ="success_container">
-            <!--------Success Stories Add Area------------>
-            <div class="jumbotron bg-dark">
-                <script>
-                    var counter = 0;
-                </script>
-                <div class="container text-center">
-                    <h1 class="text-center animate__animated tagline animate__fadeIn animate__slow headerText padding-extend text-light">ADD A STORY</h1>
-                    <form id="success-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Please enter the person's name here" class="form-control" id="succ-name" />
-                             <div class="invalid-feedback">
-                                Please type the person's name here first.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea type="text" rows="5" placeholder="Please enter your description here" class="form-control" id="succ-descr"></textarea>
-                             <div class="invalid-feedback">
-                                Please write a description here first.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="file" class="form-control" id="success-image"/>
+    <h1 style="margin-top: 60px;"class="text-center animate__animated tagline animate__fadeIn animate__slow text-dark headerText padding-extend">SUCCESS STORIES</h1>
+  
+    <!----- Add A Success Story ------>
+    <div class="col-lg-12">
+        <div class ="container" id ="success_container">
+        <!--------Success Stories Add Area------------>
+        <div class="jumbotron bg-dark">
+            <script>
+                var counter = 0;
+            </script>
+            <div class="container text-center">
+                <h1 class="text-center animate__animated tagline animate__fadeIn animate__slow headerText padding-extend text-light">ADD A STORY</h1>
+                <form id="success-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Please enter the person's name here" class="form-control" id="succ-name" />
                             <div class="invalid-feedback">
-                                Please choose a valid picture. (jpg, png, gif, and webp are accepted.)
+                            Please type the person's name here first.
                         </div>
-                        </div>
-                        <div class="form-group">
-                            <img id="selected-image" class="animate__animated img-fluid" width="350" height="250" src="#" alt=""/>
-                        </div>
-                        <div class="form-group">
-                            <div class="progress bg-secondary text-light">
-                                <div class="progress-bar bg-success" id="upload-progress" style="width: 0; font-size:10px;">0%</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button id="save-story" type="button" style="width:100px; height:40px;" class="btn btn-light bg-light text-dark">Submit</button>
-                        </div>
-                        <div class="text-light">Admin: Click on the X icons above the images to <strong>(PERMANENTLY)</strong> delete a success story!</div>
-                    </form>
-
-                    <div id="result" class="animate__animated">
-
                     </div>
+                    <div class="form-group">
+                        <textarea type="text" rows="5" placeholder="Please enter your description here" class="form-control" id="succ-descr"></textarea>
+                            <div class="invalid-feedback">
+                            Please write a description here first.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" class="form-control" id="success-image"/>
+                        <div class="invalid-feedback">
+                            Please choose a valid picture. (jpg, png, gif, and webp are accepted.)
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <img id="selected-image" class="animate__animated img-fluid" width="350" height="250" src="#" alt=""/>
+                    </div>
+                    <div class="form-group">
+                        <div class="progress bg-secondary text-light">
+                            <div class="progress-bar bg-success" id="upload-progress" style="width: 0; font-size:10px;">0%</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="save-story" type="button" style="width:100px; height:40px;" class="btn btn-light bg-light text-dark">Submit</button>
+                    </div>
+                    <div class="text-light">Admin: Click on the X icons above the images to <strong>(PERMANENTLY)</strong> delete a success story!</div>
+                </form>
+
+                <div id="result" class="animate__animated">
+
                 </div>
-            </div>
-            <!--------End Success Stories Add Area------------>
             </div>
         </div>
-        <!----- End Add A Success Story ------>
+        <!--------End Success Stories Add Area------------>
+        </div>
+    </div>
+    <!----- End Add A Success Story ------>
 
-        <!-- Success Stories Container -->
-        <div class="container">
-            <h1 class="text-center animate__animated tagline animate__fadeIn animate__slow text-dark headerText padding-extend">SUCCESS STORIES</h1>
-            <div class="separator animate__animated animate__fadeIn animate__slow"></div>
-            <!--Within this section, short summary of each success story is added
-              with the help of javascript-->
-            <section class="successStories-section">
-              <!-- This is where generated javascript code will go-->
-            </section>
+    <!-- Success Stories Container -->
+    <div class="container">
+        <!--Within this section, short summary of each success story is added with the help of javascript-->
+        <section class="successStories-section">
+            <!-- This is where generated javascript code will go-->
+        </section>
 
-            <!-- Not used (old success stories section)
-            <div class="row">
-                <div class="col-md text-center">
-                    <div class="box align-content-center">200x250px</div>
-                    <p id="description">Short bio is placed here</p>
-                    <h2 class="text-center"> Person Name</h2>
-                </div>
-                <div class="col-md text-center">
-                    <div class="box align-content-center">200x250px</div>
-                    <p>Short bio is placed here</p>
-                    <h2 class="text-center"> Person Name</h2>
-                </div>
-                <div class="col-md text-center">
-                    <div class="box align-content-center">200x250px</div>
-                    <p>Short bio is placed here</p>
-                    <h2 class="text-center"> Person Name</h2>
-                </div>
-                <div class="col-md text-center">
-                    <div class="box align-content-center">200x250px</div>
-                    <p>Short bio is placed here</p>
-                    <h2 class="text-center"> Person Name</h2>
-                </div>
-                <div class="separator"></div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-md text-center">
-                    <div class="box align-content-center">200x250px</div>
-                    <p>Short bio is placed here</p>
-                    <h2 class="text-center"> Person Name</h2>
-                </div>
-                <div class="col-md text-center">
-                    <div class="box align-content-center">200x250px</div>
-                    <p>Short bio is placed here</p>
-                    <h2 class="text-center"> Person Name</h2>
-                </div>
-                <div class="col-md text-center">
-                    <div class="box align-content-center">200x250px</div>
-                    <p>Short bio is placed here</p>
-                    <h2 class="text-center"> Person Name</h2>
-                </div>
-                <div class="col-md text-center">
-                    <div class="box align-content-center">200x250px</div>
-                    <p>Short bio is placed here</p>
-                    <h2 class="text-center"> Person Name</h2>
-                </div>
-                -->
-                   <div class="separator"></div>
-
-            </div>
-
-
-
-
-
-
-
-        <!--</div>-->
+        <div class="separator"></div>
+        </div>
 	</header>
-
 
 	<!---- Footer   ---->
     <footer class="text-center">

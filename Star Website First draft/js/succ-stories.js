@@ -11,11 +11,6 @@ var counter = 0;
 //Initializing an instance of the database stored in the firebase. 
 //const dbref = ref(database);
 
-
-
-
-
-
 $.noConflict();
 var validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/webp"];
 
@@ -262,17 +257,24 @@ const createCards = (node) => {
     <style>
     .cross
     {
-        position: relative;
+        position: center;
         font-size: 20px;
         left: 150px;
     } 
+
+
     </style>
 
         <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>
+        <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">
         <img src="${node.val().image}" class="image" alt="">
-        <h1 class="name">${node.val().name.substring(0, 100)}</h1>
-        <p class="desc">${node.val().desc.substring(0, 200) + '...'}</p>
-        <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read more..</a>
+        </a>
+        <h1 class="name">${node.val().name.substring(0, 30)}</h1>
+        <p class="desc">${node.val().desc.substring(0, 112) + '...'}</p>
+        <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">
+        Read More
+        </a>
+       
     </div>
     `;    
 }
