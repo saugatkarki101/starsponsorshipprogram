@@ -161,9 +161,21 @@ onAuthStateChanged(auth, (user) => {
     const addUsers = document.getElementById("addUsers");
     const changePassword = document.getElementById("changePassword");
     const fab = document.getElementById("fab-btn");
+    
+    //Find All ContentEditable Boxes and disable
+    var editable_elements = document.querySelectorAll("[contenteditable=true]");
+    
+    for(var i=0; i<editable_elements.length; i++)
+        editable_elements[i].setAttribute("contenteditable", false);
 
     if(user) {
         const uid = user.uid;
+        
+        //Allow content editables to be manipulated by user
+        editable_elements = document.querySelectorAll("[contenteditable=false]");
+        
+        for(var i=0; i<editable_elements.length; i++)
+            editable_elements[i].setAttribute("contenteditable", true);
 
         if(signIn) {signIn.style.display = "none"};
         if(saveChanges) {saveChanges.style.display = "block"};
