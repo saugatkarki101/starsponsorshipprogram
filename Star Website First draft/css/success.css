@@ -57,6 +57,9 @@
     border-radius: 50px;
     margin-bottom: 10px;
     transition: 0.25s;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .image:hover{
