@@ -4,6 +4,12 @@
     letter-spacing: -4px;
 }
 
+/* Customize name of person */
+.testi-container span {
+    font-family: 'Bebas Neue', serif;
+    font-size: 1.5em !important;
+}
+
 
 
  /* Style the container with a rounded border, grey background and some padding and margin */

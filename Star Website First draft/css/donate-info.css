@@ -9,3 +9,8 @@
 .top-pad{
     padding-top: 5em;
 }
+
+.donate-icon{
+    font-size: 1.4em !important;
+    vertical-align: top !important;
+}
