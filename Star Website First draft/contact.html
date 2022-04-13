@@ -12,7 +12,25 @@
 	<!-- Bootstrap -->
 	<!--    <link href="bootstrap-4.4.1.css" rel="stylesheet">-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+	<style type="text/css">
 
+			.disabled {
+		}
+			.bg-trans {
+		}
+			.bg-primary-gradient {
+		}
+			.anim {
+		}
+		.a-blog {
+		}
+		.blog {
+		}
+		.containter-lg {
+		}
+		.body {
+		}
+	</style>
 
 	<style>
 	.bd-placeholder-img {
@@ -32,7 +50,6 @@
 	</style>
 
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
-  <link href="css/contact.css" rel="stylesheet" type="text/css">
 
 
 	<!-- Styles for main Navigation adjustments -->
@@ -42,31 +59,25 @@
 	<!-- Styles for navigationAnimation.js -->
 	<link href="css/navigationAnimation.css" rel="stylesheet" type="text/css">
 
-  <!-- Fonts -->
+	<!-- Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker-SemiBold">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;900&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-  <!-- End Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
 
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -80,179 +91,111 @@
 	<script>var __adobewebfontsappname__="starSpons"</script>
 	<script src="http://use.edgefonts.net/alex-brush:n4:default;alexa-std:n4:default;allan:n7:default;allura:n4:default;kristi:n4:default;changa-one:n4:default;carter-one:n4:default;bubblegum-sans:n4:default;advent-pro:n4:default;actor:n4:default;abel:n4:default.js" type="text/javascript"></script>
 
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
   </head>
-
   <body>
+	<!-- Navbar Functionality -->
+    <nav class="navbar navbar-expand-lg navbar-light ml-lg-5 bg-light fixed-top primary-nav" id="primary-nav" data-toggle="affix">
+      <a class="navbar-brand" href="index.html">
+		<img src="images/logos/logo.png" alt="" class="logo animate__animated animate__bounceInLeft" id="navBrand" title="Star Sponsorship!">
+	  </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="navToggler"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle animate__animated animate__fadeIn" href="#"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+					About STAR
+<!--					<span class="sr-only">(current)</span>-->
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			<!--
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+			-->
+			<!--							<div class="dropdown-divider"></div>-->
+							<a class="dropdown-item" href="meet_the_board.html">Meet The Board</a>
+							<a class="dropdown-item" href="about.html">About STAR</a>
+				</div>
+			</li>
+			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="vision.html">The Vision</a> </li>
+			<!-- <li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="our_scholarships.html">Our Scholarships</a> </li> -->
+			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="success_stories.html">Success Stories</a> </li>
+			<li class="nav-item dropdown">
+				<a class="nav-link disabled dropdown-toggle animate__animated animate__fadeIn" href="#"  id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-expanded="false">
+					Testimonials
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+			<!--
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+			-->
+			<!--							<div class="dropdown-divider"></div>-->
+							<a class="dropdown-item" href="testimonials.html">Testimonials</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="star_graduates.html">STAR Graduates</a>
+							<a class="dropdown-item" href="star_contributors.html">STAR Contributors</a>
 
-	<!--Navigation bar-->
-	  <div id="nav-placeholder">
-	  </div>
+				</div>
+			</li>
+			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="newsletters.html">Newsletters</a> </li>
+			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="blog.html">Blog</a> </li>
+			<li class="nav-item"> <a class="nav-link disabled animate__animated animate__fadeIn" href="faq.html">FAQ</a> </li>
+			<li class="nav-item active"> <a class="nav-link animate__animated animate__fadeIn" href="contact.html">Contact &amp; Directions </a> </li>
 
-	  <script>
-	  $("#nav-placeholder").load("nav.html");
-	  </script>
-  <!--end of Navigation bar-->
+          <!--<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>-->
+<!--          <li class="nav-item"> <a class="nav-link disabled" href="#">Disabled</a> </li>-->
+        </ul>
+		  <a class="btn btn-primary animate__animated animate__fadeIn btn-lg btn-dnt" href="#" role="button">DONATE</a>
+		  <a class="btn btn-primary animate__animated btn-lg btn-adm btn-success animate__fadeIn" href="login.html" role="button">ADMIN</a>
+        <!--<form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>-->
+
+      </div>
+    </nav>
+
 
 	<!---- Main Jumbotron   ---->
 	<header>
+    <div class="jumbotron text-white">
+  <h1 class="text-center animate__animated tagline animate__fadeIn animate__slow text-gold">Making a Difference One Student At a Time.</h1>
 
-    <div style="margin-top:50px; margin-bottom:20px;" class="text-center">
-      <h1 class="blog-header-logo text-dark">CONTACT &amp DIRECTIONS</h1>
+
+
+    <div class="container"><img src="images/logos/logoFullWG.svg" alt="" width = "290" class="center animate__animated animate__fadeIn animate__slower logo" />
+    <!--<div class="row">
+      <div class="col-sm-4 col-auto mx-auto">  </div>
+      <div class="col-sm-4 col-auto mx-auto">  </div>
+      <div class="col-sm-4 col-auto mx-auto"> <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__bounceInDown" href="#" title="">LEARN MORE</a></div>
+    </div>-->
+
+    <div class="row">
+      <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__fadeIn learnMoreWidth" href="about.html" title="">LEARN MORE</a>
     </div>
 
-    <!----- Maps Container ---->
-    <div class="mapouter container-fluid google-maps"><div class="gmap_canvas"><iframe loading="lazy" width="960" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=6707%20Brentwood%20Stair%20Rd,%20Suite%20205%20Fort%20Worth,%20Texas%2076112%20&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/"></a><br><style>.mapouter{position:relative;text-align:right;height:400px;width:960px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:960px;}</style></div></div>
-
-
-    <!----- Contact Container ---->
-    <div class="container">
-
-    <!--Section: Contact v.2-->
-        <section class="mb-4">
-
-        <!--Section heading-->
-        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
-        <!--Section description-->
-        <p class="text-center w-responsive mx-auto mb-5">We welcome the opportunity to speak with you more about STAR. We can send you some information or visit with you on the phone. Feel free to also contact us via email by filling out the form below!</p>
-
-        <div class="row">
-
-            <!--Grid column-->
-            <div class="col-md-9 mb-md-0 mb-5">
-                <form id="contact-form" name="contact-form" class="contact-form needs-validation">
-
-                    <!--Grid row-->
-                    <div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-md-4">
-                            <div class="md-form mb-0">
-                                <input type="text" id="name" name="name" class="form-control">
-                                <div class="invalid-feedback">
-                                    Please type your name here first.
-                                </div>
-                                <label for="name" class="">Your name</label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-
-                         <!--Grid column-->
-                        <div class="col-md-4">
-                            <div class="md-form mb-0">
-                                <input type="text" id="phone" name="phone" class="form-control">
-                                <div class="invalid-feedback">
-                                    Please type your phone here first.
-                                </div>
-                                <label for="phone" class="">Your Phone #</label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-md-4">
-                            <div class="md-form mb-0">
-                                <input type="text" id="email" name="email" class="form-control">
-                                <div class="invalid-feedback">
-                                    Please type your email here first.
-                                </div>
-                                <label for="email" class="">Your email</label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-
-                    </div>
-                    <!--Grid row-->
-
-
-                    <!--Grid row-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="md-form mb-0">
-                                <input type="text" id="subject" name="subject" class="form-control">
-                                <div class="invalid-feedback">
-                                    Please type the subject here first.
-                                </div>
-                                <label for="subject" class="">Subject</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Grid row-->
-
-                    <!--Grid row-->
-                    <div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-md-12">
-
-                            <div class="md-form">
-                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea mb-02"></textarea>
-                                <div class="invalid-feedback mb-02">
-                                    Please type the message here first.
-                                </div>
-                                <label for="message" class="mb-0">Your message</label>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--Grid row-->
-                    <div class="text-center text-md-left">
-                    <button type="submit" class="btn btn-primary" id="submit-btn">Send</button>
-                </div>
-                <div class="status"></div>
-
-                </form>
-
-
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-md-3 text-center">
-                <ul class="list-unstyled mb-0">
-                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                        <p>6707 Brentwood Stair Rd, Suite 205 Fort Worth, Texas 76112</p>
-                    </li>
-
-                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                        <p>OFFICE:&nbsp; 817 888 3255</p>
-                    </li>
-
-                     <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                        <p>FAX:&nbsp; 817 332 8825</p>
-                    </li>
-
-                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                        <p>starcsf@gmail.com</p>
-                    </li>
-                </ul>
-            </div>
-            <!--Grid column-->
-
-        </div>
-
-    </section>
-    <!--Section: Contact v.2-->
+   </div>
 
     </div>
-
-
-
 	</header>
-
 
 
 	<!---- Footer   ---->
     <footer class="text-center">
-			<div id="footer-placeholder">
-			</div>
-
-			<script>
-			$("#footer-placeholder").load("footer.html");
-			</script>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p>Copyright © Star Sponsorship Program Incorporated. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
     </footer>
-
 
 	<!-- Switched to Non-local Scripts instead -->
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -262,15 +205,10 @@
 	<!-- Standard jquery library -->
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
 	<script src="js/elementFade.js"></script>
 	<!--  	<script src="js/elementFadeInFadeOut.js"></script>-->
 	<script src="js/navigationAnimation.js"></script>
-
-    <script type="module" src="js/auth.js"></script>
-
 	<!--	  	<script src="js/navScroll.js"></script>-->
 
-  <script src="js/contact.js"></script>
   </body>
 </html>

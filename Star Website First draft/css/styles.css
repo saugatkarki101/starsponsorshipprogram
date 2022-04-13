@@ -7,7 +7,7 @@ body{
     background-image: -o-linear-gradient(270deg,rgba(229,228,225,1.00) 0%,rgba(147,147,147,1.00) 100%,rgba(76,84,196,1.00) 100%);
     background-image: linear-gradient(180deg,rgba(229,228,225,1.00) 0%,rgba(147,147,147,1.00) 100%,rgba(76,84,196,1.00) 100%);
 	padding-top: 7em;
-
+	
 }
 
 
@@ -28,26 +28,21 @@ a:focus{
     border-color: transparent;
     font-size: 12px;
     padding: 10px 5px 10px 5px;
-
+    
 }
 
-/* This removes an element from screen (could be used for admin with js to enable when authenticated) */
-.hiddenElement
-{
-    display: none !important;
-}
 
-/* Used to fade in elements on scroll (element is still on page but invisible! ) */
-.hideme{
-	opacity:0;
-}
-
+/*Post font Color*/
+/*.mb-2{
+	
+	color:aliceblue;
+}*/
 
 /* Link Styling */
 a:hover {
 /*  color: #0056b3;*/
 	color: #B37D26;
-
+  
 }
 
 a {
@@ -58,9 +53,9 @@ a {
 }
 
 .iconContainer{
-
+	
 	padding-bottom: 3em;
-
+	
 }
 
 .successBTN{
@@ -107,7 +102,7 @@ a {
   .iconAnim {
  	animation: wipe-enter 1s 1;
   }
-
+	
 }
 
 
@@ -129,7 +124,10 @@ a {
     border-style: solid;*/
 }
 
-
+/* Used to fade in elements on scroll */
+.hideme{
+	opacity:0;
+}
 
 .h2{
 	color: #1B1B1B;
@@ -140,13 +138,13 @@ a {
   margin-left: 0rem !important;
 }
 
-/* Change Selection Text Color When Highlighting */
+/* Change Selection Text Color When Highlighting */ 
 
-::-moz-selection { background-color: #262626;
+::-moz-selection { background-color: #262626; 
 
-color: #fff; }
+color: #fff; } 
 
-::selection { background-color: #262626;
+::selection { background-color: #262626; 
 
 color: #fff; }
 
@@ -188,7 +186,7 @@ color: #fff; }
 	box-shadow: none !important;
     border-top: none !important;
 	border-bottom: 0px !important;
-
+	
 }
 
 /* Remove Firefox dotted outline when clicking links */
@@ -215,7 +213,7 @@ color: #fff; }
 .jumbotron{
 	background-color: #83090B !important;
 /*	background-image: url(../images/jumbo.jpg);*/
-	background-image: url("../images/jumbotron/jumbo3.jpg");
+	background-image: url("../images/jumbotron/jumbo3.png");
 }
 
 .btn-dnt{
@@ -319,69 +317,6 @@ color: #fff; }
     font-size: 0.75em;
 }
 
-/* Save Changes and Login button Styles */
-#saveChanges{
-    background-color: green !important;
-    border-color: #358652 !important;
-    display: none;
-}
-
-#saveChanges:not(:disabled):not(.disabled):active, #saveChanges:not(:disabled):not(.disabled).active,
-.show > #saveChanges.dropdown-toggle {
-  color: #fff;
-  background-color: #459A38;
-    border-color: #4FB954;
-}
-
-#saveChanges:not(:disabled):not(.disabled):active:focus, #saveChanges:not(:disabled):not(.disabled).active:focus,
-.show > #saveChanges.dropdown-toggle:focus {
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(36,255,68,0.50);
-	box-shadow: 0 0 0 0.2rem rgba(36,255,95,0.50);
-}
-
-/* Btn Login Styling */
-.btn-login{
-    margin-left: 12px;
-    background-color: green !important;
-    border-color: #358652 !important;
-    display: none;
-}
-
-.btn-login:focus, .btn-login.focus, #saveChanges.focus {
-    color: #fff;
-    background-color: #429A38;
-    border-color: #4FB975;
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(15,100,14,0.50);
-    box-shadow: 0 0 0 0.2rem rgba(14,100,16,0.50);
-}
-
-.btn-login:hover, #saveChanges:hover {
-    color: #fff;
-    background-color: #5FD04D;
-    border-color: #4DD058;
-}
-
-.btn-login.disabled, .btn-login:disabled, #saveChanges.disabled, #saveChanges:disabled {
-  color: #fff;
-  background-color: #389A3A;
-    border-color: #4FB968;
-}
-
-.btn-login:not(:disabled):not(.disabled):active, .btn-login:not(:disabled):not(.disabled).active,
-.show > .btn-login.dropdown-toggle {
-  color: #fff;
-  background-color: #459A38;
-    border-color: #4FB954;
-}
-
-.btn-login:not(:disabled):not(.disabled):active:focus, .btn-login:not(:disabled):not(.disabled).active:focus,
-.show > .btn-login.dropdown-toggle:focus {
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(36,255,68,0.50);
-	box-shadow: 0 0 0 0.2rem rgba(36,255,95,0.50);
-}
-
-
-
 .btn-primary.disabled, .btn-primary:disabled {
   color: #CDCDCD;
   text-decoration: line-through;
@@ -421,8 +356,8 @@ a.dropdown-item.active{
     background-image: -moz-linear-gradient(270deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
     background-image: -o-linear-gradient(270deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
     background-image: linear-gradient(180deg,rgba(251,251,251,1.00) 0%,rgba(213,213,213,1.00) 100%,rgba(193,193,193,1.00) 100%);
-
-
+	
+	
 }
 
 
@@ -455,7 +390,7 @@ a.dropdown-item.active{
 
 
 
-
+	
 /* Button Styles */
 .btnWidth {
 	width: 60% !important;
@@ -466,7 +401,7 @@ a.dropdown-item.active{
 	width: 18% !important;
 	height: 100% !important;
 	margin-right: 3.5em;
-
+    
 }
 
 
@@ -496,88 +431,64 @@ a.dropdown-item.active{
 
 /* Media Queries  @media screen and (min-width:768px) and (max-width:990px) */
 @media screen and (max-width:990px){
-
-    .btn-dnt{
-	font-size: 0.75em;
-	margin-right: 0!important;
-}
-
-    .btn-login{
-    margin-left: 0px !important;
-    margin-top: 10px !important;
-    width: 6.2em !important;
-}
-
-    #learnMore{
-        width: 6.2em !important;
-        font-size: 11px !important;
-    }
-
-     #saveChanges{
-        width: 7em !important;
-        font-size: 11px !important;
-        text-align: center !important;
-         padding:7px 5px 5px 5px !important;
-    }
-
 	body{
 		padding-top: 9em;
 	}
-
+	
 .successBTN{
 	width: 100%;
 }
-
+	
 	.learnMoreWidth{
 		width: 45% !important;
 		height: 100% !important;
 		margin: auto;
 		font-size: 1.1em;
 	}
-
+	
 	.text-gold{
 		font-size: 3.5em;
 	}
-
+	
 	.nav-item{
 		width: 30%;
 	}
 
 	.navbar-collapse{
 		/*Some of these prevented collapse animation*/
-
+		
 /*		height:375px; */
 		padding-bottom: 25px;
 		/* transition: 0.4s; */
 		/*z-index: 1089;*/
 	}
-
-
+	
+	
 	.navbar-toggler{
 /*		margin: inherit;*/
 /*		margin-top: 8px;*/
 		margin-bottom: 0.5em;
 	}
-
+	
 	.navbar-nav{
 		margin-bottom: 20px;
 	}
-
+	
 	.navbar-expand-lg{
 		margin-bottom: 50px;
 		padding-bottom: 23px;
 	}
-
+	
 	.logoHeading{
 		width:65%;
 	}
+	
 
-
-
+	
 	/* Use !important to make sure that JavaScript doesn't override the padding on small screens */
-
-
-
+	
+	
+	
 
 }
 
@@ -585,18 +496,4 @@ a.dropdown-item.active{
 #logoAnimation {
 }
 .logoHeading {
-}
-
-
-.rowhideme{
-    width: 100%;
-    padding: 50px 1vw;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 100px;
-}
-
-.name{
-    margin: 10px 0 20px;
-    line-height: 30px;
 }
