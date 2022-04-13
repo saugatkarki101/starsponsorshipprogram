@@ -3,11 +3,31 @@ body{
 	padding-top: 7em;
 }
 
+#menu
+{
+  cursor: pointer;
+}
+#dropDownMenu
+{
+  display: none;
+}
+
+#dropDownMenu.show
+{
+  display: block;
+}
+
+#featuredBlog
+{
+  height: 500px;
+}
+
 .form-group{
 	padding-top: 1.1em;
 }
 
 .btn-outline-primary{
+  
 	color:#fff;
 	background-color:#8C6423;
 	border-color:transparent;
@@ -17,6 +37,36 @@ body{
 	color:#fff;
 	background-color:#B57F27;
 	border-color:transparent;
+}
+
+.btn-outline-primary.show
+{
+  cursor: not-allowed;
+  color: black;
+  background-color: transparent;
+  border-color: black;
+
+}
+
+.btn-outline-secondary{
+	color:#fff;
+	background-color:#8C6423;
+	border-color:transparent;
+}
+
+.btn-outline-secondary:hover{
+	color:#fff;
+	background-color:#B57F27;
+	border-color:transparent;
+}
+
+.btn-outline-secondary.show
+{
+  cursor: not-allowed;
+  color: black;
+  background-color: transparent;
+  border-color: black;
+
 }
 
 
@@ -193,20 +243,26 @@ h1, h2, h3, h4, h5, h6 {
  
 	padding-top: 9em;	
 }
-	
-	/*.form-group{
-		margin:auto;
-		padding-right:0%;
-		width: 25em;;
-		padding-top: 15em;
-		align-items: left;
-	}
 
-	.mx-3{
-		
-		padding-top: 15em;
+.date
+{
+  display: flex;
+  flex-direction: column;
+}
 
-	}*/
+
+#dropDown
+{
+  margin: 0;
+  padding: 0;
+}
+
+#dropDownMenu
+{
+  max-height:40px;/*The important part*/
+  overflow-y:auto;/*Also...*/
+  overflow-x:hidden;/*And the end of the important part*/
+}
 
 	
 }

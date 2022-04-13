@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, updatePassword } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 import { getFirestore, collection, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
 
@@ -32,12 +32,12 @@ const analytics = getAnalytics(app);
 const auth = getAuth();
 
 export {
-    auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged 
+    auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, updatePassword 
 }
 
   //Initialize Firebase Functions
   const db = getFirestore(app);
-  const storage = getStorage();
+  const storage = getStorage(app);
   const database = getDatabase();
 
 

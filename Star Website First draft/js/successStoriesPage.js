@@ -14,7 +14,7 @@ const description = document.querySelector('.description');
 
 //
 const createStory = (node) => {
-    outer.innerHTML +=  `<img src="${node.val().image}" alt="" class="story-image">`;
+    outer.innerHTML +=  `<img src="${node.val().image}" alt="" class="story-image img-fluid" height="650" width="550">`;
     personName.innerHTML += node.val().name;
     description.innerHTML += node.val().desc;
 }
@@ -33,11 +33,10 @@ get(child(dbref,"success-stories")).then((snapshot)=>{
         {
             //stores the counter of the story the reader wants to read
             storyCounter = snapshot2.val().counter;   
-            console.log("this: ",storyCounter)
+
             //Goes through every story
             snapshot.forEach(node =>{
                 if(node.val().counter==storyCounter)
-//                if(node.key==storyCounter)
                 {
                     createStory(node);
                 }

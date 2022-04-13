@@ -57,3 +57,67 @@ if(check)
   }
   )
 }
+
+//This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. . 
+function myfunc(num)
+{
+    console.log("CurrentCounter: ",num)
+
+    update(ref(database,'CurrentCounter'),{
+        counter: num
+      });
+}
+
+//Function within modules won't be available to access globally.
+//So, it needs to be attached to window.
+window.myfunc = myfunc
+
+
+const storyContainer = document.querySelector('.rowhideme');
+
+
+//This creates a new section with every other success story 
+const createCards = (node) => {
+
+  /*
+  successStoriesSection.innerHTML += `
+  <div class="succStoriesCard" id="succStoriesCardID">
+
+  <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>
+      <img src="${node.val().image}" class="image" alt="">
+      <h1 class="name">${node.val().name.substring(0, 100)}</h1>
+      <p class="desc">${node.val().desc.substring(0, 200) + '...'}</p>
+      <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read more..</a>
+  </div>
+  `;    
+  */
+  const first = node.val().name.split(/\s+(.*)/);
+  const firstName = first[0]
+  storyContainer.innerHTML += `
+                <div>
+                  <img class="rounded-circle content-o" alt="140x140" style="width: 200px; height: 200px;" src="${node.val().image}" data-holder-rendered="true">
+
+                  <h3 class="name">${node.val().name.substring(0, 100)}</h3>
+                  <p>${node.val().desc.substring(0, 200) + '...'}</p>
+                  <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" id="readButton"  role="button" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read ${firstName}'s story&nbsp; &nbsp;</a>
+                  <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="successStoriesPage.html" role="button" 
+                  onclick="myfunc(${node.val().counter})>Read more...&nbsp; &nbsp;</a>
+                </div>
+          `
+}
+
+var storyCounter = 0;
+get(child(dbref,"success-stories")).then((snapshot)=>{
+  if(snapshot.exists())
+  {
+      snapshot.forEach(node =>{
+          //This ensures only 3 stories are shown in the homepage
+          if(storyCounter < 3)
+          {
+            //every dataset related to every story is passed one by one to createCards() function
+            createCards(node);
+          }
+          storyCounter++;
+      })
+  }
+}) //End Create Card code

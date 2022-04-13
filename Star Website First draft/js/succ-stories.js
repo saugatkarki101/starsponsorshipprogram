@@ -1,4 +1,4 @@
-import {db, database, storage} from './firebase.js';
+import {db, database, storage, auth, onAuthStateChanged} from './firebase.js';
 import {getDatabase, ref, set, child, update, remove, get, push} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 import {getStorage, ref as sRef, uploadBytes, uploadBytesResumable, getDownloadURL  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
 import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapshot, where, query, updateDoc, deleteField  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
@@ -6,18 +6,14 @@ import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapsho
 
 const dbref = ref(database, 'success-stories');
 const dbref2 = ref(database);
-
+var counter = 0;
 
 //Initializing an instance of the database stored in the firebase. 
 //const dbref = ref(database);
 
 
-
-
-
-
 $.noConflict();
-var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+var validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/webp"];
 
 //---- Image Validation (Not fully functioning) ----//
 $(document).ready(function()
@@ -118,6 +114,7 @@ function save()
             {
                 var userName = document.getElementById('succ-name').value;
                 var editDesc = document.getElementById('succ-descr').value;
+                var counter = parseInt(dateStr);
               
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => 
                 {
@@ -127,6 +124,7 @@ function save()
                         "fname": fileCompleteName,
                         "desc": editDesc,
                         "name": userName,
+                        "counter": counter,
                     };
 
                     const newPostRef = push(dbref);
@@ -150,7 +148,8 @@ function save()
                                 $("#result").attr("class", "fadeOut");
                                 //$("#result").addClass("animate__fadeOut animate__slower");
 
-                            },5000);    
+                            },1500);
+                            location.reload();    
                         })
                         .catch((error) =>
                         {
@@ -162,7 +161,7 @@ function save()
             }
         );
     });
-
+    
 } //End Save Function
 
 
@@ -199,19 +198,16 @@ if(check)
     )
 }
 
-//var currentKey
 
 //This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. . 
 function myfunc(num)
 {
-//    console.log("CurrentCounter: ",currentKey)
-
+    console.log("CurrentCounter: ",num)
 
     update(ref(database,'CurrentCounter'),{
         counter: num
-      }); 
+      });
 }
-
 
 //Function within modules won't be available to access globally.
 //So, it needs to be attached to window.
@@ -271,20 +267,59 @@ const createCards = (node) => {
         <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>
         <img src="${node.val().image}" class="image" alt="">
         <h1 class="name">${node.val().name.substring(0, 100)}</h1>
-        <p class="desc">${node.val().desc.substring(0, 200) + '...'}</p> 
+        <p class="desc">${node.val().desc.substring(0, 200) + '...'}</p>
         <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read more..</a>
-        </div> 
+    </div>
     `;    
 }
 
 
 get(child(dbref2,"success-stories")).then((snapshot)=>{
-
     if(snapshot.exists())
     {
         snapshot.forEach(node =>{
             //every dataset related to every story is passed one by one to createCards() function
             createCards(node);
         })
+
+        //Auth State Changed Code, Jquery to hide the cross buttons (Only way that worked for me)
+        onAuthStateChanged(auth, (user) => {
+            $(document).ready(function() {
+                if(user) {
+                    const uid = user.uid;
+                    $('*[id*=crossButton]:invisible').each( function(i){
+                        $(this).show();
+                    });
+        
+                }
+                else{
+                    //Start Disable Cross Button
+                    $('*[id*=crossButton]:visible').each( function(i){
+                        $(this).hide();
+                    });    
+                    //End Disable Cross Button
+                }
+            });//End Document.Ready Jquery
+        }); //End Auth State Changed
     }
-  })
+  }) //End Create Card code
+
+  onAuthStateChanged(auth, (user) => {
+    // Elements to show/hide
+    const successContainer = document.getElementById("success_container");
+    //const deleteStory = document.getElementById("crossButton")
+    if(user) {
+        const uid = user.uid;
+
+        if(successContainer) {successContainer.style.display = "block"};
+        // Redirects to home page when user is logged in
+        console.log("Check Status: User signed in.");
+    }
+    else {
+
+        if(successContainer) {successContainer.style.display = "none"};
+        //if(deleteStory) {deleteStory.style.display = "none"};
+        console.log("Check Status: User logged out.");
+    }
+});
+
