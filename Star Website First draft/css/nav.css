@@ -1,0 +1,15 @@
+a {
+    color: #831313;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #D03636;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.btn-cp {
+    padding: 0.65em;
+}

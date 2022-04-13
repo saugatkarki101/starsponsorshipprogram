@@ -13,25 +13,6 @@
 	<!--    <link href="bootstrap-4.4.1.css" rel="stylesheet">-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-	<style type="text/css">
-
-			.disabled {
-		}
-			.bg-trans {
-		}
-			.bg-primary-gradient {
-		}
-			.anim {
-		}
-		.a-blog {
-		}
-		.blog {
-		}
-		.containter-lg {
-		}
-		.body {
-		}
-	</style>
 
 	<style>
 	.bd-placeholder-img {
@@ -62,8 +43,9 @@
 	<link href="css/navigationAnimation.css" rel="stylesheet" type="text/css">
 
 	<!-- Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker-SemiBold">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,6 +63,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+  <!-- End Fonts -->
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
@@ -92,75 +78,20 @@
 	<script>var __adobewebfontsappname__="starSpons"</script>
 	<script src="http://use.edgefonts.net/alex-brush:n4:default;alexa-std:n4:default;allan:n7:default;allura:n4:default;kristi:n4:default;changa-one:n4:default;carter-one:n4:default;bubblegum-sans:n4:default;advent-pro:n4:default;actor:n4:default;abel:n4:default.js" type="text/javascript"></script>
 
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
   </head>
+
   <body>
-	<!-- Navbar Functionality -->
-    <nav class="navbar navbar-expand-lg navbar-light ml-lg-5 bg-light fixed-top primary-nav" id="primary-nav" data-toggle="affix">
-      <a class="navbar-brand" href="index.html">
-		<img src="images/logos/logo.png" alt="" class="logo animate__animated animate__bounceInLeft" id="navBrand" title="Star Sponsorship!">
-	  </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="navToggler"> <span class="navbar-toggler-icon"></span> </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle animate__animated animate__fadeIn" href="#"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-					About STAR
-<!--					<span class="sr-only">(current)</span>-->
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			<!--
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-			-->
-			<!--							<div class="dropdown-divider"></div>-->
-							<a class="dropdown-item" href="meet_the_board.html">Meet The Board</a>
-							<a class="dropdown-item" href="about.html">About STAR</a>
-				</div>
-			</li>
-			<li class="nav-item active"> <a class="nav-link animate__animated animate__fadeIn" href="vision.html">The Vision</a> </li>
-			<!-- <li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="our_scholarships.html">Our Scholarships</a> </li> -->
-			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="success_stories.html">Success Stories</a> </li>
-			<li class="nav-item dropdown">
-				<a class="nav-link disabled dropdown-toggle animate__animated animate__fadeIn" href="#"  id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-expanded="false">
-					Testimonials
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-			<!--
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-			-->
-			<!--							<div class="dropdown-divider"></div>-->
-							<a class="dropdown-item" href="testimonials.html">Testimonials</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="star_graduates.html">STAR Graduates</a>
-							<a class="dropdown-item" href="star_contributors.html">STAR Contributors</a>
 
-				</div>
-			</li>
-			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="newsletters.html">Newsletters</a> </li>
-			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="blog.html">Blog</a> </li>
-			<li class="nav-item"> <a class="nav-link disabled animate__animated animate__fadeIn" href="faq.html">FAQ</a> </li>
-			<li class="nav-item"> <a class="nav-link disabled animate__animated animate__fadeIn" href="contact.html">Contact &amp; Directions </a> </li>
+	<!--Navigation bar-->
+	  <div id="nav-placeholder">
+	  </div>
 
-          <!--<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>-->
-<!--          <li class="nav-item"> <a class="nav-link disabled" href="#">Disabled</a> </li>-->
-        </ul>
-		  <a class="btn btn-primary animate__animated animate__fadeIn btn-lg btn-dnt" href="#" role="button">DONATE</a>
-		  <a class="btn btn-primary animate__animated btn-lg btn-adm btn-success animate__fadeIn" href="login.html" role="button">ADMIN</a>
-        <!--<form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>-->
-
-      </div>
-    </nav>
+	  <script>
+	  $("#nav-placeholder").load("nav.html");
+	  </script>
+  <!--end of Navigation bar-->
 
 
 	<!---- Main Jumbotron   ---->
@@ -180,7 +111,7 @@
 					</div>
 				  <br>
 
-				 </div> 
+				 </div>
 			</div>
 		</div>
 
@@ -191,14 +122,14 @@
 		   </div>-->
 		</div>
 	</header>
-	  
+
     <setion>
         <div class="container bottomText">
-         <div class="container hideme"><h1 class="animate__animated tagline animate__fadeIn animate__slow text-dark ">WHAT WE PROVIDE</h1></div>
-           <p class="mainText hideme">We provide a unique type of charity investment in that donors can actually see their gift at work when they receive a letter from their student, or report card results. We maintain an ongoing communication through quarterly newsletters, report card distribution and ongoing correspondence from the student to their donor.</p>
+         <div class="container"><h1 class="animate__animated tagline animate__fadeIn animate__slow text-dark ">WHAT WE PROVIDE</h1></div>
+           <p class="mainText ">We provide a unique type of charity investment in that donors can actually see their gift at work when they receive a letter from their student, or report card results. We maintain an ongoing communication through quarterly newsletters, report card distribution and ongoing correspondence from the student to their donor.</p>
 
 			 <!-- Video Embed -->
-		   <div class="container hideme">
+		   <div class="container ">
 					<!-- <h1 class="text-center">Star Sponsorship Program</h1>-->
 				<div class="embed-responsive embed-responsive-16by9">
 					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/43vIE1CxHVY"></iframe>
@@ -207,59 +138,34 @@
 
 			 </div>
         </div>
-        
+
         <div class="jumbotron text-white">
         <div class="container">
-           <div class="container hideme"><h1 class="animate__animated tagline animate__fadeIn animate__slow text-gold">SUCCESS</h1></div>
-		   <p class="mainText hideme">STAR students have shown that they are capable of great accomplishments through their dedication to academic excellence. The knowledge that someone outside their family and school cares about them as a person and about their future provides them with immeasurable hope and inspiration. They understand that their sponsors keep track of their academic progress, which fosters in them a strong work ethic and sense of personal responsibility. Students are achieving the honor roll time and again, winning top student awards, participating in academic summer programs and later succeeding in high school, and college. We take confidence knowing these students are well prepared for their future as tomorrow’s leaders.</p>
-				 
-			<div class="container"><img class="img-fluid img-padding hideme" src="images/vision/IMG_30421.jpg" alt=""> </div>
+           <div class="container "><h1 class="animate__animated tagline animate__fadeIn animate__slow text-gold">SUCCESS</h1></div>
+		   <p class="mainText ">STAR students have shown that they are capable of great accomplishments through their dedication to academic excellence. The knowledge that someone outside their family and school cares about them as a person and about their future provides them with immeasurable hope and inspiration. They understand that their sponsors keep track of their academic progress, which fosters in them a strong work ethic and sense of personal responsibility. Students are achieving the honor roll time and again, winning top student awards, participating in academic summer programs and later succeeding in high school, and college. We take confidence knowing these students are well prepared for their future as tomorrow’s leaders.</p>
 
-			<p class="mainText paddingBottom hideme">Sponsors have the opportunity to watch a child grow and progress each year through pictures, letters, and report cards. They gain a connection with these children and tangible evidence of how they are impacting the future, one child at a time. Sponsors often meet with their students as they “graduate” from 8th grade and the STAR Program. The excitement on these students’ faces displays their gratitude and understanding of the importance of education and the opportunity they have been afforded. The hearts and lives of the children, their families, and their sponsors are touched in a unique and lasting way.</p>
-        </div>
-            
-        </div>
-        
+			<div class="container"><img class="img-fluid img-padding " src="images/vision/IMG_30421.jpg" alt=""> </div>
 
-    </setion> 
+			<p class="mainText paddingBottom ">Sponsors have the opportunity to watch a child grow and progress each year through pictures, letters, and report cards. They gain a connection with these children and tangible evidence of how they are impacting the future, one child at a time. Sponsors often meet with their students as they “graduate” from 8th grade and the STAR Program. The excitement on these students’ faces displays their gratitude and understanding of the importance of education and the opportunity they have been afforded. The hearts and lives of the children, their families, and their sponsors are touched in a unique and lasting way.</p>
+        </div>
+
+        </div>
+
+
+    </setion>
+
 
 
 	<!---- Footer   ---->
     <footer class="text-center">
-      <!--<div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p>Copyright © Star Sponsorship Program Incorporated. All rights reserved.</p>
-          </div>
-        </div>
-      </div>-->
-		 <div class="container">
-            <div class="row">
-                <div class="col-md-4"><span class="copyright">Copyright&nbsp;© Star Sponsorship Program 2022</span></div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item"><a class="navbar-brand" href="https://www.facebook.com/starsponsorshippg/">
-							<img src="icons/facebook.svg" alt="" width="32px" height="32px" class="" title="Facebook"></a></li>
-						<li class="list-inline-item"><a class="navbar-brand" href="https://twitter.com/starsponsorship">
-							<img src="icons/twitter.svg" alt="" width="32px" height="32px" class="" title="Twitter"></a></li>
-						<li class="list-inline-item"><a class="navbar-brand" href="https://www.youtube.com/channel/UCKmyO633AQl_gteADxLKSIg">
-							<img src="icons/youtube.svg" alt="" width="32px" height="32px" class="" title="YouTube"></a></li>
-						<li class="list-inline-item"><a class="navbar-brand" href="https://www.linkedin.com/company/33225374/admin/">
-							<img src="icons/linkedin.svg" alt="" width="32px" height="32px" class="" title="Linkedin"></a></li>
-						<li class="list-inline-item"><a class="navbar-brand" href="https://www.instagram.com/starsponsorship/">
-							<img src="icons/instagram.svg" alt="" width="32px" height="32px" class="" title="Instagram"></a></li>
+			<div id="footer-placeholder">
+			</div>
 
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+			<script>
+			$("#footer-placeholder").load("footer.html");
+			</script>
     </footer>
+
 
 	<!-- Switched to Non-local Scripts instead -->
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -272,6 +178,7 @@
 	<script src="js/elementFade.js"></script>
 	<!--  	<script src="js/elementFadeInFadeOut.js"></script>-->
 	<script src="js/navigationAnimation.js"></script>
+    <script type="module" src="js/auth.js"></script>
 	<!--	  	<script src="js/navScroll.js"></script>-->
 
   </body>
