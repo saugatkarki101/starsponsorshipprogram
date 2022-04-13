@@ -1,6 +1,6 @@
 .story-image{
     margin-top: 50px;
-    width: 270px;
+    /*width: 270px;*/
     height: 350px;
     object-fit: cover;
     border-radius: 50px;
