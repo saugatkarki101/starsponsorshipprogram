@@ -1,6 +1,55 @@
 /* CSS Document */
 
-.text-dark{
+.headerText{
+    font-weight: 600;
+    letter-spacing: -4px;
+}
+
+.padding-extend{
+    padding-bottom: 0.5em;
+}
+
+/* Make the form default to not show */
+#board_container{
+    display: none;
+    /*display: block; */
+}
+
+
+.name{
+    text-align: center;
+    margin: 10px 0 20px;
+    font-family: 'Lato', sans-serif;
+    max-width: 250px;
+    overflow-wrap: break-word;
+    padding-bottom: 90px;
+    max-height: 90px;
+    word-spacing: 9999999999px;
+}
+
+.desc{
+    padding-bottom: 60px;
+    max-height: 60px;
+    text-align: center;
+    
+}
+
+.btn.dark{
+    color: rgb(94, 27, 27);
+}
+
+.board-image
+{
+    width: 300px;
+    height: 300px;
+    border-radius: 0px;
+    margin-bottom: 10px;
+}
+
+    
+    
+/* Hard coded Styles */
+.tagline{
     letter-spacing: -4px;
 }
 
