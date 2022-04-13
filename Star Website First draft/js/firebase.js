@@ -5,7 +5,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, se
 import { getFirestore, collection, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
 
-import {getDatabase, ref, set, child, update, remove} from 
+import {getDatabase, ref, set, child, update, remove} from
 "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 
 
@@ -32,12 +32,12 @@ const analytics = getAnalytics(app);
 const auth = getAuth();
 
 export {
-    auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, updatePassword 
+    auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, updatePassword
 }
 
   //Initialize Firebase Functions
   const db = getFirestore(app);
-  const storage = getStorage();
+  const storage = getStorage(app);
   const database = getDatabase();
 
 

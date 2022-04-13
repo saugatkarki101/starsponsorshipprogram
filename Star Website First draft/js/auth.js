@@ -12,7 +12,7 @@ if(changePasswordForm){
 
         updatePassword(user, newPassword).then(() => {
             //Update Successful
-            document.getElementById("CP_Header").style.display = "none";            
+            document.getElementById("CP_Header").style.display = "none";
             document.getElementById("inputPassword").style.display = "none";
             document.getElementById("CP_Done").style.display = "none";
             document.getElementById("CP_Message").style.display = "block";
@@ -32,7 +32,7 @@ const signInForm = document.querySelector('#form-signin');
 if(signInForm){
     signInForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         // get user info
         const email = signInForm['inputEmail'].value;
         const password = signInForm['inputPassword'].value;
@@ -80,11 +80,11 @@ if(forgotpassword){
         console.log(email);
         sendPasswordResetEmail(auth, email).then(() => {
             console.log('Password Reset Email Sent Successfully!');
-            document.getElementById("FP_Header").style.display = "none";            
+            document.getElementById("FP_Header").style.display = "none";
             document.getElementById("inputEmail").style.display = "none";
             document.getElementById("FP_Send").style.display = "none";
             document.getElementById("FP_Message").style.display = "block";
-            
+
             forgotpassword.querySelector('.error').innerHTML = '';
         })
         .catch(error => {
@@ -161,19 +161,19 @@ onAuthStateChanged(auth, (user) => {
     const addUsers = document.getElementById("addUsers");
     const changePassword = document.getElementById("changePassword");
     const fab = document.getElementById("fab-btn");
-    
+
     //Find All ContentEditable Boxes and disable
     var editable_elements = document.querySelectorAll("[contenteditable=true]");
-    
+
     for(var i=0; i<editable_elements.length; i++)
         editable_elements[i].setAttribute("contenteditable", false);
 
     if(user) {
         const uid = user.uid;
-        
+
         //Allow content editables to be manipulated by user
         editable_elements = document.querySelectorAll("[contenteditable=false]");
-        
+
         for(var i=0; i<editable_elements.length; i++)
             editable_elements[i].setAttribute("contenteditable", true);
 

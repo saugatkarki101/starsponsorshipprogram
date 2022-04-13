@@ -26,13 +26,13 @@ var storyCounter= 0;
 get(child(dbref,"success-stories")).then((snapshot)=>{
     if(snapshot.exists())
     {
-       //CurrentCounter stores the counter for the specific story which the reader wants to read. 
-       //So, we retrieve the story whose counter is equal to CurrentCounter. 
+       //CurrentCounter stores the counter for the specific story which the reader wants to read.
+       //So, we retrieve the story whose counter is equal to CurrentCounter.
        get(child(dbref,"CurrentCounter")).then((snapshot2)=>{
         if(snapshot2.exists())
         {
             //stores the counter of the story the reader wants to read
-            storyCounter = snapshot2.val().counter;   
+            storyCounter = snapshot2.val().counter;
 
             //Goes through every story
             snapshot.forEach(node =>{
@@ -41,7 +41,7 @@ get(child(dbref,"success-stories")).then((snapshot)=>{
                     createStory(node);
                 }
             })
-    
+
         }})
     }
   })

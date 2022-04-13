@@ -496,7 +496,7 @@ a.dropdown-item.active{
 
 /* Media Queries  @media screen and (min-width:768px) and (max-width:990px) */
 @media screen and (max-width:990px){
-    
+
     .btn-dnt{
 	font-size: 0.75em;
 	margin-right: 0!important;
@@ -585,4 +585,18 @@ a.dropdown-item.active{
 #logoAnimation {
 }
 .logoHeading {
+}
+
+
+.rowhideme{
+    width: 100%;
+    padding: 50px 1vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 100px;
+}
+
+.name{
+    margin: 10px 0 20px;
+    line-height: 30px;
 }
