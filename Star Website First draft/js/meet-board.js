@@ -3,7 +3,7 @@ import {getDatabase, ref, set, child, update, remove, get, push} from "https://w
 import {getStorage, ref as sRef, uploadBytes, uploadBytesResumable, getDownloadURL  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
 import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapshot, where, query, updateDoc, deleteField  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 
-
+const user = auth.currentUser;
 const dbref = ref(database, 'meet-board');
 const dbref2 = ref(database);
 var counter = 0;

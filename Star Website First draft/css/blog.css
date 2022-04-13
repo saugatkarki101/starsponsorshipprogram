@@ -3,6 +3,12 @@ body{
 	padding-top: 7em;
 }
 
+/* Make the form default to not show */
+#blog_container{
+    display: none;
+    /*display: block; */
+}
+
 #menu
 {
   cursor: pointer;

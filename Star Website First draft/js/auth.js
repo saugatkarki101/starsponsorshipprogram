@@ -161,6 +161,8 @@ onAuthStateChanged(auth, (user) => {
     const addUsers = document.getElementById("addUsers");
     const changePassword = document.getElementById("changePassword");
     const fab = document.getElementById("fab-btn");
+    //const deleteBlog = document.getElementById("deleteBlog");
+    //const removeFeature = document.getElementById("makeFeaturedBlog");
 
     //Find All ContentEditable Boxes and disable
     var editable_elements = document.querySelectorAll("[contenteditable=true]");
@@ -185,6 +187,10 @@ onAuthStateChanged(auth, (user) => {
         //if(addUsers) {addUsers.style.display = "block"};
         if(changePassword) {changePassword.style.display = "block"};
         if(fab) {fab.style.display = "none"};
+        
+        //Make buttons available if admin is signed in
+        //if(deleteBlog) {deleteBlog.style.display = "block"}; 
+        //if(removeFeature) {removeFeature.style.display = "block"};
         // Redirects to home page when user is logged in
         console.log("Check Status: Admin signed in.");
     }
@@ -197,6 +203,8 @@ onAuthStateChanged(auth, (user) => {
         if(fab) {fab.style.display = "flex"};
         //if(addUsers) {addUsers.style.display = "none"};
         if(changePassword) {changePassword.style.display = "none"};
+        //if(deleteBlog) {deleteBlog.style.display = "none"}; 
+        //if(removeFeature) {removeFeature.style.display = "none"};
         console.log("Check Status: Admin logged out.");
     }
 });

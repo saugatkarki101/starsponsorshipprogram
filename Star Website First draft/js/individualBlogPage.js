@@ -1,9 +1,9 @@
-import {db, database, storage} from './firebase.js';
+import {db, database, storage, auth, onAuthStateChanged} from './firebase.js';
 import {getDatabase, ref, set, child, update, remove, get, push} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 import {getStorage, ref as sRef, uploadBytes, uploadBytesResumable, getDownloadURL, deleteObject  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
 import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapshot, where, query, updateDoc, deleteField  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 
-
+const user = auth.currentUser;
 const dbref = ref(database);
 const dbref2 = ref(database);
 
@@ -18,6 +18,28 @@ const btns = document.querySelector('.Btns');
 
 console.log("cheak")
 
+
+// Check User Status
+onAuthStateChanged(auth, (user) => {
+    // Elements to show/hide
+    const deleteBlog = document.getElementById("deleteBlog");
+    const removeFeature = document.getElementById("makeFeaturedBlog");
+
+    if(user) {
+        const uid = user.uid;
+        
+        //Make buttons available if admin is signed in
+        deleteBlog.style.display = "block";
+        removeFeature.style.display = "block";
+     
+        console.log("Check Status: Admin signed in.");
+    }
+    else {
+        deleteBlog.style.display = "none"; 
+        removeFeature.style.display = "none";
+        console.log("Check Status: Admin logged out.");
+    }
+});
 
 
 function deletefunc(num)
@@ -57,7 +79,8 @@ function deletefunc(num)
                             remove(ref(database,"blogs/"+node.key))
                             //After the story is successfully removed, we reload the window. 
                             alert("The blog has been deleted!")
-                            location.reload()
+                            //location.reload()
+                            window.location.href = "blog.html";
                         }
 
                     })
@@ -147,7 +170,7 @@ const createBlog = (node) => {
 
     outer.innerHTML +=  `<img src="${node.val().image}" alt="" class="story-image img-fluid" height="650" width="550">`;
     blogTitle.innerHTML += node.val().name;
-    description.innerHTML += node.val().desc;
+    description.innerHTML += node.val().desc;    
 }
 
 const createBlog2 = (node) => {
@@ -224,6 +247,29 @@ get(child(dbref,"blogs")).then((snapshot)=>{
   })
 
 
+
+
+    // Check User Status
+onAuthStateChanged(auth, (user) => {
+    // Elements to show/hide
+    const deleteBlog = document.getElementById("deleteBlog");
+    const removeFeature = document.getElementById("makeFeaturedBlog");
+
+    if(user) {
+        const uid = user.uid;
+        
+        //Make buttons available if admin is signed in
+        deleteBlog.style.display = "block";
+        removeFeature.style.display = "block";
+     
+        console.log("Check Status: Admin signed in.");
+    }
+    else {
+        deleteBlog.style.display = "none"; 
+        removeFeature.style.display = "none";
+        console.log("Check Status: Admin logged out.");
+    }
+});
 
 
 
