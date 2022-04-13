@@ -1,0 +1,18 @@
+.about-h2 {
+    font-family: 'Abel', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 250%;
+    color: #BB292B !important;
+}
+
+/* Customize name of person */
+.container strong {
+    font-size: 1.3em !important;
+    color:#FFFFFF;
+}
+
+.donate-icon{
+    font-size: 1.4em !important;
+    vertical-align: top !important;
+}

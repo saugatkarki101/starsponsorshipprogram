@@ -1,0 +1,62 @@
+/* CSS Document */
+
+.text-dark{
+    letter-spacing: -4px;
+}
+
+/* Customize name of person */
+.testi-container span {
+    font-family: 'Bebas Neue', serif;
+    font-size: 1.5em !important;
+}
+
+
+
+ /* Style the container with a rounded border, grey background and some padding and margin */
+.testi-container {
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+/* Clear floats after containers */
+.testi-container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Float images inside the container to the left. Add a right margin, and style the image as a circle */
+.testi-container img {
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+/* Increase the font-size of a span element */
+.testi-container span {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.test-image{
+    border-radius: 0% !important;
+    float: none !important;
+    margin: 0px;
+    align-content: left;
+}
+
+/* Add media queries for responsiveness. This will center both the text and the image inside the container */
+@media (max-width: 500px) {
+  .testi-container {
+    text-align: center;
+  }
+
+  .testi-container img {
+    margin: auto;
+    float: none;
+    display: block;
+  }
+} 

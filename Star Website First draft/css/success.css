@@ -30,5 +30,84 @@
     margin-bottom: 2em;
 }
 
+/* Make the form default to not show */
+#success_container{
+    display: none;
+}
+
+.successStories-section{
+    width: 100%;
+    padding: 30px 1vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 60px;
+}
+
+.succStoriesCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.image{
+    width: 270px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    transition: 0.25s;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.image:hover{
+    transform: scale(1.05);
+}
+
+.name{
+    text-align: center;
+    margin: 10px 0 20px;
+    font-family: 'Lato', sans-serif;
+    max-width: 250px;
+    overflow-wrap: break-word;
+    padding-bottom: 90px;
+    max-height: 90px;
+    word-spacing: 9999999999px;
+}
+
+.desc{
+    padding-bottom: 60px;
+    max-height: 60px;
+    text-align: center;
+
+}
+
+.btn.dark{
+    color: rgb(94, 27, 27);
+}
+
+.story-image
+{
+    width: 300px;
+    height: 300px;
+    border-radius: 0px;
+    margin-bottom: 10px;
+}
 
 
+/* Media Queries  @media screen and (min-width:768px) and (max-width:990px) */
+@media screen and (max-width:990px){
+
+    .successStories-section{
+    width: 100%;
+    padding: 50px 1vw;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) !important;
+    grid-gap: 100px;
+}
+
+
+
+}

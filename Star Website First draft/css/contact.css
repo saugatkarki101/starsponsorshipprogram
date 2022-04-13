@@ -1,0 +1,51 @@
+/* CSS Document */
+
+ .google-maps {
+    position: relative;
+    padding-bottom: 25%; 
+    height: 0;
+    overflow: hidden;
+  }
+  .google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+.contact-title{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 100% !important;
+    background-color: #3D3D3D;
+    padding: 2em;
+    letter-spacing: -5px;
+}
+
+.text-white-gray{
+    color:#939393;
+}
+
+.mb-0{
+    font-size: 1.3em;
+}
+
+
+.mb-02 {
+    font-family: 'Bebas Neue', serif;
+    font-size: 1em !important;
+}
+
+/* Add media queries for responsiveness. This will center both the text and the image inside the container */
+@media (max-width: 500px) {
+    
+     .google-maps {
+    position: relative;
+    padding-bottom: 25%; 
+    height: 0;
+    width: 25em !important;
+    overflow: hidden;
+  }
+    
+}

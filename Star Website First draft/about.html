@@ -12,25 +12,7 @@
 	<!-- Bootstrap -->
 	<!--    <link href="bootstrap-4.4.1.css" rel="stylesheet">-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-	<style type="text/css">
 
-			.disabled {
-		}
-			.bg-trans {
-		}
-			.bg-primary-gradient {
-		}
-			.anim {
-		}
-		.a-blog {
-		}
-		.blog {
-		}
-		.containter-lg {
-		}
-		.body {
-		}
-	</style>
 
 	<style>
 	.bd-placeholder-img {
@@ -60,8 +42,9 @@
 	<link href="css/navigationAnimation.css" rel="stylesheet" type="text/css">
 
 	<!-- Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker-SemiBold">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,6 +62,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+  <!-- End Fonts -->
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
@@ -86,141 +73,102 @@
 	<link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
 	<!-- Blog styles -->
 	<link href="css/blog.css" rel="stylesheet">
+    <link href="css/about.css" rel="stylesheet">
 
 	<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
 	<script>var __adobewebfontsappname__="starSpons"</script>
 	<script src="http://use.edgefonts.net/alex-brush:n4:default;alexa-std:n4:default;allan:n7:default;allura:n4:default;kristi:n4:default;changa-one:n4:default;carter-one:n4:default;bubblegum-sans:n4:default;advent-pro:n4:default;actor:n4:default;abel:n4:default.js" type="text/javascript"></script>
 
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
   </head>
+
   <body>
-	<!-- Navbar Functionality -->
-    <nav class="navbar navbar-expand-lg navbar-light ml-lg-5 bg-light fixed-top primary-nav" id="primary-nav" data-toggle="affix">
-      <a class="navbar-brand" href="index.html">
-		<img src="images/logos/logo.png" alt="" class="logo animate__animated animate__bounceInLeft" id="navBrand" title="Star Sponsorship!">
-	  </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="navToggler"> <span class="navbar-toggler-icon"></span> </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-			<li class="nav-item dropdown active">
-				<a class="nav-link dropdown-toggle animate__animated animate__fadeIn" href="#"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-					About STAR
-<!--					<span class="sr-only">(current)</span>-->
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			<!--
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-			-->
-			<!--							<div class="dropdown-divider"></div>-->
-							<a class="dropdown-item" href="meet_the_board.html">Meet The Board</a>
-							<a class="dropdown-item active" href="about.html">About STAR</a>
-				</div>
-			</li>
-			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="vision.html">The Vision</a> </li>
-			<!-- <li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="our_scholarships.html">Our Scholarships</a> </li> -->
-			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="success_stories.html">Success Stories</a> </li>
-			<li class="nav-item dropdown">
-				<a class="nav-link disabled dropdown-toggle animate__animated animate__fadeIn" href="#"  id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-expanded="false">
-					Testimonials
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-			<!--
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-			-->
-			<!--							<div class="dropdown-divider"></div>-->
-							<a class="dropdown-item" href="testimonials.html">Testimonials</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="star_graduates.html">STAR Graduates</a>
-							<a class="dropdown-item" href="star_contributors.html">STAR Contributors</a>
 
-				</div>
-			</li>
-			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="newsletters.html">Newsletters</a> </li>
-			<li class="nav-item"> <a class="nav-link animate__animated animate__fadeIn" href="blog.html">Blog</a> </li>
-			<li class="nav-item"> <a class="nav-link disabled animate__animated animate__fadeIn" href="faq.html">FAQ</a> </li>
-			<li class="nav-item"> <a class="nav-link disabled animate__animated animate__fadeIn" href="contact.html">Contact &amp; Directions </a> </li>
+	<!--Navigation bar-->
+	  <div id="nav-placeholder">
+	  </div>
 
-          <!--<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>-->
-<!--          <li class="nav-item"> <a class="nav-link disabled" href="#">Disabled</a> </li>-->
-        </ul>
-		  <a class="btn btn-primary animate__animated animate__fadeIn btn-lg btn-dnt" href="#" role="button">DONATE</a>
-		  <a class="btn btn-primary animate__animated btn-lg btn-adm btn-success animate__fadeIn" href="login.html" role="button">ADMIN</a>
-        <!--<form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>-->
-
-      </div>
-    </nav>
-
+	  <script>
+	  $("#nav-placeholder").load("nav.html");
+	  </script>
+  <!--end of Navigation bar-->
 
 	<!---- Main Jumbotron   ---->
 	<header>
-    <div class="jumbotron text-white">
-  <h1 class="text-center animate__animated tagline animate__fadeIn animate__slow text-gold">Making a Difference One Student At a Time.</h1>
+		<div class="jumbotron text-white">
 
+            <div class="container">
+              <h1 class="animate__animated tagline animate__fadeIn animate__slow text-gold">ABOUT STAR</h1>
+                <h2 class="text-white about-h2">History and Mission</h2>
+                 <div class="container">
+                   <p class="mainText animate__fadeIn">The STAR (<strong>S</strong>uccess <strong>T</strong>hrough <strong>A</strong>cademic <strong>R</strong>eadiness) Sponsorship Program, Inc. was founded in 1993 by a group of compassionate business and community leaders with the desire to provide a choice in education for low-income children. In the fall of 1998, STAR expanded by partnering with a national effort called the Children’s Scholarship Fund. In large cities, up to 50% of low income and minority students may drop out of school before graduating. This lack of education makes the task of improving economic opportunities and redressing social inequities even more difficult.</p>
 
+                    <p class="mainText mainText animate__animated animate__fadeIn">The founders believe every child hungers for knowledge. Elementary schools can satisfy this hunger for learning. Children learn values at an early age; therefore, it is crucial that fundamentals are established in their primary years of life. Schools challenge children to reach their potential and help prepare them for the future. Sometimes schools do not meet the child’s needs. Parents need the ability to make a choice that is right for their child.</p>
 
-    <div class="container"><img src="images/logos/logoFullWG.svg" alt="" width = "290" class="center animate__animated animate__fadeIn animate__slower logo" />
-    <!--<div class="row">
-      <div class="col-sm-4 col-auto mx-auto">  </div>
-      <div class="col-sm-4 col-auto mx-auto">  </div>
-      <div class="col-sm-4 col-auto mx-auto"> <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__bounceInDown" href="#" title="">LEARN MORE</a></div>
-    </div>-->
+                    <p class="mainText mainText animate__animated animate__fadeIn">The STAR Sponsorship Program, Inc. uniquely offers this opportunity. We provide the financial means in Tarrant County for low-income parents to choose a better fit for their child. We partner with the parents in the process, thereby establishing a link that ties children, parents, schools, and communities together. It is increasingly clear that education is essential if students at all socioeconomic levels feel a part of what has been called the American Dream–a chance to work hard, excel, and reap the rewards–both personally and in the marketplace. Truly, a solid foundation in education is the gateway to addressing the issues of poverty-related problems affecting Fort Worth and Tarrant County at large.</p>
 
-    <div class="row">
-      <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__fadeIn learnMoreWidth" href="about.html" title="">LEARN MORE</a>
-    </div>
+                     <div class="container"><img class="img-fluid img-padding animate__animated animate__fadeIn" src="images/about/DSC_0165-21.jpg" alt=""> </div>
 
-   </div>
-
-    </div>
+              </div>
+            </div>
+		</div>
 	</header>
+
+    <setion>
+        <div class="container bottomText">
+         <div class="container "><h2 class="animate__animated tagline animate__fadeIn animate__slow about-h2 ">How the Program Works?</h2></div>
+            <p class="mainText ">The STAR Sponsorship Program, Inc. teams a child with a sponsor to give the child an opportunity for a better education. Our sponsors believe in the importance of a good education and invest in the future by sponsoring a child. The program motivates students to achieve their full academic potential.</p>
+
+            <p class="mainText ">STAR students correspond with their sponsor by sending letters, artwork, schoolwork, and photographs, and they strive for A/B Honor Roll. STAR monitors each child’s academic journey and updates the donors through quarterly report cards and letters noting compliance with program expectations. In the process, students gain a new perspective on the importance of education and limitless opportunities that lay ahead.</p>
+
+            <p class="mainText ">The program’s objective is to provide a chance for low-income students to attend a private school. STAR Sponsorship Program, Inc. operates on the premise that all children need social and academic skills in order to compete effectively in the future.</p>
+
+            <p class="mainText ">Students see education through a new perspective.  They are challenged and eager to achieve success. Teachers report students are more apt to seek help. Parents report their children are excited about learning. Principals report STAR students are natural leaders and set the benchmark for excellence, thereby, elevating the entire expectation. Sponsors report gratification when the children thank them for their sponsorship and support.</p>
+
+            <div class="container"><img class="img-fluid img-padding " src="images/about/Legg-Porter-visit-to-Calvary.jpg" alt=""> </div><br>
+
+            <div class="row">
+                    <div class="col-sm-4 col-auto mx-auto"> <a id="donate-info-btn" class="btn btn-block btn-lg btn-primary" href="donate.html" role="button"><span class="material-icons donate-icon">request_quote</span> Click For Donation Info</a> </div>
+
+            </div><br><br>
+        </div>
+
+        <div class="jumbotron text-white">
+        <div class="container">
+           <div class="container "><h2 class="animate__animated tagline animate__fadeIn animate__slow about-h2">Where do we get the STAR students?</h2></div>
+		   <p class="mainText ">Oftentimes, parents will call due to word-of-mouth recommendations or their own research.  Schools also recommend students.</p>
+
+            <p class="mainText ">Each STAR student, with the help of the family, must be willing to put forth the extra effort needed to meet the program requirements. Parents apply annually. A teacher/principal recommendation, most recent report card, and financial documentation are also required.</p>
+
+			<div class="container"><img class="img-fluid img-padding " src="images/about/Dr.-Ferris-with-8th-grade-grads.jpg" alt=""> </div>
+
+			<p class="mainText paddingBottom ">Sponsors have the opportunity to watch a child grow and progress each year through pictures, letters, and report cards. They gain a connection with these children and tangible evidence of how they are impacting the future, one child at a time. Sponsors often meet with their students as they “graduate” from 8th grade and the STAR Program. The excitement on these students’ faces displays their gratitude and understanding of the importance of education and the opportunity they have been afforded. The hearts and lives of the children, their families, and their sponsors are touched in a unique and lasting way.</p>
+        </div>
+
+        </div>
+
+        <div class="container bottomText">
+         <div class="container "><h2 class="animate__animated tagline animate__fadeIn animate__slow about-h2 ">How Star is Funded?</h2></div>
+            <p class="mainText ">STAR solicits the community for financial support. Since its inception, the tuition grants STAR has awarded to under-served students has created over $19.1 million in economic benefits for our served students and their families.  Many times the school will award additional financial aid in order for a family to be able to afford the private school’s total tuition. The family is expected to contribute their part of the tuition, provide their student’s uniform, and is responsible for all other costs, such as registration and book fees.</p>
+
+            <p class="mainText ">100% of the donor’s gift that is allocated for scholarships is funded towards scholarships. The Board of Directors provides and seeks the funding for operating overhead. STAR Sponsorship Program, Inc. is a non-profit 501(c) (3) corporation, as defined by the Internal Revenue Code.  Contributions to the STAR Sponsorship Program, Inc. are fully tax deductible.</p> <br>
+
+        </div>
+
+
+    </setion>
+
 
 
 	<!---- Footer   ---->
     <footer class="text-center">
-      <!--<div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p>Copyright © Star Sponsorship Program Incorporated. All rights reserved.</p>
-          </div>
-        </div>
-      </div>-->
-		 <div class="container">
-            <div class="row">
-                <div class="col-md-4"><span class="copyright">Copyright&nbsp;© Star Sponsorship Program 2022</span></div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item"><a class="navbar-brand" href="https://www.facebook.com/starsponsorshippg/">
-							<img src="icons/facebook.svg" alt="" width="32px" height="32px" class="" title="Facebook"></a></li>
-						<li class="list-inline-item"><a class="navbar-brand" href="https://twitter.com/starsponsorship">
-							<img src="icons/twitter.svg" alt="" width="32px" height="32px" class="" title="Twitter"></a></li>
-						<li class="list-inline-item"><a class="navbar-brand" href="https://www.youtube.com/channel/UCKmyO633AQl_gteADxLKSIg">
-							<img src="icons/youtube.svg" alt="" width="32px" height="32px" class="" title="YouTube"></a></li>
-						<li class="list-inline-item"><a class="navbar-brand" href="https://www.linkedin.com/company/33225374/admin/">
-							<img src="icons/linkedin.svg" alt="" width="32px" height="32px" class="" title="Linkedin"></a></li>
-						<li class="list-inline-item"><a class="navbar-brand" href="https://www.instagram.com/starsponsorship/">
-							<img src="icons/instagram.svg" alt="" width="32px" height="32px" class="" title="Instagram"></a></li>
+			<div id="footer-placeholder">
+			</div>
 
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+			<script>
+			$("#footer-placeholder").load("footer.html");
+			</script>
     </footer>
 
 	<!-- Switched to Non-local Scripts instead -->
@@ -234,6 +182,7 @@
 	<script src="js/elementFade.js"></script>
 	<!--  	<script src="js/elementFadeInFadeOut.js"></script>-->
 	<script src="js/navigationAnimation.js"></script>
+    <script type="module" src="js/auth.js"></script>
 	<!--	  	<script src="js/navScroll.js"></script>-->
 
   </body>
