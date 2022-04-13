@@ -91,14 +91,37 @@ const createCards = (node) => {
   </div>
   `;
   */
+
+  //-------- Hard Coded Featured Success Stories ----------//
+  /*
+  <div class="col-lg-4 col-md-6 col-sm-4 text-center">
+    <img class="rounded-circle content-o" alt="140x140" style="width: 200px; height: 200px;" src="images/kids/sam.png" data-holder-rendered="true">
+
+    <h3>Sam Smith</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="#" role="button">READ SAM'S STORY&nbsp; &nbsp;</a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+    <img class="rounded-circle " alt="140x140" style="width: 200px; height: 200px;" src="images/kids/tiffany.png" data-holder-rendered="true">
+    <h3>Tiffany Johnson</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="#" role="button">READ TIFFANY'S STORY&nbsp;&nbsp;</a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+    <img class="rounded-circle " alt="140x140" style="width: 200px; height: 200px;" src="images/kids/jenny.png" data-holder-rendered="true">
+    <h3>Jenny Hill</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="#" role="button">READ JENNY'S STORY&nbsp;&nbsp;</a>
+	</div> */
+
+
   const first = node.val().name.split(/\s+(.*)/);
   const firstName = first[0]
   storyContainer.innerHTML += `
-                <div>
-                  <img class="rounded-circle content-o" alt="140x140" style="width: 200px; height: 200px;" src="${node.val().image}" data-holder-rendered="true">
+                <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                  <img class="rounded-circle content-o" alt="140x140" style="width: 200px; height: 200px; object-fit: cover;" src="${node.val().image}" data-holder-rendered="true">
 
                   <h3 class="name">${node.val().name.substring(0, 100)}</h3>
-                  <p>${node.val().desc.substring(0, 200) + '...'}</p>
+                  <p>${node.val().desc.substring(0, 85) + '...'}</p>
                   <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" id="readButton"  role="button" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read ${firstName}'s story&nbsp; &nbsp;</a>
                   <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="successStoriesPage.html" role="button"
                   onclick="myfunc(${node.val().counter})>Read more...&nbsp; &nbsp;</a>

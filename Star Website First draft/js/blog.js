@@ -246,8 +246,8 @@ const createCards = (node) => {
     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" id="featuredBlog">
     <div class="col-auto d-none d-lg-block " >
     <!--<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
-  <img src="${node.image}"   height="250" width="540" style ="object-fit:cover" "
-    alt=""/> </div><div class="col p-4 d-flex flex-column position-static " id="featured" m-0 >
+  <img src="${node.image}"   height="250" width="540" style="object-fit: cover;"
+    alt="image"/> </div><div class="col p-4 d-flex flex-column position-static " id="featured" m-0 >
       <h3 class="mb-0">${node.name.substring(0, 100)}</h3>
       <div class="mb-1 text-muted">${months[node.month-1]+' '+node.day+', '+node.year}</div>
       <p class="card-text mb-auto">${node.desc.substring(0, 200) + '...'}</p>
@@ -476,6 +476,29 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
             )
         }
         */
+        
+        
+        
+        /* ---------- Used to Disable/Enable the Form based on Authorization -------------*/
+
+  onAuthStateChanged(auth, (user) => {
+    // Elements to show/hide
+    const boardContainer = document.getElementById("blog_container");
+    //const deleteStory = document.getElementById("crossButton")
+    if(user) {
+        const uid = user.uid;
+
+        if(boardContainer) {boardContainer.style.display = "block"};
+        // Redirects to home page when user is logged in
+        console.log("Check Status: User signed in.");
+    }
+    else {
+
+        if(boardContainer) {boardContainer.style.display = "none"};
+        //if(deleteStory) {deleteStory.style.display = "none"};
+        console.log("Check Status: User logged out.");
+    }
+});
 
         //Auth State Changed Code, Jquery to hide the cross buttons (Only way that worked for me)
         onAuthStateChanged(auth, (user) => {

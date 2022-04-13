@@ -591,9 +591,9 @@ a.dropdown-item.active{
 .rowhideme{
     width: 100%;
     padding: 50px 1vw;
-    display: grid;
+    /*display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 100px;
+    grid-gap: 100px; */
 }
 
 .name{
