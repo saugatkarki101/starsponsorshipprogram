@@ -223,9 +223,7 @@ window.updateBlogCounter = updateBlogCounter
 
 
 
-const blogSection = document.querySelector('#firstRow');
-const dropDownSection = document.querySelector("#dropDownMenu")
-const blogListSection = document.querySelector(".blog-post")
+
 const olderBtn = document.querySelector("#olderBtn")
 const newerBtn = document.querySelector("#newerBtn")
 
@@ -240,47 +238,61 @@ var months = ["January","February","March","April","May","June","July","August",
 
 //This creates a new section with every other success story 
 const createCards = (node) => {
-
-    blogSection.innerHTML += `
-    <div class="col-md-6" >
-    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" id="featuredBlog">
-    <div class="col-auto d-none d-lg-block " >
-    <!--<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
-  <img src="${node.image}"   height="250" width="540" object-fit="cover" "
-    alt=""/> </div><div class="col p-4 d-flex flex-column position-static " id="featured" m-0 >
-      <h3 class="mb-0">${node.name.substring(0, 100)}</h3>
-      <div class="mb-1 text-muted">${months[node.month-1]+' '+node.day+', '+node.year}</div>
-      <p class="card-text mb-auto">${node.desc.substring(0, 200) + '...'}</p>
-      <a href="individualBlogPage.html" onClick="updateBlogCounter(${node.counter})" class="stretched-link">Continue reading</a>
-    </div>
-    </div>
- </div>
-    `;    
+    const blogSection = document.querySelector('#firstRow');
+    if(blogSection)
+    {
+        blogSection.innerHTML += `
+        <div class="col-md-6" >
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" id="featuredBlog">
+        <div class="col-auto d-none d-lg-block " >
+        <!--<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+      <img src="${node.image}"   height="250" width="540" object-fit="cover" "
+        alt=""/> </div><div class="col p-4 d-flex flex-column position-static " id="featured" m-0 >
+          <h3 class="mb-0">${node.name.substring(0, 100)}</h3>
+          <div class="mb-1 text-muted">${months[node.month-1]+' '+node.day+', '+node.year}</div>
+          <p class="card-text mb-auto">${node.desc.substring(0, 200) + '...'}</p>
+          <a href="individualBlogPage.html" onClick="updateBlogCounter(${node.counter})" class="stretched-link">Continue reading</a>
+        </div>
+        </div>
+     </div>
+        `;    
+    
+    }
 }
 
 const createDropDown = (arr) => {
-    dropDownSection.innerHTML += `
-    <li><a style="text-decoration:none;" href="individualBlogPage.html" class="blog"  onclick="updateBlogCounter(${arr.counter})">${months[parseInt(arr.month)-1]+" "+ arr.day+", "+ arr.year}</a></li>
-    `;    
+    const dropDownSection = document.querySelector("#dropDownMenu")
+    //checking to make sure that the html section actually exists. 
+    if(dropDownSection)
+    {
+        dropDownSection.innerHTML += `
+        <li><a style="text-decoration:none;" href="individualBlogPage.html" class="blog"  onclick="updateBlogCounter(${arr.counter})">${months[parseInt(arr.month)-1]+" "+ arr.day+", "+ arr.year}</a></li>
+        `;        
+    }
 }
 
 const createBlogList = (arr) => {
-    blogListSection.innerHTML += `
-    <style>
-    #blogDate{
-        margin: 0;
-        padding: 0;
-    }
-    .blog-post-title
+    const blogListSection = document.querySelector(".blog-post")
+    if(blogListSection)
     {
-        margin: 0;
-        padding: 0;
+        blogListSection.innerHTML += `
+        <style>
+        #blogDate{
+            margin: 0;
+            padding: 0;
+        }
+        .blog-post-title
+        {
+            margin: 0;
+            padding: 0;
+        }
+        </style>
+        <div class="blog-post-meta" id="blogDate">${months[parseInt(arr.month)-1]+" "+ arr.day+", "+ arr.year}</div>
+        <a href="individualBlogPage.html" style="text-decoration:none;color:black;"> <h2 class="blog-post-title" style="cursor:pointer;"  onclick="updateBlogCounter(${arr.counter})">${arr.name}</h2></a>
+        <br>
+        `;    
+    
     }
-    </style>
-    <div class="blog-post-meta" id="blogDate">${months[parseInt(arr.month)-1]+" "+ arr.day+", "+ arr.year}</div>
-    <a href="individualBlogPage.html" style="text-decoration:none;color:black;"> <h2 class="blog-post-title" style="cursor:pointer;"  onclick="updateBlogCounter(${arr.counter})">${arr.name}</h2></a>
-    <br>
-    `;    
 }
 
 
@@ -394,69 +406,83 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
 
         if(Number(sessionStorage.blogCount) === slicedArr.length-1)
         {
-
-            olderBtn.classList.add("show")
+            if(olderBtn)
+            {
+                olderBtn.classList.add("show")
+            }
         }
         if(Number(sessionStorage.blogCount) === 0)
         {
-            newerBtn.classList.add("show")
-        }
-
-
-
-        olderBtn.addEventListener
-        ('click', e =>
-        {
-            if(Number(sessionStorage.blogCount) === slicedArr.length-1)
-            {
-
-                olderBtn.classList.add("show")
-
-            }
-            else
-            {
-                if(olderBtn.classList.contains("show"))
-                {
-                  olderBtn.classList.remove("show")
-                }
-
-
-                sessionStorage.blogCount = Number(sessionStorage.blogCount) + 1
-                if(Number(sessionStorage.blogCount) === slicedArr.length-1)
-                {
-                    olderBtn.classList.add("show")    
-                }
-
-                window.location.reload()    
-            }
-        }
-        )
-
-        newerBtn.addEventListener
-        ('click', e =>
-        {
-            if(Number(sessionStorage.blogCount) === 0)
+            if(newerBtn)
             {
                 newerBtn.classList.add("show")
             }
-            else
+        }
+
+
+        if(olderBtn)
+        {
+            olderBtn.addEventListener
+            ('click', e =>
             {
-                if(newerBtn.classList.contains("show"))
+                if(Number(sessionStorage.blogCount) === slicedArr.length-1)
                 {
-                  newerBtn.classList.remove("show")
+    
+                    olderBtn.classList.add("show")
+    
                 }
+                else
+                {
+                    if(olderBtn.classList.contains("show"))
+                    {
+                      olderBtn.classList.remove("show")
+                    }
+    
+    
+                    sessionStorage.blogCount = Number(sessionStorage.blogCount) + 1
+                    if(Number(sessionStorage.blogCount) === slicedArr.length-1)
+                    {
+                        olderBtn.classList.add("show")    
+                    }
+    
+                    window.location.reload()    
+                }
+            }
+            )
+    
+        }
 
 
-                sessionStorage.blogCount = Number(sessionStorage.blogCount) - 1
+        if(newerBtn)
+        {
+            newerBtn.addEventListener
+            ('click', e =>
+            {
                 if(Number(sessionStorage.blogCount) === 0)
                 {
-                    newerBtn.classList.add("show")    
+                    newerBtn.classList.add("show")
                 }
-
-                window.location.reload()    
+                else
+                {
+                    if(newerBtn.classList.contains("show"))
+                    {
+                      newerBtn.classList.remove("show")
+                    }
+    
+    
+                    sessionStorage.blogCount = Number(sessionStorage.blogCount) - 1
+                    if(Number(sessionStorage.blogCount) === 0)
+                    {
+                        newerBtn.classList.add("show")    
+                    }
+    
+                    window.location.reload()    
+                }
             }
+            )
+    
+
         }
-        )
 
 
 
@@ -501,17 +527,20 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
 
   const menu = document.querySelector('#menu');
   const dropDownMenu = document.querySelector('#dropDownMenu');
+if(menu)
+{
+    menu.addEventListener
+    ('click', e =>
+    {
+        if(dropDownMenu.classList.contains("show"))
+        {
+          dropDownMenu.classList.remove("show")
+        }
+        else
+        {
+          dropDownMenu.classList.add("show")
+        }
+    }
+    )
 
-   menu.addEventListener
-  ('click', e =>
-  {
-      if(dropDownMenu.classList.contains("show"))
-      {
-        dropDownMenu.classList.remove("show")
-      }
-      else
-      {
-        dropDownMenu.classList.add("show")
-      }
-  }
-  )
+}
