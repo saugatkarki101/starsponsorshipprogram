@@ -15,6 +15,7 @@
 
 
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/fab.css" rel="stylesheet" type="text/css">
 	<link href="css/navAdjustments.css" rel="stylesheet" type="text/css">
 
 	<!-- Styles for navigationAnimation.js -->
@@ -61,9 +62,48 @@
 	  </div>
 
 	  <script>
-	  $("#nav-placeholder").load("nav.html");
+          $("#nav-placeholder").load("nav.html");
 	  </script>
   <!--end of Navigation bar-->
+      
+<!------------ FAB ---------->
+<!--
+	<div class="fab-container" id="fab-btn">
+		<div class="fab shadow">
+        <a href="https://give.cornerstone.cc/starcsffw" target="_blank">
+			<div class="fab-content text-white fab-btn">
+                  DONATE
+			</div>
+        </a>
+		</div>
+		<div class="sub-button shadow">
+			<a href="tel:817-888-3255" target="_self">
+			    <span class="material-icons">phone</span>
+			</a>
+		</div>
+		<div class="sub-button shadow">
+			<a href="mailto:starcsf@gmail.com" target="_self">
+			    <span class="material-icons">mail_outline</span>
+			</a>
+		</div>
+		<div class="sub-button shadow">
+			<a href="contact.html" target="_self">
+			    <span class="material-icons">map</span>
+			</a>
+		</div>
+		<div class="sub-button shadow">
+			<a href="donate.html" target="_self">
+			    <span class="material-icons">help_outline</span>
+			</a>
+		</div>
+        <div class="sub-button">
+                <a target="_self">
+                    You can help make a difference!
+                </a>
+        </div>
+	</div>
+-->
+<!------------ End FAB ---------->
 
     <header>
       <div class="jumbotron text-white">
@@ -98,7 +138,7 @@
           <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__bounceInDown hiddenElement" id="saveChanges" href="#" title="">SAVE CHANGES</a>
  </div>
 				<div class="col-sm-4 col-auto mx-auto">
-           <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__bounceInDown" id="learnMore" href="about.html" title="">LEARN MORE</a></div>
+           <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__fadeIn" id="learnMore" href="about.html" title="">LEARN MORE</a></div>
 
 
 			</div>
@@ -109,39 +149,30 @@
       </div>
     </header>
 
-	  <!-- Video Embed -->
-	  <div class="container videoBG animate__animated animate__fadeIn">
-<!--              <h1 class="text-center">Star Sponsorship Program</h1>-->
-		  <div class="embed-responsive embed-responsive-16by9 videoContainer ">
-			<iframe class="embed-responsive-item animate__animated animate__fadeInDownBig videoContainer" src="https://www.youtube.com/embed/ewV30zdsj_4"></iframe>
-		  </div>
-		  <br>
 
-	 </div>
-	 <p>&nbsp;</p>
 
-	  <div class="container iconContainer">
+	  <div class="container iconContainer animate__animated animate__fadeIn">
 		<div class="row">
           <div class="col-lg-4 col-sm-12 text-center col-md-12">
-			  <div class="icon-wrapper hideme">
+			  <div class="icon-wrapper">
 					<div class="iconDiv animate__animated animate__slow" id="iconAnimation1"><img src="icons/emoji-smile-fill.svg" alt="140x140" class="iconSecondary" style="width: 140px; height: 140px;" title="Why Star?" data-holder-rendered="true"></div>
 			  </div>
-            <h3 class="SecondHeading hideme">Why STAR?</h3>
-			  <p class="hideme">The Board of STAR Sponsorship Program, Inc. is dedicated to increasing educational options for children in Tarrant County whose parents do not have the financial means to provide an education best suited to their children’s unique needs...</p>
+            <h3 class="SecondHeading">Why STAR?</h3>
+			  <p class="">The Board of STAR Sponsorship Program, Inc. is dedicated to increasing educational options for children in Tarrant County whose parents do not have the financial means to provide an education best suited to their children’s unique needs...</p>
             </div>
           <div class="col-lg-4 col-sm-12 text-center col-md-12">
-			  <div class="icon-wrapper hideme">
+			  <div class="icon-wrapper">
 					<div class="iconDiv animate__animated animate__slow" id="iconAnimation2"><img src="icons/gift-fill.svg" alt="140x140" class="iconPrimary" style="width: 140px; height: 140px;" title="Why Donate?" data-holder-rendered="true"></div>
 			  </div>
-            <h3 class="SecondHeading hideme">Why Donate?</h3>
-			  	<p class="hideme">Try as we might, we have been unable to meet the demand from parents eager to sacrifice to give their children a better education. We have found most private schools are willing to give tuition discounts...</p>
+            <h3 class="SecondHeading">Why Donate?</h3>
+			  	<p class="">Try as we might, we have been unable to meet the demand from parents eager to sacrifice to give their children a better education. We have found most private schools are willing to give tuition discounts...</p>
 				</div>
 			  <div class="col-lg-4 col-sm-12 text-center col-md-12">
-				  <div class="icon-wrapper hideme">
+			    <div class="icon-wrapper ">
 				  	<div class="iconDiv3 animate__animated animate__slow" id="iconAnimation3"><img src="icons/question-diamond-fill.svg"  alt="140x140" class="iconSecondary" style="width: 140px; height: 140px;" title="Why does it work?" data-holder-rendered="true"></div>
 				  </div>
-            <h3 class="SecondHeading hideme">Why does the STAR program work?</h3>
-			  <p class="hideme">The STAR Program maps out a partnership between donors, schools, and parents. We serve as the liaison between all to coordinate a pathway to success for the children. Schools provide the education, but must agree to provide...</p>
+            <h3 class="SecondHeading ">Why does IT work?</h3>
+			  <p class="">The STAR Program maps out a partnership between donors, schools, and parents. We serve as the liaison between all to coordinate a pathway to success for the children. Schools provide the education, but must agree to provide...</p>
 
 
           </div>
@@ -157,24 +188,31 @@
 	<div class="jumbotron text-white">
 		<div class="row align-content-center">
       <div class="col-12 text-center">
-  				<div class ="animate__animated animate__slower" id="logoAnimation">
-    				<h1 class="text-center ">
-    					<img src="images/logos/logoFullWG.svg" alt="Star Sponsorship" width = "320" >
-    				</h1>
-          </div>
-  						<h2 class="titleTag hideme">FEATURED SUCCESS STORIES&nbsp;&nbsp;</h2>
-  					  <p class="text-center">Check out our past success stories by clicking on the button below. Also check out some of our featured success stories by clicking the red buttons below.</p>
-      				<div class="container successBTN">
-      					<a class="btn btn-block btn-success btn-md btnSquare" href="success_stories.html" title="">ALL SUCCESS STORIES</a>
-      				</div>
-      				<div class="container" id ="idContainer">
-      					<div class = "row hideme rowhideme" id="idRowHideMe">
+  				
+        <h2 class="titleTag ">FEATURED SUCCESS STORIES&nbsp;&nbsp;</h2>
+        <p class="text-center">Check out our past success stories by clicking on the button below. Also check out some of our featured success stories by clicking the red buttons below.</p>
+        <div class="container successBTN">
+        <a class="btn btn-block btn-success btn-md btnSquare" href="success_stories.html" title="">ALL SUCCESS STORIES</a>
+        </div>
+        <div class="container" id ="idContainer">
+            <div class = "row rowhideme" id="idRowHideMe">
 
-      					</div>
-      				</div>
-  			</div>
+            </div>
+        </div>
+    </div>
 		</div>
 	</div>
+      
+      <!-- Video Embed -->
+	  <div class="container videoBG animate__animated animate__fadeIn">
+		  <div class="embed-responsive embed-responsive-16by9 videoContainer ">
+			<iframe class="embed-responsive-item animate__animated animate__fadeInDownBig videoContainer" src="https://www.youtube.com/embed/ewV30zdsj_4"></iframe>
+		  </div>
+		  <br>
+
+	 </div>
+	 <p>&nbsp;</p>
+      <!-- End Video Embed -->  
 
     <section>
       <div class="container ">
@@ -393,11 +431,11 @@
 
     </script>
 
-	<script src="js/elementFade.js"></script>
+	<!--<script src="js/elementFade.js"></script>-->
 	<script src="js/navigationAnimation.js"></script>
 	<!--<script src="js/popper.min.js"></script>-->
-    <script src="js/iconAnim.js"></script>
-  	<script src="js/logoAnim.js"></script>
+    <!--<script src="js/iconAnim.js"></script>-->
+  	<!--<script src="js/logoAnim.js"></script>-->
 
   </body>
   <script type="module" src="js/homepage.js"></script>

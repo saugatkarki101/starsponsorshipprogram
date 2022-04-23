@@ -161,6 +161,7 @@ onAuthStateChanged(auth, (user) => {
     const addUsers = document.getElementById("addUsers");
     const changePassword = document.getElementById("changePassword");
     const fab = document.getElementById("fab-btn");
+    const btnDonateInfo = document.getElementById("donateInfoBtn");
     //const deleteBlog = document.getElementById("deleteBlog");
     //const removeFeature = document.getElementById("makeFeaturedBlog");
 
@@ -187,6 +188,7 @@ onAuthStateChanged(auth, (user) => {
         //if(addUsers) {addUsers.style.display = "block"};
         if(changePassword) {changePassword.style.display = "block"};
         if(fab) {fab.style.display = "none"};
+        if(btnDonateInfo) {btnDonateInfo.style.display = "none"};
         
         //Make buttons available if admin is signed in
         //if(deleteBlog) {deleteBlog.style.display = "block"}; 
@@ -196,11 +198,13 @@ onAuthStateChanged(auth, (user) => {
     }
     else {
         if(signIn) {signIn.style.display = "block"};
+        //if(btnDonateInfo) {signIn.style.display = "block"};
         if(saveChanges) {saveChanges.style.display = "none"};
         if(navLogoutBtn) {navLogoutBtn.style.display = "none"};
         if(donate) {donate.style.display = "block"};
         if(adminButton) {adminButton.style.display = "block"};
         if(fab) {fab.style.display = "flex"};
+        if(btnDonateInfo) {btnDonateInfo.style.display = "block"};
         //if(addUsers) {addUsers.style.display = "none"};
         if(changePassword) {changePassword.style.display = "none"};
         //if(deleteBlog) {deleteBlog.style.display = "none"}; 

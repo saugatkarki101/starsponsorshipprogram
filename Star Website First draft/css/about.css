@@ -1,3 +1,7 @@
+.top-container{
+    margin-top: 4em;
+}
+
 .about-h2 {
     font-family: 'Abel', sans-serif;
     font-style: normal;
@@ -9,10 +13,14 @@
 /* Customize name of person */
 .container strong {
     font-size: 1.3em !important;
-    color:#FFFFFF;
+    color:#BB292B;
 }
 
 .donate-icon{
     font-size: 1.4em !important;
     vertical-align: top !important;
+}
+
+.tagline{
+    letter-spacing: -5px;
 }
