@@ -270,7 +270,7 @@ const createNewsletterList = (arr,temp) => {
         innerSection.innerHTML += `
         <div class="row-md-6" style="padding:10px;">
 
-            <div class="cross" id="crossBtn" onmouseover="" style="cursor: pointer;" onclick="crossFunction(${arr[i].counter})">x</div>
+            <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossFunction(${arr[i].counter})">x</div>
             <style>
             .cross
             {
