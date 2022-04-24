@@ -8,7 +8,7 @@ const dbref = ref(database, 'blogs');
 const dbref2 = ref(database);
 var counter = 0;
 
-//Initializing an instance of the database stored in the firebase. 
+//Initializing an instance of the database stored in the firebase.
 //const dbref = ref(database);
 
 
@@ -46,10 +46,12 @@ $(document).ready(function()
     });
 });
 
+/*
 $(document).ready(function()
 {
 
 });
+*/
 
 //------- Admin Save Changes Function --------//
 function save()
@@ -84,7 +86,7 @@ function save()
     {
         $("success-image").addClass("is-invalid");
         return;
-    } 
+    }
 //-----End Image Validation------//
 
     //------ Firebase Stuff --------//
@@ -93,10 +95,10 @@ function save()
         var name = picture["name"];
         var dateStr = new Date().getTime();
         var fileCompleteName = dateStr + "_" + name ; //Randomize the image name before going into database!
-   
+
         const storageRef = sRef(storage, 'blog-images'); //Create Storage reference
-       
-        const successStorageRef = sRef(storageRef, fileCompleteName); 
+
+        const successStorageRef = sRef(storageRef, fileCompleteName);
 
         const uploadTask = uploadBytesResumable(successStorageRef, picture);
         //Upload Picture
@@ -121,10 +123,10 @@ function save()
                 var month = document.getElementById('month').value;
                 var day = document.getElementById('day').value;
                 var counter = parseInt(dateStr);
-              
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => 
+
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
                 {
-                    var successData = 
+                    var successData =
                     {
                         "image": downloadURL,
                         "fname": fileCompleteName,
@@ -140,7 +142,7 @@ function save()
 
                     set(newPostRef, successData)
                         .then(() => {
-                        
+
                             $("#result").attr("class", "alert alert-success");
                             $("#result").html("Success Story Updated Succesfully!");
 
@@ -158,19 +160,19 @@ function save()
                                 //$("#result").addClass("animate__fadeOut animate__slower");
 
                             },1500);
-                            location.reload();    
+                            location.reload();
                         })
                         .catch((error) =>
                         {
                             $("#result").attr("class", "alert alert-danger");
                             $("#result").html(err.message);
-                        }); 
-                    
+                        });
+
                 });
             }
         );
     });
-    
+
 } //End Save Function
 
 
@@ -193,7 +195,7 @@ function updateHomepage()
 window.updateHomepage = updateHomepage
 
 
-//Checks if a HTML element with id: 'save-blog' is present. 
+//Checks if a HTML element with id: 'save-blog' is present.
 var check = document.getElementById('save-blog');
 
 if(check)
@@ -208,7 +210,7 @@ if(check)
 }
 
 
-//This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. . 
+//This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. .
 function updateBlogCounter(num)
 {
     update(ref(database,'CurrentBlogCounter'),{
@@ -238,7 +240,7 @@ cross.style.color = "white";
 
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
-//This creates a new section with every other success story 
+//This creates a new section with every other success story
 const createCards = (node) => {
 
     blogSection.innerHTML += `
@@ -255,32 +257,42 @@ const createCards = (node) => {
     </div>
     </div>
  </div>
-    `;    
+    `;
 }
 
 const createDropDown = (arr) => {
-    dropDownSection.innerHTML += `
-    <li><a style="text-decoration:none;" href="individualBlogPage.html" class="blog"  onclick="updateBlogCounter(${arr.counter})">${months[parseInt(arr.month)-1]+" "+ arr.day+", "+ arr.year}</a></li>
-    `;    
+    const dropDownSection = document.querySelector("#dropDownMenu")
+    //checking to make sure that the html section actually exists.
+    if(dropDownSection)
+    {
+        dropDownSection.innerHTML += `
+        <li><a style="text-decoration:none;" href="individualBlogPage.html" class="blog"  onclick="updateBlogCounter(${arr.counter})">${months[parseInt(arr.month)-1]+" "+ arr.day+", "+ arr.year}</a></li>
+        `;
+    }
 }
 
 const createBlogList = (arr) => {
-    blogListSection.innerHTML += `
-    <style>
-    #blogDate{
-        margin: 0;
-        padding: 0;
-    }
-    .blog-post-title
+    const blogListSection = document.querySelector(".blog-post")
+    if(blogListSection)
     {
-        margin: 0;
-        padding: 0;
+        blogListSection.innerHTML += `
+        <style>
+        #blogDate{
+            margin: 0;
+            padding: 0;
+        }
+        .blog-post-title
+        {
+            margin: 0;
+            padding: 0;
+        }
+        </style>
+        <div class="blog-post-meta" id="blogDate">${months[parseInt(arr.month)-1]+" "+ arr.day+", "+ arr.year}</div>
+        <a href="individualBlogPage.html" style="text-decoration:none;color:black;"> <h2 class="blog-post-title" style="cursor:pointer;"  onclick="updateBlogCounter(${arr.counter})">${arr.name}</h2></a>
+        <br>
+        `;
+
     }
-    </style>
-    <div class="blog-post-meta" id="blogDate">${months[parseInt(arr.month)-1]+" "+ arr.day+", "+ arr.year}</div>
-    <a href="individualBlogPage.html" style="text-decoration:none;color:black;"> <h2 class="blog-post-title" style="cursor:pointer;"  onclick="updateBlogCounter(${arr.counter})">${arr.name}</h2></a>
-    <br>
-    `;    
 }
 
 
@@ -311,7 +323,7 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
             {
                 if(month1===month2)
                 {
-                    return day1-day2 
+                    return day1-day2
                 }
                 if(month1<month2)
                 return -1
@@ -320,7 +332,7 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
 
             }
             if (year1 < year2)
-            return -1 
+            return -1
             else
             return 1
         })
@@ -333,21 +345,21 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
             {
 
                 //stores the counter of the story the reader wants to read
-                //blogCounter = snapshot2.val().counter;  
+                //blogCounter = snapshot2.val().counter;
 
                 snapshot2.forEach(node2 =>{
-                
+
                             arr.forEach(node => {
 
                                 if(node2.val().Counter == node.counter)
                                 {
                                     createCards(node);
                                 }
-                            })            
+                            })
                 })
 
 
-        
+
                 /*
                 //Goes through every story
                 snapshot.forEach(node =>{
@@ -359,13 +371,13 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
                             //every dataset related to every story is passed one by one to createCards() function
                             createCards(node);
                         }
-     
+
                     })
 
                 })
                 */
             }})
-        
+
 
 
 
@@ -390,73 +402,86 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
 
         slicedArr[i].forEach(node => {
             createBlogList(node);
-        })  
+        })
 
         if(Number(sessionStorage.blogCount) === slicedArr.length-1)
         {
-
-            olderBtn.classList.add("show")
+            if(olderBtn)
+            {
+                olderBtn.classList.add("show")
+            }
         }
         if(Number(sessionStorage.blogCount) === 0)
         {
-            newerBtn.classList.add("show")
-        }
-
-
-
-        olderBtn.addEventListener
-        ('click', e =>
-        {
-            if(Number(sessionStorage.blogCount) === slicedArr.length-1)
-            {
-
-                olderBtn.classList.add("show")
-
-            }
-            else
-            {
-                if(olderBtn.classList.contains("show"))
-                {
-                  olderBtn.classList.remove("show")
-                }
-
-
-                sessionStorage.blogCount = Number(sessionStorage.blogCount) + 1
-                if(Number(sessionStorage.blogCount) === slicedArr.length-1)
-                {
-                    olderBtn.classList.add("show")    
-                }
-
-                window.location.reload()    
-            }
-        }
-        )
-
-        newerBtn.addEventListener
-        ('click', e =>
-        {
-            if(Number(sessionStorage.blogCount) === 0)
+            if(newerBtn)
             {
                 newerBtn.classList.add("show")
             }
-            else
+        }
+
+        if(olderBtn)
+        {
+            olderBtn.addEventListener
+            ('click', e =>
             {
-                if(newerBtn.classList.contains("show"))
+                if(Number(sessionStorage.blogCount) === slicedArr.length-1)
                 {
-                  newerBtn.classList.remove("show")
+
+                    olderBtn.classList.add("show")
+
                 }
+                else
+                {
+                    if(olderBtn.classList.contains("show"))
+                    {
+                      olderBtn.classList.remove("show")
+                    }
 
 
-                sessionStorage.blogCount = Number(sessionStorage.blogCount) - 1
+                    sessionStorage.blogCount = Number(sessionStorage.blogCount) + 1
+                    if(Number(sessionStorage.blogCount) === slicedArr.length-1)
+                    {
+                        olderBtn.classList.add("show")
+                    }
+
+                    window.location.reload()
+                }
+            }
+            )
+
+        }
+
+
+        if(newerBtn)
+        {
+            newerBtn.addEventListener
+            ('click', e =>
+            {
                 if(Number(sessionStorage.blogCount) === 0)
                 {
-                    newerBtn.classList.add("show")    
+                    newerBtn.classList.add("show")
                 }
+                else
+                {
+                    if(newerBtn.classList.contains("show"))
+                    {
+                      newerBtn.classList.remove("show")
+                    }
 
-                window.location.reload()    
+
+                    sessionStorage.blogCount = Number(sessionStorage.blogCount) - 1
+                    if(Number(sessionStorage.blogCount) === 0)
+                    {
+                        newerBtn.classList.add("show")
+                    }
+
+                    window.location.reload()
+                }
             }
+            )
+
+
         }
-        )
 
 
 
@@ -466,7 +491,7 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
 /*        for (let i = 0; i < slicedArr.length ; i++) {
             slicedArr[i].forEach(node => {
                 createBlogList(node);
-            })        
+            })
 
             olderBtn.addEventListener
             ('click', e =>
@@ -476,9 +501,9 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
             )
         }
         */
-        
-        
-        
+
+
+
         /* ---------- Used to Disable/Enable the Form based on Authorization -------------*/
 
   onAuthStateChanged(auth, (user) => {
@@ -507,13 +532,13 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
                     const uid = user.uid;
                     $('*[id*=crossButton]:invisible').each( function(i){
                         $(this).show();
-                    });        
+                    });
                 }
                 else{
                     //Start Disable Cross Button
                     $('*[id*=crossButton]:visible').each( function(i){
                         $(this).hide();
-                    });    
+                    });
                     //End Disable Cross Button
                 }
             });//End Document.Ready Jquery
@@ -524,17 +549,20 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
 
   const menu = document.querySelector('#menu');
   const dropDownMenu = document.querySelector('#dropDownMenu');
-
-   menu.addEventListener
-  ('click', e =>
+  if(menu)
   {
-      if(dropDownMenu.classList.contains("show"))
+      menu.addEventListener
+      ('click', e =>
       {
-        dropDownMenu.classList.remove("show")
+          if(dropDownMenu.classList.contains("show"))
+          {
+            dropDownMenu.classList.remove("show")
+          }
+          else
+          {
+            dropDownMenu.classList.add("show")
+          }
       }
-      else
-      {
-        dropDownMenu.classList.add("show")
-      }
+      )
+
   }
-  )
