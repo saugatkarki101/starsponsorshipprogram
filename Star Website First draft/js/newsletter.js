@@ -87,7 +87,7 @@ function save()
     {
         $("#pdf-file").addClass("is-invalid");
         return;
-    } 
+    }
 
 
 //-----End pdf Validation------//
@@ -98,10 +98,10 @@ function save()
         var name = pdf["name"];
         var dateStr = new Date().getTime();
         var fileCompleteName = dateStr + "_" + name ; //Randomize the image name before going into database!
-   
+
         const storageRef = sRef(storage, 'newsletter-pdf'); //Create Storage reference
-       
-        const successStorageRef = sRef(storageRef, fileCompleteName); 
+
+        const successStorageRef = sRef(storageRef, fileCompleteName);
 
         const uploadTask = uploadBytesResumable(successStorageRef, pdf);
         //Upload pdf
@@ -123,8 +123,8 @@ function save()
                 var year = document.getElementById('year').value;
                 var quarter = document.getElementById('quarter').value;
                 var counter = parseInt(dateStr);
-              
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => 
+
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
                 {
                     var successData =
                     {
@@ -140,7 +140,7 @@ function save()
 
                     set(newPostRef, successData)
                         .then(() => {
-                        
+
                             $("#result").attr("class", "alert alert-success");
                             $("#result").html("Newsletter Updated Succesfully!");
 
@@ -158,24 +158,24 @@ function save()
                                 //$("#result").addClass("animate__fadeOut animate__slower");
 
                             },1500);
-                            location.reload();    
+                            location.reload();
                         })
                         .catch((error) =>
                         {
                             $("#result").attr("class", "alert alert-danger");
                             $("#result").html(err.message);
-                        }); 
-                    
+                        });
+
                 });
             }
         );
     });
-    
+
 } //End Save Function
 
 
 
-//Checks if a HTML element with id: 'save-newsletter' is present. 
+//Checks if a HTML element with id: 'save-newsletter' is present.
 var check = document.getElementById('save-newsletter');
 
 if(check)
@@ -208,10 +208,10 @@ const createNewsletterList = (arr,temp) => {
     </div>
     </div>`;
 
-    newsletterSection.innerHTML += 
+    newsletterSection.innerHTML +=
     `<div class="row mb-2" id="innerSection${temp}">
     </div>
-    `;    
+    `;
 
     const innerSection = document.querySelector(`#innerSection${temp}`);
 
@@ -230,23 +230,23 @@ const createNewsletterList = (arr,temp) => {
     })
 
     function crossFunction(num)
-    { 
+    {
 
         get(child(dbref2,"newsletter")).then((snapshot)=>{
             if(snapshot.exists())
             {
 
                 snapshot.forEach(node =>{
-                    //since the key for each dataset is randomized in firebase, 
+                    //since the key for each dataset is randomized in firebase,
                     //we locate the particular dataset by going through each dataset with success-stories and checking if the
                     // dataset's counter is same as the counter for story which needs to be deleted.
 
                     if(node.val().counter==num)
                     {
-                        alert(`ael newsletter-pdf/${node.val().fname}`)        
+                        alert(`ael newsletter-pdf/${node.val().fname}`)
                         deleteObject(sRef(storage,`newsletter-pdf/${node.val().fname}`))
                         remove(ref(database,"newsletter/"+node.key))
-                        //After the story is successfully removed, we reload the window. 
+                        //After the story is successfully removed, we reload the window.
                         alert("The newsletter has been deleted!")
                         location.reload()
                     }
@@ -277,12 +277,12 @@ const createNewsletterList = (arr,temp) => {
                 position: relative;
                 font-size: 20px;
                 left: 110px;
-            } 
+            }
             </style>
-        
 
-            <div  class="col no-gutters border rounded overflow-hidden flex-md-row  mb-4 shadow-sm h-md-250 position-relative" style="height: 350px; width:230px;" >    
-            <div class="col-auto d-none d-lg-block ">         
+
+            <div  class="col no-gutters border rounded overflow-hidden flex-md-row  mb-4 shadow-sm h-md-250 position-relative" style="height: 350px; width:230px;" >
+            <div class="col-auto d-none d-lg-block ">
             <iframe src="${arr[i].pdf}" frameborder="0" scrolling="no" frameborder="0" height="250px" width="200" style="padding-top:10px;cursor:pointer;"></iframe>
             <div class="col p-4 d-flex flex-column position-static">
             <a style="align-self:center;" target="_blank" href="${arr[i].pdf}"><strong style="cursor:pointer;"class="d-inline-block mb-2 topic-type" >${arr[i].name}</strong></a>
@@ -290,7 +290,7 @@ const createNewsletterList = (arr,temp) => {
             </div>
             </div>
             </div>
-    `;    
+    `;
     }
 }
 
@@ -310,12 +310,12 @@ const createNewsletterList = (arr,temp) => {
             lengthCounter++;
             console.log("arr[counter].year: ",arr[counter].year,"currentYear:",currentYear,"lengthCounter: ",lengthCounter)
             console.log("arr.length:",arr.length)
- 
-            if(parseInt(arr[counter].year)==currentYear)    
+
+            if(parseInt(arr[counter].year)==currentYear)
             {
                 counter++;
-            }  
-            
+            }
+
             else
             {
               console.log("Counter:",counter)
@@ -339,9 +339,9 @@ const createNewsletterList = (arr,temp) => {
 get(child(dbref2,"newsletter")).then((snapshot)=>{
     if(snapshot.exists())
     {
-        //snapshot.val() returns an object which has multiple objects inside of it as key-value pair. 
-        //object.values() function returns an array of given object's values. By extracting what we need and puttting it into an array, 
-        //we can then sort it, reverse it, and make other changes to it more easily now. 
+        //snapshot.val() returns an object which has multiple objects inside of it as key-value pair.
+        //object.values() function returns an array of given object's values. By extracting what we need and puttting it into an array,
+        //we can then sort it, reverse it, and make other changes to it more easily now.
         var arr = Object.values(snapshot.val());
         //this is the sorting function that will sort the array giving most priority to the year value, and then to the quarter value
         arr.sort(function(a,b){
@@ -361,14 +361,14 @@ get(child(dbref2,"newsletter")).then((snapshot)=>{
 
             }
             if (year1 < year2)
-            return -1 
+            return -1
             else
             return 1
         })
 
         arr.reverse();
         console.log(arr)
-    
+
         var slicedArr = split(arr);
         console.log("This is",slicedArr)
         var temp=0;
@@ -376,8 +376,28 @@ get(child(dbref2,"newsletter")).then((snapshot)=>{
             console.log("value of temp: ",temp)
             createNewsletterList(node,temp);
             temp++;
-        })  
+        })
 
+        /* ---------- Used to Disable/Enable the Form based on Authorization -------------*/
+
+          onAuthStateChanged(auth, (user) => {
+            // Elements to show/hide
+            const boardContainer = document.getElementById("blog_container");
+            //const deleteStory = document.getElementById("crossButton")
+            if(user) {
+                const uid = user.uid;
+
+                if(boardContainer) {boardContainer.style.display = "block"};
+                // Redirects to home page when user is logged in
+                console.log("Check Status: User signed in.");
+            }
+            else {
+
+                if(boardContainer) {boardContainer.style.display = "none"};
+                //if(deleteStory) {deleteStory.style.display = "none"};
+                console.log("Check Status: User logged out.");
+            }
+        });
 
         //Auth State Changed Code, Jquery to hide the cross buttons (Only way that worked for me)
         onAuthStateChanged(auth, (user) => {
@@ -386,13 +406,13 @@ get(child(dbref2,"newsletter")).then((snapshot)=>{
                     const uid = user.uid;
                     $('*[id*=crossButton]:invisible').each( function(i){
                         $(this).show();
-                    });        
+                    });
                 }
                 else{
                     //Start Disable Cross Button
                     $('*[id*=crossButton]:visible').each( function(i){
                         $(this).hide();
-                    });    
+                    });
                     //End Disable Cross Button
                 }
             });//End Document.Ready Jquery
