@@ -249,27 +249,27 @@ get(child(dbref,"blogs")).then((snapshot)=>{
 
 
 
-    // Check User Status
-onAuthStateChanged(auth, (user) => {
-    // Elements to show/hide
-    const deleteBlog = document.getElementById("deleteBlog");
-    const removeFeature = document.getElementById("makeFeaturedBlog");
+//     // Check User Status
+// onAuthStateChanged(auth, (user) => {
+//     // Elements to show/hide
+//     const deleteBlog = document.getElementById("deleteBlog");
+//     const removeFeature = document.getElementById("makeFeaturedBlog");
 
-    if(user) {
-        const uid = user.uid;
+//     if(user) {
+//         const uid = user.uid;
         
-        //Make buttons available if admin is signed in
-        deleteBlog.style.display = "block";
-        removeFeature.style.display = "block";
+//         //Make buttons available if admin is signed in
+//         deleteBlog.style.display = "block";
+//         removeFeature.style.display = "block";
      
-        console.log("Check Status: Admin signed in.");
-    }
-    else {
-        deleteBlog.style.display = "none"; 
-        removeFeature.style.display = "none";
-        console.log("Check Status: Admin logged out.");
-    }
-});
+//         console.log("Check Status: Admin signed in.");
+//     }
+//     else {
+//         deleteBlog.style.display = "none"; 
+//         removeFeature.style.display = "none";
+//         console.log("Check Status: Admin logged out.");
+//     }
+// });
 
 
 
