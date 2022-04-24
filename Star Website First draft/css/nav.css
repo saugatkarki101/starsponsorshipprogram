@@ -18,6 +18,10 @@ a:hover {
     border-radius: 40em;
 }
 
+.navbar{
+    font-size: 1.2em;
+}
+
 
 /* Media Queries  @media screen and (min-width:768px) and (max-width:990px) */
 @media screen and (max-width:990px){
