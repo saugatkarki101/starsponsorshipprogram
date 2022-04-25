@@ -163,7 +163,9 @@ onAuthStateChanged(auth, (user) => {
     const fab = document.getElementById("fab-btn");
     const btnDonateInfo = document.getElementById("donateInfoBtn");
     const blogEditButtons = document.getElementById("blogEditButtons");
-
+    const checkMessageBuutton = document.getElementById("CheckMessageButton");
+    const userMessage = document.getElementById("user-message");
+    const adminMessage = document.getElementById("admin-message");
     //Find All ContentEditable Boxes and disable
     var editable_elements = document.querySelectorAll("[contenteditable=true]");
 
@@ -191,6 +193,9 @@ onAuthStateChanged(auth, (user) => {
         
         //Make buttons available if admin is signed in
         if(blogEditButtons) {blogEditButtons.style.display = "block"}; 
+        if(checkMessageBuutton) {checkMessageBuutton.style.display = "block"}; 
+        if(adminMessage) {adminMessage.style.display = "block"}; 
+        if(userMessage) {userMessage.style.display = "none"}; 
         // Redirects to home page when user is logged in
         console.log("Check Status: Admin signed in.");
     }
@@ -206,6 +211,9 @@ onAuthStateChanged(auth, (user) => {
         //if(addUsers) {addUsers.style.display = "none"};
         if(changePassword) {changePassword.style.display = "none"};
         if(blogEditButtons) {blogEditButtons.style.display = "none"}; 
+        if(checkMessageBuutton) {checkMessageBuutton.style.display = "none"}; 
+        if(adminMessage) {adminMessage.style.display = "none"}; 
+        if(userMessage) {userMessage.style.display = "block"}; 
         console.log("Check Status: Admin logged out.");
     }
 });

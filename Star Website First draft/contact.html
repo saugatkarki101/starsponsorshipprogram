@@ -32,7 +32,8 @@
 	</style>
 
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
-  <link href="css/contact.css" rel="stylesheet" type="text/css">
+    <link href="css/contact.css" rel="stylesheet" type="text/css">
+    <link href="css/radiobutton.css" rel="stylesheet" type="text/css">
 
 
 	<!-- Styles for main Navigation adjustments -->
@@ -122,9 +123,22 @@
             <!--Grid column-->
             <div class="col-md-9 mb-md-0 mb-5">
                 <form id="contact-form" name="contact-form" class="contact-form needs-validation">
-
+                    <div class="wrapper">
+                    <input type="radio" name="parentsponsor" id="option-1" value="parents" checked>
+                    <input type="radio" name="parentsponsor" id="option-2" value="sponsors">
+                    <label for="option-1" class="option option-1">
+                        <div class="dot"></div>
+                        <span class="radio-text">PARENTS</span>
+                        </label>
+                    <label for="option-2" class="option option-2">
+                        <div class="dot"></div>
+                        <span class="radio-text">SPONSOR/OTHERS</span>
+                    </label>
+                    
+                    </div>
                     <!--Grid row-->
                     <div class="row">
+                        
 
                         <!--Grid column-->
                         <div class="col-md-4">
@@ -199,12 +213,14 @@
                     <!--Grid row-->
                     <div class="text-center text-md-left">
                     <button type="submit" class="btn btn-primary" id="submit-btn">Send</button>
+                    
                 </div>
                 <div class="status"></div>
+                
 
                 </form>
 
-
+               
             </div>
             <!--Grid column-->
 
@@ -234,12 +250,16 @@
 
     </section>
     <!--Section: Contact v.2-->
-
+    <div id="CheckMessageButton" style="display: none;">
+        <a href="sponsorMessages.html" style="width: fit-content;" class="btn btn-primary">Check Sponsor Messages</a>  
+        <a href="parentsMessages.html" style="width: fit-content;" class="btn btn-primary">Check Parents Messages</a>  
+    </div>
     </div>
 
 
 
 	</header>
+
 
 
 
@@ -271,6 +291,6 @@
 
 	<!--	  	<script src="js/navScroll.js"></script>-->
 
-  <script src="js/contact.js"></script>
+  <script type="module" src="js/contact.js"></script>
   </body>
 </html>
