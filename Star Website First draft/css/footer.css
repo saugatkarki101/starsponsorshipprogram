@@ -1,5 +1,22 @@
 /* CSS Document */
 
+/* Customize name of person */
+.footer-links a {
+    color: #C19C9C;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.footer-links a:hover {
+    color: #973131;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+
+/*
 a {
     color: #C19C9C;
     text-decoration: none;
@@ -12,6 +29,7 @@ a:hover {
     background-color: transparent;
 }
 
+*/
 .left {
  float: left;
  padding: 0 20px 20px 0;
