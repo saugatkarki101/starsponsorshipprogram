@@ -1,0 +1,29 @@
+/* CSS Document */
+
+a {
+    color: #C19C9C;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #973131;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.left {
+ float: left;
+ padding: 0 20px 20px 0;
+}
+
+.right {
+ float: right !important;
+ padding: 0 0 20px 20px;
+}
+
+.ft-title{
+    font-family: 'Bebas Neue', serif;
+    font-size: 22px;
+    color: #DC8989;
+}

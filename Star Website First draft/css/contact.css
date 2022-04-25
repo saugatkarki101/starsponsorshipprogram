@@ -36,6 +36,9 @@
     font-family: 'Bebas Neue', serif;
     font-size: 1em !important;
 }
+.push{
+    margin-bottom:1.5em;
+}
 
 /* Add media queries for responsiveness. This will center both the text and the image inside the container */
 @media (max-width: 500px) {

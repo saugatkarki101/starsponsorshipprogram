@@ -6,8 +6,13 @@ body{
     background-image: -moz-linear-gradient(270deg,rgba(229,228,225,1.00) 0%,rgba(147,147,147,1.00) 100%,rgba(76,84,196,1.00) 100%);
     background-image: -o-linear-gradient(270deg,rgba(229,228,225,1.00) 0%,rgba(147,147,147,1.00) 100%,rgba(76,84,196,1.00) 100%);
     background-image: linear-gradient(180deg,rgba(229,228,225,1.00) 0%,rgba(147,147,147,1.00) 100%,rgba(76,84,196,1.00) 100%);
-	padding-top: 10em;
+	padding-top: 7em;
 
+}
+
+.footer-bg{
+    background-color: #4F1516;
+    padding-top: 20px;
 }
 
 

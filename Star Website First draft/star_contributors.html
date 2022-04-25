@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!--Google Android Theme and Icon-->
-<!--	<meta name="theme-color" content="#0F1567">-->
-	<link rel="icon" sizes="192x192" href="favicon.png">
+    <!--	<meta name="theme-color" content="#0F1567">-->
+	  <link rel="icon" sizes="192x192" href="favicon.png">
     <title>Star Sponsorship Contributors</title>
-	<!-- Bootstrap -->
-	<!--    <link href="bootstrap-4.4.1.css" rel="stylesheet">-->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  	<!-- Bootstrap -->
+  	<!--    <link href="bootstrap-4.4.1.css" rel="stylesheet">-->
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 
 	<style>
@@ -41,8 +41,8 @@
 
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,20 +60,20 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
-    <!-- End Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
+  <!-- End Fonts -->
 
-    <!-- Animate Styling -->
+  <!-- Animate Styling -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 	<!-- Page Styling -->
 	<link href="css/blog.css" rel="stylesheet">
-    <link href="css/about.css" rel="stylesheet">
-    <link href="css/contrib.css" rel="stylesheet">
+  <link href="css/about.css" rel="stylesheet">
+  <link href="css/contrib.css" rel="stylesheet">
 
 	<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
 	<script>var __adobewebfontsappname__="starSpons"</script>
@@ -98,7 +98,78 @@
     <div class = "container">
     <h1 style="padding-top:50px" class="animate__animated tagline animate__fadeIn animate__slow text-dark">STAR CONTRIBUTORS</h1>
     <p>Here are some things the community is saying about our program. These testimonies are from past and present donors, sponsors, parents, and supporters of STAR/CSF FW. They are pictured below with their graduated or current STAR students.</p>
-<div class="container testi-container">
+
+    <!----- Add A Testimonial  ------>
+    <div class="col-lg-12">
+        <div class ="container" id ="board_container">
+        <!-- Board Member Add Area -->
+        <div class="jumbotron bg-dark">
+            <script>
+                var counter = 0;
+            </script>
+            <div class="container text-center">
+                <h1 class="text-center animate__animated tagline animate__fadeIn animate__slow headerText padding-extend text-light">ADD A CONTRIBUTOR</h1>
+                <form id="board-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Please enter the person's name here" class="form-control" id="board-name" />
+                            <div class="invalid-feedback">
+                            Please type the person's name here first.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" rows="5" placeholder="Please enter their titles here separated by commas" class="form-control" id="board-descr"></textarea>
+                            <div class="invalid-feedback">
+                            Please write a title here first.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" class="form-control" id="board-image"/>
+                        <div class="invalid-feedback">
+                            Please choose a valid picture. (jpg, png, gif, and webp are accepted.)
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <img id="selected-image" class="animate__animated img-fluid" width="350" height="250" src="#" alt=""/>
+                    </div>
+                    <div class="form-group">
+                        <div class="progress bg-secondary text-light">
+                            <div class="progress-bar bg-success" id="upload-progress" style="width: 0; font-size:10px;">0%</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="save-board" type="button" style="width:100px; height:40px;" class="btn btn-light bg-light text-dark">Submit</button>
+                    </div>
+                    <div class="text-light">Admin: Click on the X icons above the images to <strong>(PERMANENTLY)</strong> delete a board member!</div>
+                </form>
+
+                <div id="result" class="animate__animated">
+
+                </div>
+            </div>
+        </div>
+        <!-------- End Board Member Add Area------------>
+        </div>
+    </div>
+    <!----- End Add A Testimonial ------>
+
+    <!-- Meet The Board Container -->
+    <header>
+    <div class="container">
+
+        <section class="starContrib-section">
+            <!-- This is where generated javascript code will go-->
+        </section>
+
+        <div class="separator"></div>
+    </div>
+    </header>
+    <!-- End Meet The Board Container -->
+
+
+
+    <!-- Hard coded Testimonials -->
+    <!--
+    <div class="container testi-container">
     <img src="images/contrib/anna-rojas-cropped.jpeg" alt="Avatar" style="width:90px">
     <p><span >Ana Rojas</span><em>STAR Sponsor since 2013.</em></p>
           <q>What a privilege it is to support Esmeralda as she grows into the STAR student that her parents hope for her to be. Together with them, I know she can shine!</q>
@@ -136,10 +207,10 @@
           <img src="images/contrib/blank.jpg" alt="Avatar" style="width:90px">
           <p><span >Mr. and Mrs. Villegas</span><em>STAR Parents from 2006-2014.</em></p>
           <q>STAR has helped our daughter stay focused and do her best on her academics, as well as her conduct and attendance. The program is overall a positive example for Thalissa and her peers.</q>
-        </div>
+        </div> -->
 
     <!-- Testimonial Container End -->
-    </div>
+  </div> <!-- Main container-->
 
 
 
@@ -147,7 +218,7 @@
 
 
 	<!---- Footer   ---->
-    <footer class="text-center">
+    <footer class="footer-bg">
 			<div id="footer-placeholder">
 			</div>
 
@@ -166,7 +237,8 @@
 
 	<!--<script src="js/elementFade.js"></script>-->
 	<script src="js/navigationAnimation.js"></script>
-    <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/star-contrib.js"></script>
+  <script type="module" src="js/auth.js"></script>
 
   </body>
 </html>
