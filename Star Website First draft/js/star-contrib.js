@@ -7,6 +7,7 @@ const user = auth.currentUser;
 const dbref = ref(database, 'star-contrib');
 const dbref2 = ref(database);
 var counter = 0;
+const secondImg = 0;
 
 //Initializing an instance of the database stored in the firebase.
 //const dbref = ref(database);
@@ -18,7 +19,7 @@ var validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/webp"];
 $(document).ready(function()
 {
     $("#selected-image").hide();
-
+    
     function previewImage(image_success)
     {
         if(image_success.files && image_success.files[0])
@@ -39,8 +40,38 @@ $(document).ready(function()
     {
         previewImage(this);
     });
+    
 });
 
+
+//---- Image Validation 2nd Image ----//
+$(document).ready(function()
+{
+    $("#selected-image-2").hide();
+    
+    function previewImage(image_success)
+    {
+        if(image_success.files && image_success.files[0])
+        {
+            var reader = new FileReader();
+            reader.onload = function(e)
+            {
+               
+                $("#selected-image-2").attr('src', e.target.result);
+                $("#selected-image-2").addClass('fadeIn');
+            }
+            reader.readAsDataURL(image_success.files[0]);
+
+    
+            $("#selected-image-2").show();
+        }
+    }
+    
+     $("#board-image-2").change(function()
+    {
+        previewImage(this);
+    });
+});
 
 
 //------- Admin Save Changes Function --------//
@@ -50,10 +81,12 @@ function save()
     $("#board-name").removeClass("is-invalid");
     $("#board-descr").removeClass("is-invalid");
     $("#board-image").removeClass("is-invalid");
+    $("#board-image-2").removeClass("is-invalid");
 
     var successName = $("#board-name").val();
     var desc = $("#board-descr").val();
     var picture = $("#board-image").prop("files")[0];
+    var picture2 = $("#board-image-2").prop("files")[0];
 
     if(!successName)
     {
@@ -72,6 +105,13 @@ function save()
         $("#board-image").addClass("is-invalid");
         return;
     }
+    
+    if(picture2 == null)
+    {
+        $("#board-image").addClass("is-invalid");
+        secondImg=1; //optional image is not entered
+        //return;
+    }
 
     if($.inArray(picture["type"], validImageTypes)<0)
     {
@@ -87,7 +127,7 @@ function save()
         var dateStr = new Date().getTime();
         var fileCompleteName = dateStr + "_" + name ; //Randomize the image name before going into database!
 
-        const storageRef = sRef(storage, 'board-images'); //Create Storage reference
+        const storageRef = sRef(storage, 'contrib-images'); //Create Storage reference
 
         const successStorageRef = sRef(storageRef, fileCompleteName);
 
@@ -111,8 +151,11 @@ function save()
             {
                 var userName = document.getElementById('board-name').value;
                 var editDesc = document.getElementById('board-descr').value;
+                var userTitle = document.getElementById('board-title').value;
                 var counter = parseInt(dateStr);
-                var descString = "<p>"; //Create Paragraph string
+                
+                /*var descString = "<p>"; //Create Paragraph string
+                
                 const myArray = editDesc.split(","); //Split Strings
 
                 //Build HTML Tags from Titles
@@ -120,7 +163,7 @@ function save()
                     console.log(myArray[i].trim());
                     descString = descString + myArray[i].trim() + "<br>";
                 }
-                descString = descString + "</p>" //Close the P tag
+                descString = descString + "</p>" //Close the P tag*/
 
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
                 {
@@ -128,7 +171,8 @@ function save()
                     {
                         "image": downloadURL,
                         "fname": fileCompleteName,
-                        "desc": descString,
+                        "desc": editDesc,
+                        "title": userTitle,
                         "name": userName,
                         "counter": counter,
                     };

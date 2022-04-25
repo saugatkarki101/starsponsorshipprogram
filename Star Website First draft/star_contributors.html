@@ -116,8 +116,16 @@
                             Please type the person's name here first.
                         </div>
                     </div>
+                    
                     <div class="form-group">
-                        <textarea type="text" rows="5" placeholder="Please enter their titles here separated by commas" class="form-control" id="board-descr"></textarea>
+                        <input type="text" placeholder="Please enter the person's title here" class="form-control" id="board-title" />
+                            <div class="invalid-feedback">
+                            Please type the person's title first.
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea type="text" rows="5" placeholder="Please enter a testimonial description" class="form-control" id="board-descr"></textarea>
                             <div class="invalid-feedback">
                             Please write a title here first.
                         </div>
@@ -129,13 +137,17 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <input type="file" class="form-control" id="board-image2"/>
+                        <img id="selected-image" class="animate__animated img-fluid" width="350" height="250" src="#" alt=""/>
+                    </div>
+                    <div class="text-light">Choose an optional image here!</div>
+                    <div class="form-group">
+                        <input type="file" class="form-control" id="board-image-2"/>
                         <div class="invalid-feedback">
                             Please choose a valid picture. (jpg, png, gif, and webp are accepted.)
                     </div>
                     </div>
                     <div class="form-group">
-                        <img id="selected-image" class="animate__animated img-fluid" width="350" height="250" src="#" alt=""/>
+                        <img id="selected-image-2" class="animate__animated img-fluid" width="350" height="250" src="#" alt=""/>
                     </div>
                     <div class="form-group">
                         <div class="progress bg-secondary text-light">
@@ -143,7 +155,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button id="save-board" type="button" style="width:100px; height:40px;" class="btn btn-light bg-light text-dark">Submit</button>
+                        <button id="save-board" type="button" style="width:100px; height:40px;" class="btn btn-light bg-light">Submit</button>
                     </div>
                     <div class="text-light">Admin: Click on the X icons above the images to <strong>(PERMANENTLY)</strong> delete a board member!</div>
                 </form>
