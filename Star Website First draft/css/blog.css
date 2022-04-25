@@ -3,6 +3,12 @@ body{
 	padding-top: 7em;
 }
 
+/* Make the form default to not show */
+#blog_container{
+    display: none;
+    /*display: block; */
+}
+
 #menu
 {
   cursor: pointer;
@@ -27,7 +33,7 @@ body{
 }
 
 .btn-outline-primary{
-  
+
 	color:#fff;
 	background-color:#8C6423;
 	border-color:transparent;
@@ -72,7 +78,7 @@ body{
 
 text-primary{
 	color: #8C6423;
-	
+
 }
 
 .blog {
@@ -229,19 +235,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (max-width:990px){
- 
+
 	.blog-header-logo{
 	 	font-size: 3em;
 	}
-	
+
 	.mx-3{
-		
+
 	margin:0;
 }
-	
+
 	body{
- 
-	padding-top: 9em;	
+
+	padding-top: 9em;
 }
 
 .date
@@ -264,6 +270,5 @@ h1, h2, h3, h4, h5, h6 {
   overflow-x:hidden;/*And the end of the important part*/
 }
 
-	
-}
 
+}

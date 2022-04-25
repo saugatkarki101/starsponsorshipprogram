@@ -8,8 +8,11 @@ const dbref = ref(database, 'success-stories');
 const dbref2 = ref(database);
 var counter = 0;
 
-//Initializing an instance of the database stored in the firebase. 
-//const dbref = ref(database);
+
+//NOTE: There's one extra key in the "FeaturedStory", "FeaturedBlogs" child in firebase. 
+//This ensures there's always some data there and won't be left empty which could cause errors while trying 
+//to read from those childs. Also, if there's no data there, the whole child is removed as its empty. 
+
 
 
 $.noConflict();
@@ -79,9 +82,10 @@ function save()
 
     if($.inArray(picture["type"], validImageTypes)<0)
     {
+        alert("Please choose a valid picture. (jpg, png, gif, and webp are accepted.")
         $("success-image").addClass("is-invalid");
         return;
-    } 
+    }
 //-----End Image Validation------//
 
     //------ Firebase Stuff --------//
@@ -90,10 +94,10 @@ function save()
         var name = picture["name"];
         var dateStr = new Date().getTime();
         var fileCompleteName = dateStr + "_" + name ; //Randomize the image name before going into database!
-   
+
         const storageRef = sRef(storage, 'success-images'); //Create Storage reference
-       
-        const successStorageRef = sRef(storageRef, fileCompleteName); 
+
+        const successStorageRef = sRef(storageRef, fileCompleteName);
 
         const uploadTask = uploadBytesResumable(successStorageRef, picture);
         //Upload Picture
@@ -115,10 +119,10 @@ function save()
                 var userName = document.getElementById('succ-name').value;
                 var editDesc = document.getElementById('succ-descr').value;
                 var counter = parseInt(dateStr);
-              
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => 
+
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
                 {
-                    var successData = 
+                    var successData =
                     {
                         "image": downloadURL,
                         "fname": fileCompleteName,
@@ -131,7 +135,7 @@ function save()
 
                     set(newPostRef, successData)
                         .then(() => {
-                        
+
                             $("#result").attr("class", "alert alert-success");
                             $("#result").html("Success Story Updated Succesfully!");
 
@@ -149,19 +153,19 @@ function save()
                                 //$("#result").addClass("animate__fadeOut animate__slower");
 
                             },1500);
-                            location.reload();    
+                            location.reload();
                         })
                         .catch((error) =>
                         {
                             $("#result").attr("class", "alert alert-danger");
                             $("#result").html(err.message);
-                        }); 
-                    
+                        });
+
                 });
             }
         );
     });
-    
+
 } //End Save Function
 
 
@@ -184,7 +188,7 @@ function updateHomepage()
 window.updateHomepage = updateHomepage
 
 
-//Checks if a HTML element with id: 'save-story' is present. 
+//Checks if a HTML element with id: 'save-story' is present.
 var check = document.getElementById('save-story');
 
 if(check)
@@ -199,7 +203,7 @@ if(check)
 }
 
 
-//This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. . 
+//This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. .
 function myfunc(num)
 {
     console.log("CurrentCounter: ",num)
@@ -219,22 +223,22 @@ function crossfunc(num)
     get(child(dbref2,"success-stories")).then((snapshot)=>{
         if(snapshot.exists())
         {
-   
+
             snapshot.forEach(node =>{
-                //since the key for each dataset is randomized in firebase, 
+                //since the key for each dataset is randomized in firebase,
                 //we locate the particular dataset by going through each dataset with success-stories and checking if the
-                // dataset's counter is same as the counter for story which needs to be deleted. 
+                // dataset's counter is same as the counter for story which needs to be deleted.
                 if(node.val().counter==num)
                 {
                     remove(ref(database,"success-stories/"+node.key))
-                    //After the story is successfully removed, we reload the window. 
+                    //After the story is successfully removed, we reload the window.
                     location.reload();
                 }
 
             })
         }
       })
-    
+
 }
 
 //Function within modules won't be available to access globally.
@@ -245,32 +249,47 @@ window.crossfunc = crossfunc
 const successStoriesSection = document.querySelector('.successStories-section');
 
 //Code for the "cross" button which is used to delete success stories
+//The cross button's html code has been commented out as the delete success story operation 
+//is implemented in the individual success story page. When the cross is clicked to delete the story, 
+//the story's image stays in the database as that part hasn't been implemented here. But it has been
+//implemented in the individual success story page. 
 let cross = document.createElement('div');
 cross.setAttribute("class", "cross-admin");
 cross.textContent = 'x';
 cross.style.fontSize = "20px";
 cross.style.color = "white";
 
-//This creates a new section with every other success story 
+//This creates a new section with every other success story
 const createCards = (node) => {
+    // Remove middle names from full name
+    const fullname = node.val().name;
+    const namesplit = fullname.split(' ');
+    const name = namesplit[0] + " " + namesplit[namesplit.length - 1];
+
     successStoriesSection.innerHTML += `
     <div class="succStoriesCard" id="succStoriesCardID">
     <style>
     .cross
     {
-        position: relative;
+        position: center;
         font-size: 20px;
         left: 150px;
-    } 
+    }
+
     </style>
 
-        <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>
+        <!--<div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>-->
+        <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">
         <img src="${node.val().image}" class="image" alt="">
-        <h1 class="name">${node.val().name.substring(0, 100)}</h1>
-        <p class="desc">${node.val().desc.substring(0, 200) + '...'}</p>
-        <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read more..</a>
+        </a>
+        <h1 class="name">${name.substring(0, 30)}</h1>
+        <p class="desc">${node.val().desc.substring(0, 112) + '...'}</p>
+        <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">
+        Read More
+        </a>
+
     </div>
-    `;    
+    `;
 }
 
 
@@ -290,13 +309,13 @@ get(child(dbref2,"success-stories")).then((snapshot)=>{
                     $('*[id*=crossButton]:invisible').each( function(i){
                         $(this).show();
                     });
-        
+
                 }
                 else{
                     //Start Disable Cross Button
                     $('*[id*=crossButton]:visible').each( function(i){
                         $(this).hide();
-                    });    
+                    });
                     //End Disable Cross Button
                 }
             });//End Document.Ready Jquery
@@ -322,4 +341,3 @@ get(child(dbref2,"success-stories")).then((snapshot)=>{
         console.log("Check Status: User logged out.");
     }
 });
-

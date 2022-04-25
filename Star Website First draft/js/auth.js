@@ -12,7 +12,7 @@ if(changePasswordForm){
 
         updatePassword(user, newPassword).then(() => {
             //Update Successful
-            document.getElementById("CP_Header").style.display = "none";            
+            document.getElementById("CP_Header").style.display = "none";
             document.getElementById("inputPassword").style.display = "none";
             document.getElementById("CP_Done").style.display = "none";
             document.getElementById("CP_Message").style.display = "block";
@@ -32,7 +32,7 @@ const signInForm = document.querySelector('#form-signin');
 if(signInForm){
     signInForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         // get user info
         const email = signInForm['inputEmail'].value;
         const password = signInForm['inputPassword'].value;
@@ -80,11 +80,11 @@ if(forgotpassword){
         console.log(email);
         sendPasswordResetEmail(auth, email).then(() => {
             console.log('Password Reset Email Sent Successfully!');
-            document.getElementById("FP_Header").style.display = "none";            
+            document.getElementById("FP_Header").style.display = "none";
             document.getElementById("inputEmail").style.display = "none";
             document.getElementById("FP_Send").style.display = "none";
             document.getElementById("FP_Message").style.display = "block";
-            
+
             forgotpassword.querySelector('.error').innerHTML = '';
         })
         .catch(error => {
@@ -141,13 +141,14 @@ var checkNavLog = document.getElementById('navLogout');
 
 if(checkNavLog)
 {
-  //When the "Save Changes" button is clicked, it calls the save function.
   checkNavLog.addEventListener('click', e => {
     alert("User is Now Logged Out!");
     auth.signOut();
         console.log("Successfully logged out.");
   })
 }
+
+
 
 // Check User Status
 onAuthStateChanged(auth, (user) => {
@@ -159,9 +160,25 @@ onAuthStateChanged(auth, (user) => {
     const adminButton = document.getElementById("adminLogin");
     const addUsers = document.getElementById("addUsers");
     const changePassword = document.getElementById("changePassword");
+    const fab = document.getElementById("fab-btn");
+    const btnDonateInfo = document.getElementById("donateInfoBtn");
+    //const deleteBlog = document.getElementById("deleteBlog");
+    //const removeFeature = document.getElementById("makeFeaturedBlog");
+
+    //Find All ContentEditable Boxes and disable
+    var editable_elements = document.querySelectorAll("[contenteditable=true]");
+
+    for(var i=0; i<editable_elements.length; i++)
+        editable_elements[i].setAttribute("contenteditable", false);
 
     if(user) {
         const uid = user.uid;
+
+        //Allow content editables to be manipulated by user
+        editable_elements = document.querySelectorAll("[contenteditable=false]");
+
+        for(var i=0; i<editable_elements.length; i++)
+            editable_elements[i].setAttribute("contenteditable", true);
 
         if(signIn) {signIn.style.display = "none"};
         if(saveChanges) {saveChanges.style.display = "block"};
@@ -170,17 +187,28 @@ onAuthStateChanged(auth, (user) => {
         if(adminButton) {adminButton.style.display = "none"};
         //if(addUsers) {addUsers.style.display = "block"};
         if(changePassword) {changePassword.style.display = "block"};
+        if(fab) {fab.style.display = "none"};
+        if(btnDonateInfo) {btnDonateInfo.style.display = "none"};
+        
+        //Make buttons available if admin is signed in
+        //if(deleteBlog) {deleteBlog.style.display = "block"}; 
+        //if(removeFeature) {removeFeature.style.display = "block"};
         // Redirects to home page when user is logged in
         console.log("Check Status: Admin signed in.");
     }
     else {
         if(signIn) {signIn.style.display = "block"};
+        //if(btnDonateInfo) {signIn.style.display = "block"};
         if(saveChanges) {saveChanges.style.display = "none"};
         if(navLogoutBtn) {navLogoutBtn.style.display = "none"};
         if(donate) {donate.style.display = "block"};
         if(adminButton) {adminButton.style.display = "block"};
+        if(fab) {fab.style.display = "flex"};
+        if(btnDonateInfo) {btnDonateInfo.style.display = "block"};
         //if(addUsers) {addUsers.style.display = "none"};
         if(changePassword) {changePassword.style.display = "none"};
+        //if(deleteBlog) {deleteBlog.style.display = "none"}; 
+        //if(removeFeature) {removeFeature.style.display = "none"};
         console.log("Check Status: Admin logged out.");
     }
 });

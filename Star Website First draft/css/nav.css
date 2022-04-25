@@ -1,0 +1,29 @@
+a {
+    color: #831313;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #D03636;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.btn-cp {
+    padding: 0.65em;
+}
+
+#donateInfoBtn{
+    border-radius: 40em;
+}
+
+
+/* Media Queries  @media screen and (min-width:768px) and (max-width:990px) */
+@media screen and (max-width:990px){
+
+    #donateInfoBtn{
+        margin-top: 10px !important;
+    }
+
+}

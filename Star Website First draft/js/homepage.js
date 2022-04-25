@@ -1,9 +1,9 @@
 import {db, database} from './firebase.js';
 import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapshot, where, query, updateDoc, deleteField  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
-import {getDatabase, ref, set, child, update, remove, get} from 
+import {getDatabase, ref, set, child, update, remove, get} from
 "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 
-//Initializing an instance of the database stored in the firebase. 
+//Initializing an instance of the database stored in the firebase.
 const dbref = ref(database);
 
 //If data is stored in "title" within Firebase, it is retrieved and set to the HTML element with id: "title"
@@ -25,7 +25,7 @@ get(child(dbref,"titleDescription")).then((snapshot)=>{
 
 
 
-//The function to save the changes made by the admin 
+//The function to save the changes made by the admin
 function save()
 {
       //Retrieves the contents of the HTML element with id: 'title' and updates database with the same content
@@ -40,11 +40,11 @@ function save()
       info: editTitleDescripContent
     });
 
-    //Sends a notification when all the contents are saved. 
+    //Sends a notification when all the contents are saved.
     alert("Changes Saved!")
 }
 
-//Checks if a HTML element with id: 'SaveChanges' is present. 
+//Checks if a HTML element with id: 'SaveChanges' is present.
 var check = document.getElementById('saveChanges');
 
 if(check)
@@ -58,7 +58,7 @@ if(check)
   )
 }
 
-//This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. . 
+//This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. .
 function myfunc(num)
 {
     console.log("CurrentCounter: ",num)
@@ -76,31 +76,20 @@ window.myfunc = myfunc
 const storyContainer = document.querySelector('.rowhideme');
 
 
-//This creates a new section with every other success story 
+//This creates a new section with every other success story
 const createCards = (node) => {
 
-  /*
-  successStoriesSection.innerHTML += `
-  <div class="succStoriesCard" id="succStoriesCardID">
 
-  <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>
-      <img src="${node.val().image}" class="image" alt="">
-      <h1 class="name">${node.val().name.substring(0, 100)}</h1>
-      <p class="desc">${node.val().desc.substring(0, 200) + '...'}</p>
-      <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read more..</a>
-  </div>
-  `;    
-  */
   const first = node.val().name.split(/\s+(.*)/);
   const firstName = first[0]
   storyContainer.innerHTML += `
-                <div>
-                  <img class="rounded-circle content-o" alt="140x140" style="width: 200px; height: 200px;" src="${node.val().image}" data-holder-rendered="true">
+                <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                  <img class="rounded-circle content-o" alt="140x140" style="width: 200px; height: 200px; object-fit: cover;" src="${node.val().image}" data-holder-rendered="true">
 
                   <h3 class="name">${node.val().name.substring(0, 100)}</h3>
-                  <p>${node.val().desc.substring(0, 200) + '...'}</p>
+                  <p>${node.val().desc.substring(0, 85) + '...'}</p>
                   <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" id="readButton"  role="button" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read ${firstName}'s story&nbsp; &nbsp;</a>
-                  <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="successStoriesPage.html" role="button" 
+                  <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="successStoriesPage.html" role="button"
                   onclick="myfunc(${node.val().counter})>Read more...&nbsp; &nbsp;</a>
                 </div>
           `
@@ -111,13 +100,30 @@ get(child(dbref,"success-stories")).then((snapshot)=>{
   if(snapshot.exists())
   {
       snapshot.forEach(node =>{
-          //This ensures only 3 stories are shown in the homepage
-          if(storyCounter < 3)
+
+        get(child(dbref,"FeaturedStories")).then((snapshot2)=>{
+          if(snapshot2.exists())
           {
-            //every dataset related to every story is passed one by one to createCards() function
-            createCards(node);
-          }
-          storyCounter++;
+              //stores the counter of the story the reader wants to read
+              snapshot2.forEach(node2 =>{
+
+                              if(node2.val().Counter == node.val().counter)
+                              {
+                                  //This ensures only 3 stories are shown in the homepage
+                                  if(storyCounter < 3)
+                                  {
+                                    //every dataset related to every story is passed one by one to createCards() function
+                                    createCards(node);
+                                  }
+                                  storyCounter++;
+                              }
+              })
+          }})
+
       })
+
+
+
+
   }
 }) //End Create Card code

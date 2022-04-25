@@ -1,0 +1,34 @@
+.story-image{
+    margin-top: 50px;
+    width: 270px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50px;
+} 
+
+.story-items, .story{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personName {
+    margin-top: 10px;
+    font-family: 'Bebas Neue', serif;
+    font-size: 50px;
+}
+
+.description {
+    width: 80%;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+#footer-placeholder{
+    padding-top: 7.5em;
+}
+
+
+
+
+

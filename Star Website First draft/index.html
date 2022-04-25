@@ -4,30 +4,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-<!--
-
-							<div class="col-lg-4 col-md-6 col-sm-4 text-center"> 
-								<img class="rounded-circle content-o" alt="140x140" style="width: 200px; height: 200px;" src="images/kids/sam.png" data-holder-rendered="true">
-
-								<h3>Sam Smith</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="#" role="button">READ SAM'S STORY&nbsp; &nbsp;</a>
-							</div>
-
-							<div class="col-lg-4 col-md-6 col-sm-12 text-center">
-								<img class="rounded-circle " alt="140x140" style="width: 200px; height: 200px;" src="images/kids/tiffany.png" data-holder-rendered="true">
-								<h3>Tiffany Johnson</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="#" role="button">READ TIFFANY'S STORY&nbsp;&nbsp;</a>
-							</div>
-
-							<div class="col-lg-4 col-md-6 col-sm-12 text-center">
-								<img class="rounded-circle " alt="140x140" style="width: 200px; height: 200px;" src="images/kids/jenny.png" data-holder-rendered="true">
-								<h3>Jenny Hill</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="#" role="button">READ JENNY'S STORY&nbsp;&nbsp;</a>
-							</div>						
-
--->
-
 	<!--Google Android Theme and Icon-->
 <!--	<meta name="theme-color" content="#0F1567">-->
 	<link rel="icon" sizes="192x192" href="favicon.png">
@@ -39,14 +15,17 @@
 
 
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/fab.css" rel="stylesheet" type="text/css">
 	<link href="css/navAdjustments.css" rel="stylesheet" type="text/css">
 
 	<!-- Styles for navigationAnimation.js -->
 	<link href="css/navigationAnimation.css" rel="stylesheet" type="text/css">
 
 	<!-- Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker-SemiBold">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap" rel="stylesheet">
+
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +50,7 @@
 	<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
 	<script>var __adobewebfontsappname__="starSpons"</script>
 	<script src="http://use.edgefonts.net/alex-brush:n4:default;alexa-std:n4:default;allan:n7:default;allura:n4:default;kristi:n4:default;changa-one:n4:default;carter-one:n4:default;bubblegum-sans:n4:default;advent-pro:n4:default;actor:n4:default;abel:n4:default.js" type="text/javascript"></script>
-	
+
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   </head>
@@ -83,9 +62,48 @@
 	  </div>
 
 	  <script>
-	  $("#nav-placeholder").load("nav.html");
+          $("#nav-placeholder").load("nav.html");
 	  </script>
   <!--end of Navigation bar-->
+      
+<!------------ FAB ---------->
+<!--
+	<div class="fab-container" id="fab-btn">
+		<div class="fab shadow">
+        <a href="https://give.cornerstone.cc/starcsffw" target="_blank">
+			<div class="fab-content text-white fab-btn">
+                  DONATE
+			</div>
+        </a>
+		</div>
+		<div class="sub-button shadow">
+			<a href="tel:817-888-3255" target="_self">
+			    <span class="material-icons">phone</span>
+			</a>
+		</div>
+		<div class="sub-button shadow">
+			<a href="mailto:starcsf@gmail.com" target="_self">
+			    <span class="material-icons">mail_outline</span>
+			</a>
+		</div>
+		<div class="sub-button shadow">
+			<a href="contact.html" target="_self">
+			    <span class="material-icons">map</span>
+			</a>
+		</div>
+		<div class="sub-button shadow">
+			<a href="donate.html" target="_self">
+			    <span class="material-icons">help_outline</span>
+			</a>
+		</div>
+        <div class="sub-button">
+                <a target="_self">
+                    You can help make a difference!
+                </a>
+        </div>
+	</div>
+-->
+<!------------ End FAB ---------->
 
     <header>
       <div class="jumbotron text-white">
@@ -120,7 +138,7 @@
           <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__bounceInDown hiddenElement" id="saveChanges" href="#" title="">SAVE CHANGES</a>
  </div>
 				<div class="col-sm-4 col-auto mx-auto">
-           <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__bounceInDown" id="learnMore" href="about.html" title="">LEARN MORE</a></div>
+           <a class="btn btn-block btn-success btn-lg btnWidth center animate__animated animate__fadeIn" id="learnMore" href="about.html" title="">LEARN MORE</a></div>
 
 
 			</div>
@@ -131,39 +149,30 @@
       </div>
     </header>
 
-	  <!-- Video Embed -->
-	  <div class="container videoBG animate__animated animate__fadeIn">
-<!--              <h1 class="text-center">Star Sponsorship Program</h1>-->
-		  <div class="embed-responsive embed-responsive-16by9 videoContainer ">
-			<iframe class="embed-responsive-item animate__animated animate__fadeInDownBig videoContainer" src="https://www.youtube.com/embed/ewV30zdsj_4"></iframe>
-		  </div>
-		  <br>
 
-	 </div>
-	 <p>&nbsp;</p>
 
-	  <div class="container iconContainer">
+	  <div class="container iconContainer animate__animated animate__fadeIn">
 		<div class="row">
           <div class="col-lg-4 col-sm-12 text-center col-md-12">
-			  <div class="icon-wrapper hideme">
+			  <div class="icon-wrapper">
 					<div class="iconDiv animate__animated animate__slow" id="iconAnimation1"><img src="icons/emoji-smile-fill.svg" alt="140x140" class="iconSecondary" style="width: 140px; height: 140px;" title="Why Star?" data-holder-rendered="true"></div>
 			  </div>
-            <h3 class="SecondHeading hideme">Why STAR?</h3>
-			  <p class="hideme">The Board of STAR Sponsorship Program, Inc. is dedicated to increasing educational options for children in Tarrant County whose parents do not have the financial means to provide an education best suited to their children’s unique needs...</p>
+            <h3 class="SecondHeading">Why STAR?</h3>
+			  <p class="">The Board of STAR Sponsorship Program, Inc. is dedicated to increasing educational options for children in Tarrant County whose parents do not have the financial means to provide an education best suited to their children’s unique needs...</p>
             </div>
           <div class="col-lg-4 col-sm-12 text-center col-md-12">
-			  <div class="icon-wrapper hideme">
+			  <div class="icon-wrapper">
 					<div class="iconDiv animate__animated animate__slow" id="iconAnimation2"><img src="icons/gift-fill.svg" alt="140x140" class="iconPrimary" style="width: 140px; height: 140px;" title="Why Donate?" data-holder-rendered="true"></div>
 			  </div>
-            <h3 class="SecondHeading hideme">Why Donate?</h3>
-			  	<p class="hideme">Try as we might, we have been unable to meet the demand from parents eager to sacrifice to give their children a better education. We have found most private schools are willing to give tuition discounts...</p>
+            <h3 class="SecondHeading">Why Donate?</h3>
+			  	<p class="">Try as we might, we have been unable to meet the demand from parents eager to sacrifice to give their children a better education. We have found most private schools are willing to give tuition discounts...</p>
 				</div>
 			  <div class="col-lg-4 col-sm-12 text-center col-md-12">
-				  <div class="icon-wrapper hideme">
+			    <div class="icon-wrapper ">
 				  	<div class="iconDiv3 animate__animated animate__slow" id="iconAnimation3"><img src="icons/question-diamond-fill.svg"  alt="140x140" class="iconSecondary" style="width: 140px; height: 140px;" title="Why does it work?" data-holder-rendered="true"></div>
 				  </div>
-            <h3 class="SecondHeading hideme">Why does the STAR program work?</h3>
-			  <p class="hideme">The STAR Program maps out a partnership between donors, schools, and parents. We serve as the liaison between all to coordinate a pathway to success for the children. Schools provide the education, but must agree to provide...</p>
+            <h3 class="SecondHeading ">Why does IT work?</h3>
+			  <p class="">The STAR Program maps out a partnership between donors, schools, and parents. We serve as the liaison between all to coordinate a pathway to success for the children. Schools provide the education, but must agree to provide...</p>
 
 
           </div>
@@ -178,28 +187,32 @@
 
 	<div class="jumbotron text-white">
 		<div class="row align-content-center">
-        	<div class="col-12 text-center">
-				<div class ="animate__animated animate__slower" id="logoAnimation">
-				<h1 class="text-center ">
-					<img src="images/logos/logoFullWG.svg" alt="Star Sponsorship" width = "320" >
-				</h1></div>
-						<h2 class="titleTag hideme">FEATURED SUCCESS STORIES&nbsp;&nbsp;</h2>
-					  <p class="text-center">Check out our past success stories by clicking on the button below. Also check out some of our featured success stories by clicking the red buttons below.</p>
-				<div class="container successBTN">
-					<a class="btn btn-block btn-success btn-md btnSquare" href="success_stories.html" title="">ALL SUCCESS STORIES</a>
-				</div>
-				<div class="container" id="idContainer">
+      <div class="col-12 text-center">
+  				
+        <h2 class="titleTag ">FEATURED SUCCESS STORIES&nbsp;&nbsp;</h2>
+        <p class="text-center">Check out our past success stories by clicking on the button below. Also check out some of our featured success stories by clicking the red buttons below.</p>
+        <div class="container successBTN">
+        <a class="btn btn-block btn-success btn-md btnSquare" href="success_stories.html" title="">ALL SUCCESS STORIES</a>
+        </div>
+        <div class="container" id ="idContainer">
+            <div class = "row rowhideme" id="idRowHideMe">
 
-					<div class = "rowhideme" id="idRowHideMe">
-						
-						
-					</div>
-				</div>
-			</div>
-
+            </div>
+        </div>
+    </div>
 		</div>
-
 	</div>
+      
+      <!-- Video Embed -->
+	  <div class="container videoBG animate__animated animate__fadeIn">
+		  <div class="embed-responsive embed-responsive-16by9 videoContainer ">
+			<iframe class="embed-responsive-item animate__animated animate__fadeInDownBig videoContainer" src="https://www.youtube.com/embed/ewV30zdsj_4"></iframe>
+		  </div>
+		  <br>
+
+	 </div>
+	 <p>&nbsp;</p>
+      <!-- End Video Embed -->  
 
     <section>
       <div class="container ">
@@ -330,34 +343,34 @@
         </div>
         <div class="row">
           <div class="col-sm-6 col-lg-4">
-            <h3>Feature Description</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt impedit est voluptatem doloremque architecto corporis suscipit quidem ratione! Quis laborum nam optio dolorem doloremque ex nobis quibusdam ad quo dolores? </p>
-            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>
+            <h3 contenteditable="true">Feature Description</h3>
+            <p contenteditable="true"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt impedit est voluptatem doloremque architecto corporis suscipit quidem ratione! Quis laborum nam optio dolorem doloremque ex nobis quibusdam ad quo dolores? </p>
+<!--            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>-->
           </div>
           <div class="col-sm-6 col-lg-4">
-            <h3>Feature Description</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, illo, libero esse assumenda culpa consequatur exercitationem beatae odio praesentium nihil iste ipsum reiciendis pariatur. Recusandae, reiciendis quidem eaque aut ab. </p>
-            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>
+            <h3 contenteditable="true">Feature Description</h3>
+            <p contenteditable="true"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, illo, libero esse assumenda culpa consequatur exercitationem beatae odio praesentium nihil iste ipsum reiciendis pariatur. Recusandae, reiciendis quidem eaque aut ab. </p>
+<!--            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>-->
           </div>
           <div class="col-sm-6 col-lg-4">
-            <h3>Feature Description</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, adipisci recusandae veniam laudantium distinctio temporibus eveniet dolorum earum iusto veritatis provident ducimus minima dolore quas vel omnis cumque voluptas quibusdam.</p>
-            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>
+            <h3 contenteditable="true">Feature Description</h3>
+            <p contenteditable="true"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, adipisci recusandae veniam laudantium distinctio temporibus eveniet dolorum earum iusto veritatis provident ducimus minima dolore quas vel omnis cumque voluptas quibusdam.</p>
+<!--            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>-->
           </div>
           <div class="col-sm-6 col-lg-4">
-            <h3>Feature Description</h3>
-            <p> <em class="icon-desktop "></em> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, earum rem nostrum provident repellat inventore laborum deleniti quas facere Quasi impedit autem qui cupiditate modi vero vitae dolorum nisi explicabo ea dolores animi. Inventore, omnis.</p>
-            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>
+            <h3 contenteditable="true">Feature Description</h3>
+            <p contenteditable="true"> <em class="icon-desktop "></em> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, earum rem nostrum provident repellat inventore laborum deleniti quas facere Quasi impedit autem qui cupiditate modi vero vitae dolorum nisi explicabo ea dolores animi. Inventore, omnis.</p>
+<!--            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>-->
           </div>
           <div class="col-sm-6 col-lg-4">
-            <h3>Feature Description</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, iure, perspiciatis, ab ad quia animi esse repudiandae tempore quisquam dolorem sequi voluptatum qui fugiat. Quasi impedit autem qui cupiditate iusto?&nbsp;Hic, non rerum nihil reprehenderit excepturi explicab.</p>
-            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>
+            <h3 contenteditable="true">Feature Description</h3>
+            <p contenteditable="true"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, iure, perspiciatis, ab ad quia animi esse repudiandae tempore quisquam dolorem sequi voluptatum qui fugiat. Quasi impedit autem qui cupiditate iusto?&nbsp;Hic, non rerum nihil reprehenderit excepturi explicab.</p>
+<!--            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>-->
           </div>
           <div class="col-sm-6 col-lg-4">
-            <h3>Feature Description</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, aut, hic laudantium reprehenderit sapiente nemo consequatur corrupti accusantium! Hic, non rerum nihil reprehenderit excepturi explicabo error tempore aliquam eveniet odit.</p>
-            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>
+            <h3 contenteditable="true">Feature Description</h3>
+            <p contenteditable="true"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, aut, hic laudantium reprehenderit sapiente nemo consequatur corrupti accusantium! Hic, non rerum nihil reprehenderit excepturi explicabo error tempore aliquam eveniet odit.</p>
+<!--            <p><a class="btn btn-link" href="http://www.adobe.com">View details »</a></p>-->
           </div>
         </div>
       </div>
@@ -418,11 +431,11 @@
 
     </script>
 
-	<script src="js/elementFade.js"></script>
+	<!--<script src="js/elementFade.js"></script>-->
 	<script src="js/navigationAnimation.js"></script>
-	<script src="js/popper.min.js"></script>
-    <script src="js/iconAnim.js"></script>
-  	<script src="js/logoAnim.js"></script>
+	<!--<script src="js/popper.min.js"></script>-->
+    <!--<script src="js/iconAnim.js"></script>-->
+  	<!--<script src="js/logoAnim.js"></script>-->
 
   </body>
   <script type="module" src="js/homepage.js"></script>
