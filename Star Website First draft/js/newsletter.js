@@ -197,8 +197,12 @@ const newsletterSection = document.querySelector('#newsletterSection');
 
 var quarter = ["Spring","Summer","Fall","Winter"]
 
+
 const createNewsletterList = (arr,temp) => {
 
+    //This prints the year of the newsletter
+    //Say the arr passed stores the data for two newsletter published in 2022.
+    //Now, both have dates equal to 2022. So, we just do arr[0].year.
     newsletterSection.innerHTML += `
     <div class="row">&nbsp;
     <div class="col-md-8 blog-main">
@@ -208,6 +212,11 @@ const createNewsletterList = (arr,temp) => {
     </div>
     </div>`;
 
+    //This adds section for the actual newsletters
+    //Say for 2022, we have one of this. Again for 2021, we will another of this which should have a unique ID
+    //than the other one because it needs to be accessed later as you can see. That's why we have this temp
+    //variable that is passed to the function which is unique for each array that's passed. Since one arr passed
+    //refers to one year's newsletters, temp will be unique for each year.
     newsletterSection.innerHTML +=
     `<div class="row mb-2" id="innerSection${temp}">
     </div>
@@ -264,12 +273,11 @@ const createNewsletterList = (arr,temp) => {
     cross.style.fontSize = "20px";
     cross.style.color = "white";
 
-
+    //This will run as many times as there are newsletters in the particular year
     for(var i=0;i<arr.length;i++)
     {
         innerSection.innerHTML += `
         <div class="row-md-6" style="padding:10px;">
-
             <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossFunction(${arr[i].counter})">x</div>
             <style>
             .cross
@@ -279,8 +287,6 @@ const createNewsletterList = (arr,temp) => {
                 left: 110px;
             }
             </style>
-
-
             <div  class="col no-gutters border rounded overflow-hidden flex-md-row  mb-4 shadow-sm h-md-250 position-relative" style="height: 350px; width:230px;" >
             <div class="col-auto d-none d-lg-block ">
             <iframe src="${arr[i].pdf}" frameborder="0" scrolling="no" frameborder="0" height="250px" width="200" style="padding-top:10px;cursor:pointer;"></iframe>
@@ -294,22 +300,19 @@ const createNewsletterList = (arr,temp) => {
     }
 }
 
-
+  //
   function split(array) {
     let [...arr]  = array;
     var res = [];
     var currentYear;
     var counter=0;
     var lengthCounter=0;
-    console.log("arr.length: ",arr.length)
     while (arr.length)
     {
         currentYear =  parseInt(arr[0].year);
         if(lengthCounter!=arr.length)
         {
             lengthCounter++;
-            console.log("arr[counter].year: ",arr[counter].year,"currentYear:",currentYear,"lengthCounter: ",lengthCounter)
-            console.log("arr.length:",arr.length)
 
             if(parseInt(arr[counter].year)==currentYear)
             {
@@ -318,7 +321,6 @@ const createNewsletterList = (arr,temp) => {
 
             else
             {
-              console.log("Counter:",counter)
               res.push(arr.splice(0, counter));
               lengthCounter=0;
               counter = 0;
@@ -326,7 +328,6 @@ const createNewsletterList = (arr,temp) => {
         }
         else
         {
-            console.log("checkk")
             res.push(arr.splice(0, counter));
             break;
         }
@@ -369,11 +370,10 @@ get(child(dbref2,"newsletter")).then((snapshot)=>{
         arr.reverse();
         console.log(arr)
 
+        //splits the array based on the year.
         var slicedArr = split(arr);
-        console.log("This is",slicedArr)
         var temp=0;
         slicedArr.forEach(node => {
-            console.log("value of temp: ",temp)
             createNewsletterList(node,temp);
             temp++;
         })

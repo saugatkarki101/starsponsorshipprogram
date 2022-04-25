@@ -8,11 +8,9 @@ const dbref = ref(database, 'blogs');
 const dbref2 = ref(database);
 var counter = 0;
 
-//Initializing an instance of the database stored in the firebase.
-//const dbref = ref(database);
-
-
-
+//NOTE: There's one extra key in the "FeaturedStory", "FeaturedBlogs" child in firebase.
+//This ensures there's always some data there and won't be left empty which could cause errors while trying
+//to read from those childs. Also, if there's no data there, the whole child is removed as its empty.
 
 
 
@@ -46,12 +44,6 @@ $(document).ready(function()
     });
 });
 
-/*
-$(document).ready(function()
-{
-
-});
-*/
 
 //------- Admin Save Changes Function --------//
 function save()
@@ -63,6 +55,10 @@ function save()
     var successName = $("#succ-name").val();
     var desc = $("#succ-descr").val();
     var picture = $("#success-image").prop("files")[0];
+    var validYear = $("#year").val();
+    var validMonth = $("#month").val();
+    var validDay = $("#day").val();
+
 
     if(!successName)
     {
@@ -75,6 +71,24 @@ function save()
         $("#succ-descr").addClass("is-invalid");
         return;
     }
+    if(!validYear||isNaN(validYear)||validYear < 1900)
+    {
+        alert("Please enter a valid numeric value for Year.")
+        return;
+    }
+    if(!validMonth||isNaN(validMonth)||(validMonth>12 || validMonth <1))
+    {
+        alert("Please enter a valid numeric value for Month from 1-12.")
+        return;
+    }
+
+    if(!validDay||isNaN(validDay)||(validDay>31 || validDay <1))
+    {
+        alert("Please enter a numeric value for day from 1-31.")
+        return;
+    }
+
+
 
     if(picture == null)
     {
@@ -85,6 +99,8 @@ function save()
     if($.inArray(picture["type"], validImageTypes)<0)
     {
         $("success-image").addClass("is-invalid");
+        alert("Please choose a valid picture. (jpg, png, gif, and webp are accepted).")
+
         return;
     }
 //-----End Image Validation------//
@@ -296,6 +312,7 @@ const createBlogList = (arr) => {
 }
 
 
+//Splits array into separate arrays with five elements each
 function split(array, n) {
     let [...arr]  = array;
     var res = [];
@@ -308,6 +325,7 @@ function split(array, n) {
 
 
 get(child(dbref2,"blogs")).then((snapshot)=>{
+    //Sorts the dataset giving highest priority to Year, and then month and then day.
     if(snapshot.exists())
     {
         var arr = Object.values(snapshot.val());
@@ -340,110 +358,123 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
         arr.reverse();
 
 
+        //will be used to filter the blogs that are not featured blogs and add them to the blog list
+        var duplicateArr = arr.slice();
+
         get(child(dbref2,"FeaturedBlogs")).then((snapshot2)=>{
             if(snapshot2.exists())
             {
-
-                //stores the counter of the story the reader wants to read
-                //blogCounter = snapshot2.val().counter;
-
                 snapshot2.forEach(node2 =>{
-
                             arr.forEach(node => {
-
                                 if(node2.val().Counter == node.counter)
                                 {
                                     createCards(node);
                                 }
                             })
                 })
-
-
-
-                /*
-                //Goes through every story
-                snapshot.forEach(node =>{
-
-
-                    snapshot2.forEach(node2 =>{
-                        if(node.val().counter==node2.val().Counter)
-                        {
-                            //every dataset related to every story is passed one by one to createCards() function
-                            createCards(node);
-                        }
-
-                    })
-
-                })
-                */
             }})
 
-
-
-
-
-    /*    snapshot.forEach(node =>{
-            //every dataset related to every story is passed one by one to createCards() function
-            createCards(node);
-
-        }) */
-
-        arr.forEach(node => {
-            createDropDown(node);
-        })
-
-
-        var slicedArr = split(arr,5);
+        //In the first page of blog.html, 5 blogs will show up. When the user presses older button, another 5 blogs will show up.
+        //sessionStorage.blogCount will keep track of how many pages of blog.html will show up. If there's only 5 blogs in the "More blogs"
+        //section, sessionStorage.blogCount will start at 0 and won't go up. If there's 12 blogs in the "more blogs" section, its value will
+        //start at 0 and go until 3 as there will be three pages of blog.html to cover the 12 blogs in total.
         if(!sessionStorage.blogCount)
         {
             sessionStorage.blogCount = 0;
         }
         var i = Number(sessionStorage.blogCount);
 
-        slicedArr[i].forEach(node => {
-            createBlogList(node);
-        })
+        //This makes sure that the "more blogs" section doesn't have featured blogs
+        get(child(dbref2,"FeaturedBlogs")).then((snapshot2)=>{
+            if(snapshot2.exists())
+            {
 
+                snapshot2.forEach(node2 =>{
+
+                            for(var i=0;i<duplicateArr.length;i++)
+                            {
+                                if(node2.val().Counter == duplicateArr[i].counter)
+                                {
+                                    duplicateArr.splice(i,1);
+                                }
+                            }
+                })
+                //For unidentified reasons, any changes made here inside of this loop in duplicateArr didn't show up outside the loop.
+                //So instead, everything needed to be done with slicedArr and slicedArr2 was done here within this loop
+                var slicedArr2 = split(duplicateArr,5);
+                //say you have 12 blogs to print in the "more blogs" section. Now, it will be divided into 3 arrays with 5,5, and 2 values
+                //which are stored within slicedArr.
+                //i is equal to sessionStorage.blogcount which refers to the above set of 3 arrays. So, here the value of i goes from 0 to 2.
+                //0 means it is referring to the first 5 blogs. 1 means ...
+                slicedArr2[i].forEach(node => {
+                    createBlogList(node);
+                })
+
+
+
+
+
+
+
+        //This couldn't have been done outside of this loop because the changes made to the duplicateArr stayed within the
+        //loop even though  duplicateArr was declared outside of the loop
+        var slicedArr = split(duplicateArr,5);
+        //This means we are at the end of the sets of 5 blogs each. Example: we have 12 blogs, we are at the blog.html page with 2 blogs remaining.
         if(Number(sessionStorage.blogCount) === slicedArr.length-1)
         {
+            //checks to make sure olderBtn exists.
             if(olderBtn)
             {
+                //Since there's no more blogs to show, even though this class is called "show", this actually disables the olderBtn by making it transparent and unclickable.
+                //even
                 olderBtn.classList.add("show")
             }
         }
+
+        //This means we are at the beginning of the sets of 5 blogs each. Example: we have 12 blogs, we are at the blog.html page with the first 5 blogs.
         if(Number(sessionStorage.blogCount) === 0)
         {
             if(newerBtn)
             {
+                //Since there's no newer blogs than what we have, the newer btn is disabled.
                 newerBtn.classList.add("show")
+            }
+            if(Number(sessionStorage.blogCount) === slicedArr.length-1)
+            {
+
             }
         }
 
+        //Checks to make sure the older btn exists.
         if(olderBtn)
         {
             olderBtn.addEventListener
             ('click', e =>
             {
+                //This condition being true means we are at the end and there's no more blogs to print. So, adding "show" basically
+                //disables the olderBtn to make sure its disabled(which it already most likely is).
                 if(Number(sessionStorage.blogCount) === slicedArr.length-1)
                 {
-
                     olderBtn.classList.add("show")
-
                 }
+                //This condition being true means we have more blogs to print.
                 else
                 {
+                    //So, if the older button is disabled before, we enable it.
                     if(olderBtn.classList.contains("show"))
                     {
                       olderBtn.classList.remove("show")
                     }
 
-
+                    //Then, we increase the blogCount by 1 so that we can move on to the next set of 5 blogs or so.
                     sessionStorage.blogCount = Number(sessionStorage.blogCount) + 1
+                    //Now, if this condition holds true, it means that we won't have any more blogs to print once the next set of blogs is printed.
                     if(Number(sessionStorage.blogCount) === slicedArr.length-1)
                     {
+                        //That's why we disable the older button
                         olderBtn.classList.add("show")
                     }
-
+                    //Now, we reload the page which then prints the new set of blogs in the "more blogs" section
                     window.location.reload()
                 }
             }
@@ -451,12 +482,13 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
 
         }
 
-
+        //Same procedure as above
         if(newerBtn)
         {
             newerBtn.addEventListener
             ('click', e =>
             {
+                //
                 if(Number(sessionStorage.blogCount) === 0)
                 {
                     newerBtn.classList.add("show")
@@ -479,29 +511,14 @@ get(child(dbref2,"blogs")).then((snapshot)=>{
                 }
             }
             )
-
-
         }
 
+            }})
 
-
-
-
-
-/*        for (let i = 0; i < slicedArr.length ; i++) {
-            slicedArr[i].forEach(node => {
-                createBlogList(node);
-            })
-
-            olderBtn.addEventListener
-            ('click', e =>
-            {
-                window.location.reload()
-            }
-            )
-        }
-        */
-
+        //Creates the drop down list
+        arr.forEach(node => {
+            createDropDown(node);
+        })
 
 
         /* ---------- Used to Disable/Enable the Form based on Authorization -------------*/

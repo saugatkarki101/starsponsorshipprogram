@@ -79,40 +79,6 @@ const storyContainer = document.querySelector('.rowhideme');
 //This creates a new section with every other success story
 const createCards = (node) => {
 
-  /*
-  successStoriesSection.innerHTML += `
-  <div class="succStoriesCard" id="succStoriesCardID">
-
-  <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>
-      <img src="${node.val().image}" class="image" alt="">
-      <h1 class="name">${node.val().name.substring(0, 100)}</h1>
-      <p class="desc">${node.val().desc.substring(0, 200) + '...'}</p>
-      <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">Read more..</a>
-  </div>
-  `;
-  */
-
-  //-------- Hard Coded Featured Success Stories ----------//
-  /*
-  <div class="col-lg-4 col-md-6 col-sm-4 text-center">
-    <img class="rounded-circle content-o" alt="140x140" style="width: 200px; height: 200px;" src="images/kids/sam.png" data-holder-rendered="true">
-
-    <h3>Sam Smith</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="#" role="button">READ SAM'S STORY&nbsp; &nbsp;</a>
-    </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-    <img class="rounded-circle " alt="140x140" style="width: 200px; height: 200px;" src="images/kids/tiffany.png" data-holder-rendered="true">
-    <h3>Tiffany Johnson</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="#" role="button">READ TIFFANY'S STORY&nbsp;&nbsp;</a>
-    </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-    <img class="rounded-circle " alt="140x140" style="width: 200px; height: 200px;" src="images/kids/jenny.png" data-holder-rendered="true">
-    <h3>Jenny Hill</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" href="#" role="button">READ JENNY'S STORY&nbsp;&nbsp;</a>
-	</div> */
-
 
   const first = node.val().name.split(/\s+(.*)/);
   const firstName = first[0]
@@ -134,13 +100,30 @@ get(child(dbref,"success-stories")).then((snapshot)=>{
   if(snapshot.exists())
   {
       snapshot.forEach(node =>{
-          //This ensures only 3 stories are shown in the homepage
-          if(storyCounter < 3)
+
+        get(child(dbref,"FeaturedStories")).then((snapshot2)=>{
+          if(snapshot2.exists())
           {
-            //every dataset related to every story is passed one by one to createCards() function
-            createCards(node);
-          }
-          storyCounter++;
+              //stores the counter of the story the reader wants to read
+              snapshot2.forEach(node2 =>{
+
+                              if(node2.val().Counter == node.val().counter)
+                              {
+                                  //This ensures only 3 stories are shown in the homepage
+                                  if(storyCounter < 3)
+                                  {
+                                    //every dataset related to every story is passed one by one to createCards() function
+                                    createCards(node);
+                                  }
+                                  storyCounter++;
+                              }
+              })
+          }})
+
       })
+
+
+
+
   }
 }) //End Create Card code
