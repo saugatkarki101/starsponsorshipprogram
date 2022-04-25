@@ -4,6 +4,12 @@
     letter-spacing: -4px;
 }
 
+/* Make the form default to not show */
+#board_container{
+    display: none;
+    /*display: block; */
+}
+
 /* Customize name of person */
 .testi-container span {
     font-family: 'Bebas Neue', serif;
