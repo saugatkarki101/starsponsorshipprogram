@@ -1,4 +1,5 @@
 import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, updatePassword} from './firebase.js';
+
 // Change Password
 const changePasswordForm = document.querySelector('#form-changePassword');
 if(changePasswordForm){
@@ -165,9 +166,6 @@ onAuthStateChanged(auth, (user) => {
     const checkMessageBuutton = document.getElementById("CheckMessageButton");
     const userMessage = document.getElementById("user-message");
     const adminMessage = document.getElementById("admin-message");
-    const successStoriesPageBtns = document.getElementById("successStoriesPageBtns");
-    const individualBlogPageBtns = document.getElementById("individualBlogPageBtns");
-    
     //Find All ContentEditable Boxes and disable
     var editable_elements = document.querySelectorAll("[contenteditable=true]");
 
@@ -198,8 +196,6 @@ onAuthStateChanged(auth, (user) => {
         if(checkMessageBuutton) {checkMessageBuutton.style.display = "block"}; 
         if(adminMessage) {adminMessage.style.display = "block"}; 
         if(userMessage) {userMessage.style.display = "none"}; 
-        if(successStoriesPageBtns) {successStoriesPageBtns.style.display = "block"};
-        if(individualBlogPageBtns) {individualBlogPageBtns.style.display = "block"}; 
         // Redirects to home page when user is logged in
         console.log("Check Status: Admin signed in.");
     }
@@ -218,8 +214,6 @@ onAuthStateChanged(auth, (user) => {
         if(checkMessageBuutton) {checkMessageBuutton.style.display = "none"}; 
         if(adminMessage) {adminMessage.style.display = "none"}; 
         if(userMessage) {userMessage.style.display = "block"}; 
-        if(successStoriesPageBtns) {successStoriesPageBtns.style.display = "none"}; 
-        if(individualBlogPageBtns) {individualBlogPageBtns.style.display = "none"}; 
         console.log("Check Status: Admin logged out.");
     }
 });
