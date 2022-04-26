@@ -76,6 +76,10 @@ window.myfunc = myfunc
 const storyContainer = document.querySelector('.rowhideme');
 
 
+
+
+
+
 //This creates a new section with every other success story
 const createCards = (node) => {
 
@@ -114,6 +118,88 @@ get(child(dbref,"success-stories")).then((snapshot)=>{
                                   {
                                     //every dataset related to every story is passed one by one to createCards() function
                                     createCards(node);
+                                  }
+                                  storyCounter++;
+                              }
+              })
+          }})
+
+      })
+
+
+
+
+  }
+}) //End Create Card code
+
+
+
+//This function updates the value of CurrentCounter in the firebase with the counter of the story that is clicked. .
+function updateBlogCounter(num)
+{
+    update(ref(database,'CurrentBlogCounter'),{
+        counter: num
+      });
+}
+
+//Function within modules won't be available to access globally.
+//So, it needs to be attached to window.
+window.updateBlogCounter = updateBlogCounter
+
+
+
+
+
+
+const inTheNews = document.querySelector("#inTheNews")
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+//This creates a new section with every other success story
+const createBlogs = (node) => {
+
+
+  const first = node.val().name.split(/\s+(.*)/);
+  const firstName = first[0]
+  inTheNews.innerHTML += `
+
+  <div class="col-md-6">
+  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+  <div class="col p-4 d-flex flex-column position-static">
+  <strong class="d-inline-block mb-2 text-primary" style="color:black !important;">${node.val().name}</strong>
+  <h3 class="mb-0"></h3>
+  <div class="mb-1 text-muted">${months[node.val().month-1]+' '+node.val().day+', '+node.val().year}</div>
+  <p class="card-text mb-auto">${node.val().desc.substring(0, 85) + '...'}</p>
+  <a href="individualBlogPage.html" onClick="updateBlogCounter(${node.val().counter})" class="stretched-link">Continue reading</a>
+  </div>
+  <div class="col-auto d-none d-lg-block">
+  <!--<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+  <img src="${node.val().image}" width="200" height="250" style="object-fit:cover;" alt=""/> </div>
+  </div>
+  </div>
+
+
+          `
+}
+
+var storyCounter = 0;
+get(child(dbref,"blogs")).then((snapshot)=>{
+  if(snapshot.exists())
+  {
+      snapshot.forEach(node =>{
+
+        get(child(dbref,"InTheNews")).then((snapshot2)=>{
+          if(snapshot2.exists())
+          {
+              //stores the counter of the blog the reader wants to read
+              snapshot2.forEach(node2 =>{
+
+                              if(node2.val().Counter == node.val().counter)
+                              {
+                                  //This ensures only 3 stories are shown in the homepage
+                                 // if(storyCounter < 3)
+                                  {
+                                    //every dataset related to every story is passed one by one to createCards() function
+                                    createBlogs(node);
                                   }
                                   storyCounter++;
                               }
