@@ -269,7 +269,7 @@ const createCards = (node) => {
 
     </style>
 
-        <div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>
+        <!--<div class="cross" id="crossButton" onmouseover="" style="cursor: pointer;" onclick="crossfunc(${node.val().counter})">x</div>-->
         <a class="btn dark" id="readButton" onclick="myfunc(${node.val().counter})" href="successStoriesPage.html">
         <img src="${node.val().image}" class="image" alt="">
         </a>
