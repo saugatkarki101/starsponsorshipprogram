@@ -230,13 +230,13 @@ window.removeFromInTheNews =  removeFromInTheNews;
 
 const createInTheNewsAddButton = (node) => {
     btns2.innerHTML +=
-     ` <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" id="addToInTheNews" href="#" role="button" onclick="addToInTheNews(${node.val().counter})" style="position: absolute; left: 300px;">Add this to "In the News" section in homepage &nbsp; &nbsp;</a>
+     ` <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" id="addToInTheNews" href="#" role="button" onclick="addToInTheNews(${node.val().counter})" style="position: absolute; left: 100px;">Add this to "In the News" section in homepage &nbsp; &nbsp;</a>
     `
 }
 
 const removeInTheNewsAddButton = (node) => {
     btns2.innerHTML +=
-     `    <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" id="addToInTheNews" href="#" role="button" onclick="removeFromInTheNews(${node.val().counter})" style="position: absolute; left: 300px;">Remove this from "In the News" section in homepage &nbsp; &nbsp;</a>
+     `    <a class="btn btn-primary btn-lg animate__animated animate__fadeIn btnAdjust" id="addToInTheNews" href="#" role="button" onclick="removeFromInTheNews(${node.val().counter})" style="position: absolute; left: 100px;">Remove this from "In the News" section in homepage &nbsp; &nbsp;</a>
 
     `
 }
